@@ -1,12 +1,29 @@
-*.class
+# maven ignore
+target/
 *.jar
 *.war
-*.ear
-*.iml
-target/
-.idea/
+*.zip
+*.tar
+*.tar.gz
+
+# eclipse ignore
 .settings/
 .project
 .classpath
+
+# idea ignore
+.idea/
+*.ipr
+*.iml
+*.iws
+
+# temp ignore
+*.log
+*.cache
+*.diff
+*.patch
+*.tmp
+
+# system ignore
 .DS_Store
-hs_err_pid*
+Thumbs.db

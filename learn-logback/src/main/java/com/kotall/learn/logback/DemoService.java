@@ -1,6 +1,4 @@
-package com.kotall.learn.logback;/**
- * Created by Administrator on 2017/6/26 0026.
- */
+package com.kotall.learn.logback;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
