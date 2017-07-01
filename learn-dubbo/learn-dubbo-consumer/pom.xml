@@ -7,10 +7,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>learn-dubbo-provider</artifactId>
+    <artifactId>learn-dubbo-consumer</artifactId>
     <packaging>jar</packaging>
 
-    <name>learn-dubbo-provider</name>
+    <name>learn-dubbo-consumer</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -59,6 +59,5 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
         </dependency>
-
     </dependencies>
 </project>
