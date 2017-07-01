@@ -1,24 +1,27 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>learn-root</artifactId>
+        <artifactId>learn-dubbo</artifactId>
         <groupId>com.kotall.learn</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>learn-dubbo</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>learn-dubbo-provider</artifactId>
+    <packaging>jar</packaging>
 
-    <name>learn-dubbo</name>
+    <name>learn-dubbo-provider</name>
     <url>http://maven.apache.org</url>
-    <modules>
-        <module>learn-dubbo-watcher</module>
-        <module>learn-dubbo-provider</module>
-    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 </project>
