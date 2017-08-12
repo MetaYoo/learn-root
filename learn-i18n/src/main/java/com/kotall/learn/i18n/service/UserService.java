@@ -17,18 +17,18 @@ public class UserService {
     private static final Logger logger = LoggerFactory.getLogger(UserService.class);
 
     public String formatLog1(String param) {
-        logger.info(I18NUtil.getMessage("param.length.valid", param));
-        return I18NUtil.getMessage("param.length.valid", param);
+        logger.info(I18NUtil.getMessage("inst.request.msg.isNull", param));
+        return I18NUtil.getMessage("inst.request.msg.isNull", param);
     }
 
     public String formatLog2(String param) {
-        logger.info(I18NUtil.getMessage("param.format.valid", param, "yyyy-MM-dd"));
-        return I18NUtil.getMessage("param.format.valid", param, "yyyy-MM-dd");
+        logger.info(I18NUtil.getMessage("inst.request.msg.format.invalid", param, "yyyy-MM-dd"));
+        return I18NUtil.getMessage("inst.request.msg.format.invalid", param, "yyyy-MM-dd");
     }
 
     public String formatLog3(String param) {
-        logger.info(I18NUtil.getMessage("request.param.valid", param));
-        return I18NUtil.getMessage("request.param.valid", param, "hello");
+        logger.info(I18NUtil.getMessage("inst.request.msg.notMatch", param, "hello"));
+        return I18NUtil.getMessage("inst.request.msg.notMatch", param, "hello");
     }
 
 }
