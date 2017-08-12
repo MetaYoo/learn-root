@@ -11,6 +11,7 @@
         <module>learn-selenium</module>
         <module>learn-rpc</module>
         <module>learn-dubbo</module>
+        <module>learn-i18n</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -127,6 +128,16 @@
                 <groupId>com.yiji.framework</groupId>
                 <artifactId>watcher-dubbo</artifactId>
                 <version>${watcher-dubbo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yiji.framework</groupId>
+                <artifactId>watcher</artifactId>
+                <version>1.5.6</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.5</version>
             </dependency>
 
             <dependency>

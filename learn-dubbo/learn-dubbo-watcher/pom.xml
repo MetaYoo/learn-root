@@ -27,5 +27,9 @@
             <groupId>com.yiji.framework</groupId>
             <artifactId>watcher-dubbo</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.yiji.framework</groupId>
+            <artifactId>watcher</artifactId>
+        </dependency>
     </dependencies>
 </project>

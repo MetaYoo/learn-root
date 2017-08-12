@@ -20,7 +20,7 @@ public class AppTest {
         }
 
         PaymentService paymentService = (PaymentService)ctx.getBean("paymentService");
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10000000; i++) {
             paymentService.pay(100);
             Thread.sleep(1000);
         }
