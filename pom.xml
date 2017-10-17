@@ -12,6 +12,7 @@
         <module>learn-rpc</module>
         <module>learn-dubbo</module>
         <module>learn-i18n</module>
+        <module>learn-spring</module>
     </modules>
     <packaging>pom</packaging>
 

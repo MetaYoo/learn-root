@@ -13,7 +13,8 @@
     <name>learn-spring</name>
     <url>http://maven.apache.org</url>
     <modules>
-        <!--<module>learn-spring-springboot</module>-->
+        <module>learn-spring-springboot</module>
+        <module>learn-spring-ini</module>
     </modules>
 
 </project>
