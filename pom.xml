@@ -28,7 +28,7 @@
         <slf4j-api.version>1.7.21</slf4j-api.version>
         <log4j-over-slf4j.version>1.7.21</log4j-over-slf4j.version>
         <jcl-over-slf4j.version>1.7.21</jcl-over-slf4j.version>
-        <logback-core.version>1.2.2</logback-core.version>
+        <logback.version>1.2.2</logback.version>
         <logback-ext-spring.version>0.1.4</logback-ext-spring.version>
         <aspectjrt.version>1.6.9</aspectjrt.version>
         <watcher-dubbo.version>1.5.6</watcher-dubbo.version>
@@ -36,6 +36,7 @@
         <zkclient.version>0.10</zkclient.version>
         <commons-lang3.version>3.5</commons-lang3.version>
         <shiro.version>1.4.0</shiro.version>
+        <freemarker.version>2.3.23</freemarker.version>
     </properties>
 
     <dependencyManagement>
@@ -114,12 +115,17 @@
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-core</artifactId>
-                <version>${logback-core.version}</version>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-access</artifactId>
+                <version>${logback.version}</version>
             </dependency>
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
-                <version>${logback-core.version}</version>
+                <version>${logback.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.logback-extensions</groupId>
@@ -183,6 +189,11 @@
                 <groupId>org.apache.shiro</groupId>
                 <artifactId>shiro-spring</artifactId>
                 <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>${freemarker.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
