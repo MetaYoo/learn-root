@@ -10,6 +10,7 @@ import org.apache.shiro.subject.Subject;
 import org.junit.Assert;
 import org.junit.Test;
 
+
 public class ShiroIniTest {
 
     @Test
