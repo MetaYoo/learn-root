@@ -1,17 +1,11 @@
-<#assign x = 1>
 
-一个参数：
-<@repeat count=4>
-Test ${x}
-    <#assign x = x + 1>
-</@repeat>
 
-二个参数：
-<@repeat count=3 hr=true>
-Test
-</@repeat>
+<#macro repeat count>
+    <#list 1..count as x>
+        <#nested x, x/2, x==count>
+    </#list>
+</#macro>
 
-循环变量：
-<@repeat count=3; cnt>
-${cnt}. Test
+<@repeat count=4; a,b,c>
+    ${a}.${b}, <#if c>last</#if>
 </@repeat>
