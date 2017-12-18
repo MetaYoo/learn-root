@@ -14,6 +14,7 @@
         <module>learn-i18n</module>
         <module>learn-shiro</module>
         <module>learn-freemarker</module>
+        <module>learn-jquery</module>
     </modules>
     <packaging>pom</packaging>
 
