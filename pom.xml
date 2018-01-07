@@ -15,6 +15,7 @@
         <module>learn-shiro</module>
         <module>learn-freemarker</module>
         <module>learn-jquery</module>
+        <module>learn-thymeleaf</module>
     </modules>
     <packaging>pom</packaging>
 
