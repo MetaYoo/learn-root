@@ -41,6 +41,7 @@
         <shiro.version>1.4.0</shiro.version>
         <freemarker.version>2.3.23</freemarker.version>
         <servlet-api.version>3.0.1</servlet-api.version>
+        <spring-boot-starter-thymeleaf.version>1.5.9.RELEASE</spring-boot-starter-thymeleaf.version>
     </properties>
 
     <dependencyManagement>
@@ -204,6 +205,11 @@
                 <artifactId>javax.servlet-api</artifactId>
                 <version>${servlet-api.version}</version>
                 <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-thymeleaf</artifactId>
+                <version>${spring-boot-starter-thymeleaf.version}</version>
             </dependency>
 
         </dependencies>
