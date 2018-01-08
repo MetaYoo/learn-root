@@ -13,11 +13,30 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class IndexController {
 
-    @RequestMapping(value = "index", method = RequestMethod.GET)
+    /**
+     * 1. hello world
+     *    获取变量值
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "hello", method = RequestMethod.GET)
     public String index(Model model) {
         model.addAttribute("name", "知识林");
-        return "/web/index";
+        return "/web/hello";
     }
+
+
+    /**
+     * 2. URL
+     *    引入URL
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "url", method = RequestMethod.GET)
+    public String url(Model model) {
+        return "/web/url";
+    }
+
 
 
 }
