@@ -37,6 +37,18 @@ public class IndexController {
         return "/web/url";
     }
 
+    /**
+     * 3. MSG
+     *    消息
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "msg", method = RequestMethod.GET)
+    public String msg(Model model) {
+        model.addAttribute("name", "aracwong");
+        return "/web/msg";
+    }
+
 
 
 }
