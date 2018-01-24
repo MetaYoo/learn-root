@@ -1,5 +1,7 @@
 package com.kotall.learn.dubbo.api;
 
+import com.kotall.learn.dubbo.api.dto.OrderDto;
+
 /**
  * @author: aracwong
  * @email: aracwong@163.com
@@ -9,4 +11,6 @@ package com.kotall.learn.dubbo.api;
 public interface PaymentService {
 
     void pay(long trxAmt);
+
+    void pay(OrderDto order);
 }

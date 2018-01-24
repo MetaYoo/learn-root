@@ -8,7 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @datetime: 2017/7/1 0001 下午 3:20
  * @version: 1.0.0
  */
-public class AppTest {
+public class ProviderTest {
 
     public static void main(String[] args) throws Exception {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:spring-dubbo-provider.xml");

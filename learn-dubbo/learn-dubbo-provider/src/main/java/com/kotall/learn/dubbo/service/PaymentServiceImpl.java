@@ -1,6 +1,7 @@
 package com.kotall.learn.dubbo.service;
 
 import com.kotall.learn.dubbo.api.PaymentService;
+import com.kotall.learn.dubbo.api.dto.OrderDto;
 
 /**
  * @author: aracwong
@@ -12,5 +13,10 @@ public class PaymentServiceImpl implements PaymentService {
     @Override
     public void pay(long trxAmt) {
         System.out.println("========trxAmt: " + trxAmt);
+    }
+
+    @Override
+    public void pay(OrderDto order) {
+        System.out.println("========Order info: " + order.getDetail());
     }
 }

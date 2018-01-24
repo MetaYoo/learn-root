@@ -1,0 +1,1 @@
+client.filter=com.kotall.learn.dubbo.client.filter.AuthFilter

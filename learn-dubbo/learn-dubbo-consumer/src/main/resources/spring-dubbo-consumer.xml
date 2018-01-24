@@ -12,6 +12,8 @@
 
     <dubbo:protocol name="dubbo" port="21880"/>
 
-    <dubbo:reference  id="paymentService" interface="com.kotall.learn.dubbo.api.PaymentService"/>
+    <dubbo:consumer filter="client.filter"/>
+
+    <dubbo:reference  id="paymentService" interface="com.kotall.learn.dubbo.api.PaymentService" check="false"/>
 
 </beans>

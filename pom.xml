@@ -35,12 +35,13 @@
         <logback-ext-spring.version>0.1.4</logback-ext-spring.version>
         <aspectjrt.version>1.6.9</aspectjrt.version>
         <watcher-dubbo.version>1.5.6</watcher-dubbo.version>
-        <dubbo.version>2.5.3</dubbo.version>
+        <dubbo.version>2.6.0</dubbo.version>
         <zkclient.version>0.10</zkclient.version>
         <commons-lang3.version>3.5</commons-lang3.version>
         <shiro.version>1.4.0</shiro.version>
         <freemarker.version>2.3.23</freemarker.version>
         <servlet-api.version>3.0.1</servlet-api.version>
+        <lombok.version>1.16.20</lombok.version>
         <spring-boot-starter-thymeleaf.version>1.5.9.RELEASE</spring-boot-starter-thymeleaf.version>
     </properties>
 
@@ -212,6 +213,12 @@
                 <version>${spring-boot-starter-thymeleaf.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>compile</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <build>
