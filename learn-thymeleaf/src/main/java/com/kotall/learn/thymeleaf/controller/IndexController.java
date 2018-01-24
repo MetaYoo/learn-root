@@ -46,7 +46,7 @@ public class IndexController {
     @RequestMapping(value = "msg", method = RequestMethod.GET)
     public String msg(Model model) {
         model.addAttribute("name", "aracwong");
-        return "/web/msg";
+        return "web/msg";
     }
 
 
