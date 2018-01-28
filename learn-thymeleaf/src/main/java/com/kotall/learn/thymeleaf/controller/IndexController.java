@@ -49,6 +49,17 @@ public class IndexController {
         return "msg";
     }
 
+    /**
+     * 3. MSG
+     *    消息
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "unknow", method = RequestMethod.GET)
+    public String unknow(Model model) {
+        return "unknow";
+    }
+
 
 
 }
