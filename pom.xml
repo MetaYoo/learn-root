@@ -42,6 +42,7 @@
         <freemarker.version>2.3.23</freemarker.version>
         <servlet-api.version>3.0.1</servlet-api.version>
         <lombok.version>1.16.20</lombok.version>
+        <nekohtml.version>1.9.6.2</nekohtml.version>
         <spring-boot-starter-thymeleaf.version>1.5.9.RELEASE</spring-boot-starter-thymeleaf.version>
     </properties>
 
@@ -211,6 +212,11 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-thymeleaf</artifactId>
                 <version>${spring-boot-starter-thymeleaf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>nekohtml</groupId>
+                <artifactId>nekohtml</artifactId>
+                <version>${nekohtml.version}</version>
             </dependency>
 
             <dependency>

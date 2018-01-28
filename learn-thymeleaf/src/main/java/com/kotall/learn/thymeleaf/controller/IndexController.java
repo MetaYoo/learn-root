@@ -22,7 +22,7 @@ public class IndexController {
     @RequestMapping(value = "hello", method = RequestMethod.GET)
     public String index(Model model) {
         model.addAttribute("name", "知识林");
-        return "/web/hello";
+        return "/hello";
     }
 
 
@@ -34,7 +34,7 @@ public class IndexController {
      */
     @RequestMapping(value = "url", method = RequestMethod.GET)
     public String url(Model model) {
-        return "/web/url";
+        return "/url";
     }
 
     /**
@@ -46,7 +46,7 @@ public class IndexController {
     @RequestMapping(value = "msg", method = RequestMethod.GET)
     public String msg(Model model) {
         model.addAttribute("name", "aracwong");
-        return "web/msg";
+        return "msg";
     }
 
 
