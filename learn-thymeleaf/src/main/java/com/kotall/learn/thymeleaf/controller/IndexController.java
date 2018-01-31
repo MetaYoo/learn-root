@@ -1,9 +1,15 @@
 package com.kotall.learn.thymeleaf.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.LocaleResolver;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.Locale;
 
 /**
  * @author : zpwang
@@ -12,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class IndexController {
+
+    @Autowired
+    LocaleResolver localeResolver;
 
     /**
      * 1. hello world
@@ -44,7 +53,8 @@ public class IndexController {
      * @return
      */
     @RequestMapping(value = "msg", method = RequestMethod.GET)
-    public String msg(Model model) {
+    public String msg(Model model, HttpServletRequest request, HttpServletResponse response) {
+        localeResolver.setLocale(request, response, Locale.ENGLISH);
         model.addAttribute("name", "aracwong");
         return "msg";
     }
