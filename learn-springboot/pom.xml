@@ -8,7 +8,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>learn-springboot</artifactId>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <name>learn-springboot</name>
     <url>http://maven.apache.org</url>
@@ -17,4 +17,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
 </project>
