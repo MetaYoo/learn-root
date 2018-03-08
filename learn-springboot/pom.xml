@@ -7,14 +7,14 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>learn-spring</artifactId>
+    <artifactId>learn-springboot</artifactId>
     <packaging>pom</packaging>
 
-    <name>learn-spring</name>
+    <name>learn-springboot</name>
     <url>http://maven.apache.org</url>
-    <modules>
-        <module>learn-spring-ini</module>
-        <module>learn-spring-springmvc</module>
-    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
 </project>

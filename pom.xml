@@ -23,6 +23,7 @@
         <module>learn-freemarker</module>
         <module>learn-jquery</module>
         <module>learn-thymeleaf</module>
+        <module>learn-springboot</module>
         <module>learn-springcloud</module>
     </modules>
     <packaging>pom</packaging>
