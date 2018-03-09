@@ -13,6 +13,6 @@ public class HelloWorldController {
 
     @RequestMapping(value = "/hello", produces = "application/json")
     public String hello() {
-        return "hello world";
+        return "{'msg':'hello world !'}";
     }
 }
