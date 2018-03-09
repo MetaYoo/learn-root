@@ -6,7 +6,7 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>springmvcdemo</artifactId>
+    <artifactId>learn-spring-springmvc</artifactId>
     <packaging>war</packaging>
     <name>learn-spring-springmvc</name>
     <url>http://maven.apache.org</url>
