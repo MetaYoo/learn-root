@@ -25,6 +25,7 @@
         <module>learn-thymeleaf</module>
         <module>learn-springboot</module>
         <module>learn-springcloud</module>
+        <module>learn-test</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -52,6 +53,7 @@
         <servlet-api.version>3.0.1</servlet-api.version>
         <lombok.version>1.16.20</lombok.version>
         <nekohtml.version>1.9.6.2</nekohtml.version>
+        <testng.version>6.14.2</testng.version>
         <spring-boot-starter-thymeleaf.version>1.5.9.RELEASE</spring-boot-starter-thymeleaf.version>
     </properties>
 
@@ -233,6 +235,11 @@
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
                 <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.testng</groupId>
+                <artifactId>testng</artifactId>
+                <version>${testng.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
