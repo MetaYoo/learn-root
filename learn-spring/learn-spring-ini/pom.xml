@@ -10,7 +10,7 @@
     <artifactId>learn-spring-ini</artifactId>
     <packaging>jar</packaging>
 
-    <name>learn-spring-ini</name>
+    <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
 
     <properties>

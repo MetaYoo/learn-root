@@ -10,7 +10,7 @@
     <artifactId>learn-rpc</artifactId>
     <packaging>pom</packaging>
 
-    <name>learn-rpc</name>
+    <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
 
     <properties>

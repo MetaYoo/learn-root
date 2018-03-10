@@ -8,7 +8,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>learn-spring-springmvc</artifactId>
     <packaging>war</packaging>
-    <name>learn-spring-springmvc</name>
+    <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>

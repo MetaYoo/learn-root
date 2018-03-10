@@ -10,7 +10,7 @@
     <artifactId>learn-springcloud-eureka-server</artifactId>
     <packaging>jar</packaging>
 
-    <name>learn-springcloud-eureka-server</name>
+    <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
 
     <properties>

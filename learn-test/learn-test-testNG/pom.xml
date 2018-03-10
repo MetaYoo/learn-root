@@ -10,7 +10,7 @@
     <artifactId>learn-test-testNG</artifactId>
     <packaging>jar</packaging>
 
-    <name>learn-test-testNG</name>
+    <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
 
     <properties>

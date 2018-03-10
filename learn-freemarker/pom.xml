@@ -10,7 +10,7 @@
     <artifactId>learn-freemarker</artifactId>
     <packaging>jar</packaging>
 
-    <name>learn-freemarker</name>
+    <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
 
     <properties>

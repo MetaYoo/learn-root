@@ -10,7 +10,7 @@
     <artifactId>learn-i18n</artifactId>
     <packaging>jar</packaging>
 
-    <name>learn-i18n</name>
+    <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
 
     <properties>

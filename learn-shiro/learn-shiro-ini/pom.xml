@@ -10,7 +10,7 @@
     <artifactId>learn-shiro-ini</artifactId>
     <packaging>jar</packaging>
 
-    <name>learn-shiro-ini</name>
+    <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
 
     <properties>

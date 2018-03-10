@@ -8,7 +8,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>learn-jquery</artifactId>
     <packaging>war</packaging>
-    <name>learn-jquery Maven Webapp</name>
+    <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>

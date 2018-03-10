@@ -10,7 +10,7 @@
     <artifactId>learn-test-selenum</artifactId>
     <packaging>jar</packaging>
 
-    <name>learn-test-selenum</name>
+    <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
 
     <properties>
