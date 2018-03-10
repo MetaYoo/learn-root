@@ -15,7 +15,6 @@
     <modules>
         <module>learn-spring</module>
         <module>learn-logback</module>
-        <module>learn-selenium</module>
         <module>learn-rpc</module>
         <module>learn-dubbo</module>
         <module>learn-i18n</module>
