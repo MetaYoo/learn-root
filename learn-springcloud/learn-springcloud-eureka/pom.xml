@@ -14,8 +14,8 @@
     <url>http://maven.apache.org</url>
     <modules>
         <module>learn-springcloud-eureka-server</module>
-        <module>learn-springcloud-eureka-client1</module>
-        <module>learn-springcloud-eureka-client2</module>
+        <module>learn-springcloud-eureka-provider</module>
+        <module>learn-springcloud-eureka-consumer</module>
     </modules>
 
     <properties>
