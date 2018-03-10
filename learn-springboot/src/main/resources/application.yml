@@ -1,4 +1,4 @@
-spring
-    boot
-       name:arac
-       age:27
+spring:
+    boot:
+       name: arac
+       age: 27

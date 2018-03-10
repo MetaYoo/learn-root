@@ -21,4 +21,10 @@ public class HelloWorldController {
         System.out.println("========name=" + appConfig.getName() + "; age=" + appConfig.getAge());
         return "{'msg':'hello world !'}";
     }
+
+    @RequestMapping(value = "/err")
+    public String error() {
+
+        return "" + 1/0;
+    }
 }
