@@ -1,6 +1,8 @@
 package com.kotall.learn.springboot.controller;
 
 import com.kotall.learn.springboot.configuration.AppConfig;
+import com.kotall.learn.springboot.entity.UserEntity;
+import com.kotall.learn.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloWorldController {
 
     @Autowired
-    AppConfig appConfig;
+    private AppConfig appConfig;
+
+    @Autowired
+    private UserService userService;
 
     @RequestMapping(value = "/hello", produces = "application/json")
     public String hello() {
@@ -26,5 +31,14 @@ public class HelloWorldController {
     public String error() {
 
         return "" + 1/0;
+    }
+
+    @RequestMapping(value = "/useradd")
+    public String addUser(String name, int age) {
+        UserEntity user = new UserEntity();
+        user.setUsername(name);
+        user.setAge(age);
+        this.userService.save(user);
+        return "{'msg': 'success'}";
     }
 }
