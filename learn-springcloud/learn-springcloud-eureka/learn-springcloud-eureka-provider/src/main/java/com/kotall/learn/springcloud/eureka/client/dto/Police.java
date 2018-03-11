@@ -11,12 +11,19 @@ import lombok.Data;
 public class Police {
     private int id;
     private String name;
+    private String msg;
 
     public Police() {}
 
     public Police(int id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public Police(int id, String name, String msg) {
+        this.id = id;
+        this.name = name;
+        this.msg = msg;
     }
 
 }

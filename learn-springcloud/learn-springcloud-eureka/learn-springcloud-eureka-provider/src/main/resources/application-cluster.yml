@@ -1,0 +1,19 @@
+spring:
+  profiles: slave1
+server:
+  port: 8861
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/
+
+---
+
+spring:
+  profiles: slave2
+server:
+  port: 8862
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/

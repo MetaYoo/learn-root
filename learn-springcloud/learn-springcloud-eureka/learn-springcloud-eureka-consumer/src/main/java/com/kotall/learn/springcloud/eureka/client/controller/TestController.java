@@ -21,7 +21,7 @@ public class TestController {
     @GetMapping("/router")
     public String router() {
         log.info("============router");
-        String json = restTemplate.getForObject("http://first-eureka-client-provider:8081/call/1", String.class);
+        String json = restTemplate.getForObject("http://FIRST-EUREKA-CLIENT-PROVIDER/call/1", String.class);
         return json;
     }
 }

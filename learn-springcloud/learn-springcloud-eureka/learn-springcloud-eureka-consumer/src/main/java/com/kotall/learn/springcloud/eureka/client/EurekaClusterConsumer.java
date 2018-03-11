@@ -14,7 +14,7 @@ import org.springframework.web.client.RestTemplate;
  */
 @SpringBootApplication
 @EnableEurekaClient
-public class EurekaConsumerApp {
+public class EurekaClusterConsumer {
 
     @Bean
     @LoadBalanced
@@ -22,6 +22,6 @@ public class EurekaConsumerApp {
         return new RestTemplate();
     }
     public static void main(String[] args) {
-        new SpringApplicationBuilder(EurekaConsumerApp.class).web(true).run(args);
+        new SpringApplicationBuilder(EurekaClusterConsumer.class).web(true).run(args);
     }
 }

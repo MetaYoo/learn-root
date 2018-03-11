@@ -1,0 +1,5 @@
+
+------------------------------------------
+eureka-server集群: slave1:8761, slave2:8762
+eureka-provider集群: slave1:8861,slave1:8862
+eureka-consumer集群: slave1:8961,slave1:8962

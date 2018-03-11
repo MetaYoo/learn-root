@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @author : aracwong
  * @version : 1.0.0
@@ -17,9 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class PoliceController {
 
     @RequestMapping(value = "/call/{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public Police call(@PathVariable int id) {
+    public Police call(@PathVariable int id, HttpServletRequest request) {
         log.info("===========id=" + id);
-        Police police = new Police(id, "arac");
+        Police police = new Police(id, "arac", request.getRequestURL().toString());
         return police;
     }
 

@@ -1,0 +1,20 @@
+spring:
+  profiles: slave1
+server:
+  port: 8761
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://slave2:8762/eureka/
+
+
+
+---
+spring:
+  profiles: slave2
+server:
+  port: 8762
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://slave1:8761/eureka/
