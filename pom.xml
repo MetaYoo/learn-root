@@ -53,6 +53,7 @@
         <lombok.version>1.16.20</lombok.version>
         <nekohtml.version>1.9.6.2</nekohtml.version>
         <testng.version>6.14.2</testng.version>
+        <httpclient.version>4.5.5</httpclient.version>
         <spring-boot-starter-thymeleaf.version>1.5.9.RELEASE</spring-boot-starter-thymeleaf.version>
     </properties>
 
@@ -240,6 +241,12 @@
                 <artifactId>testng</artifactId>
                 <version>${testng.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
     <build>
