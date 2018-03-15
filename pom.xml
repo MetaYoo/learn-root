@@ -25,6 +25,7 @@
         <module>learn-springboot</module>
         <module>learn-springcloud</module>
         <module>learn-test</module>
+        <module>learn-sso</module>
     </modules>
     <packaging>pom</packaging>
 
