@@ -14,12 +14,23 @@
     <url>http://maven.apache.org</url>
     <modules>
         <module>learn-springcloud-config-server</module>
-        <module>learn-springcloud-config-repository</module>
         <module>learn-springcloud-config-client</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-config</artifactId>
+                <version>1.4.2.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>
