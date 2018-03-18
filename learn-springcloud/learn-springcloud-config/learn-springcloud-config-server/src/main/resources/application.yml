@@ -5,7 +5,9 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/aracwong/config-repos.git
+          uri: http://github.com/aracwong/config-repos.git
+  application:
+    name: config-server
 management:
   security:
     enabled: false
