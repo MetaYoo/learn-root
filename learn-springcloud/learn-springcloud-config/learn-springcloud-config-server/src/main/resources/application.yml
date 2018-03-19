@@ -5,7 +5,10 @@ spring:
     config:
       server:
         git:
-          uri: http://github.com/aracwong/config-repos.git
+          uri: https://gitee.com/aracwong/config-server.git
+#          search-paths: myconfigpath
+          forcePull: true
+      label: master
   application:
     name: config-server
 management:
