@@ -26,6 +26,7 @@
         <module>learn-springcloud</module>
         <module>learn-test</module>
         <module>learn-sso</module>
+        <module>learn-job</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -56,6 +57,7 @@
         <testng.version>6.14.2</testng.version>
         <jmockit.version>1.22</jmockit.version>
         <httpclient.version>4.5.5</httpclient.version>
+        <quartz.version>2.2.1</quartz.version>
         <spring-boot-starter-thymeleaf.version>1.5.9.RELEASE</spring-boot-starter-thymeleaf.version>
     </properties>
 
@@ -252,6 +254,16 @@
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
                 <version>${httpclient.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.quartz-scheduler</groupId>
+                <artifactId>quartz</artifactId>
+                <version>${quartz.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.quartz-scheduler</groupId>
+                <artifactId>quartz-jobs</artifactId>
+                <version>${quartz.version}</version>
             </dependency>
 
         </dependencies>
