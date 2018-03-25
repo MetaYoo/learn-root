@@ -2,11 +2,13 @@ package com.kotall.learn.shiro.auth;
 
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.web.filter.authc.AuthenticatingFilter;
+import org.springframework.http.HttpStatus;
 import org.springframework.util.StringUtils;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author : aracwong
@@ -32,7 +34,18 @@ public class AuthFilter extends AuthenticatingFilter {
 
     @Override
     protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
-
-        return false;
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
+        String token = httpRequest.getHeader(TOKEN_KEY);
+        if(StringUtils.isEmpty(token)){
+            HttpServletResponse httpResponse = (HttpServletResponse) response;
+            httpResponse.setContentType("application/json;charset=utf-8");
+            String result = "{" +
+                    "\"code\": \"" + HttpStatus.UNAUTHORIZED + "\"," +
+                    "\"msg\": \"invalid token\"" +
+                    "}";
+            httpResponse.getWriter().print(result);
+            return false;
+        }
+        return executeLogin(request, response);
     }
 }
