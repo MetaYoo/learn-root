@@ -1,5 +1,6 @@
 package com.kotall.learn.job;
 
+import com.kotall.learn.job.job.JobWithJobData;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 

@@ -1,7 +1,6 @@
-package com.kotall.learn.job;
+package com.kotall.learn.job.job;
 
 import org.quartz.Job;
-import org.quartz.JobDataMap;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
@@ -13,14 +12,11 @@ import java.time.format.DateTimeFormatter;
  * @version : 1.0.0
  * @date : 2018/3/20
  */
-public class JobWithJobData implements Job {
+public class MySimpleJob implements Job {
 
     @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
-        JobDataMap jobDataMap = jobExecutionContext.getJobDetail().getJobDataMap();
-        String name = jobDataMap.getString("name");
-        int age = jobDataMap.getInt("age");
         DateTimeFormatter fmt = DateTimeFormatter.ISO_DATE_TIME;
-        System.out.println(fmt.format(LocalDateTime.now()) + ": hello, quartz job! job data: name=" + name + "& age=" + age);
+        System.out.println(fmt.format(LocalDateTime.now()) + ": hello, quartz job!");
     }
 }
