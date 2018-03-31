@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/cronjob")
 public class CronJobController {
 
-    private static final String JOB_GROUP = "default_job_group";
-    private static final String TRIGGER_GROUP = "default_trigger_group";
+    private static final String JOB_GROUP = "cron_job_group";
+    private static final String TRIGGER_GROUP = "cron_trigger_group";
 
     @Autowired
     private Scheduler scheduler;
@@ -44,20 +44,35 @@ public class CronJobController {
 
     @RequestMapping("/pause")
     public String pause() {
-
+        try {
+            JobKey jobKey = new JobKey("CRON_JOB", JOB_GROUP);
+            scheduler.pauseJob(jobKey);
+        } catch (SchedulerException e) {
+            log.error("failed to pause job", e);
+        }
         return "pause success";
     }
 
     @RequestMapping("/stop")
     public String stop() {
+        try {
+            JobKey jobKey = new JobKey("CRON_JOB", JOB_GROUP);
+            this.scheduler.deleteJob(jobKey);
+        } catch (SchedulerException e) {
 
+        }
         return "stop success";
     }
 
 
     @RequestMapping("/resume")
     public String resume() {
-
+        try {
+            JobKey jobKey = new JobKey("CRON_JOB", JOB_GROUP);
+            scheduler.resumeJob(jobKey);
+        } catch (SchedulerException e) {
+            log.error("failed to resume job", e);
+        }
         return "resume success";
     }
 
