@@ -5,7 +5,7 @@ spring:
     config:
       server:
         git:
-          uri: https://gitee.com/aracwong/config-server.git
+          uri: https://github.com/aracwong/learn-root/tree/master/learn-springcloud/learn-springcloud-config/learn-springcloud-config-repository
 #          search-paths: myconfigpath
           forcePull: true
       label: master
