@@ -1,5 +1,9 @@
 package com.kotall.learn.job.controller;
 
+import com.kotall.learn.job.job.SimpleJob;
+import lombok.extern.slf4j.Slf4j;
+import org.quartz.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -8,13 +12,31 @@ import org.springframework.web.bind.annotation.RestController;
  * @version : 1.0.0
  * @date : 2018/3/20
  */
+@Slf4j
 @RestController
 @RequestMapping("/job")
 public class JobController {
 
+    private static final String JOB_GROUP = "event_job_group";
+    private static final String TRIGGER_GROUP = "event_trigger_group";
+
+    @Autowired
+    private Scheduler scheduler;
 
     @RequestMapping("/start")
     public String start() {
+        try {
+
+            JobDetail jobDetail = JobBuilder.newJob(SimpleJob.class).withIdentity("SIMPLE_JOB", JOB_GROUP).build();
+
+            Trigger trigger = TriggerBuilder.newTrigger().withIdentity("SIMPLE_TRIGGER", TRIGGER_GROUP).startNow().build();
+
+            scheduler.scheduleJob(jobDetail, trigger);
+
+            log.info("simple job started.");
+        } catch (Exception e) {
+            log.error("failed to start job", e);
+        }
 
         return "start success";
     }

@@ -1,6 +1,6 @@
 package com.kotall.learn.job;
 
-import com.kotall.learn.job.job.MySimpleJob;
+import com.kotall.learn.job.job.SimpleJob;
 import org.junit.Test;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
@@ -26,7 +26,7 @@ public class QuartzWithSimpleScheduleTest {
 
     public static void main(String[] args) throws Exception {
         // job
-        JobDetail job = JobBuilder.newJob(MySimpleJob.class).withIdentity("job1", "group1").build();
+        JobDetail job = JobBuilder.newJob(SimpleJob.class).withIdentity("job1", "group1").build();
 
         // trigger
         Trigger trigger = TriggerBuilder.newTrigger().withIdentity("trigger1", "group1")
