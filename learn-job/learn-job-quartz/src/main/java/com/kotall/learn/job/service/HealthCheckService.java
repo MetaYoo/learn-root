@@ -1,5 +1,6 @@
 package com.kotall.learn.job.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 /**
@@ -7,11 +8,12 @@ import org.springframework.stereotype.Service;
  * @version : 1.0.0
  * @date : 2018/3/29
  */
+@Slf4j
 @Service("someService")
-public class SomeService {
+public class HealthCheckService {
 
-    public void writeDataToLog(String dataToWrite) {
-        System.out.println(dataToWrite);
+    public void check() {
+        log.info("everything is ok!");
     }
 
 }
