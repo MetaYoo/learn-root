@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Slf4j
 @RestController
-@RequestMapping("/job")
-public class JobController {
+@RequestMapping("/cronjob")
+public class CronJobController {
 
-    private static final String JOB_GROUP = "event_job_group";
-    private static final String TRIGGER_GROUP = "event_trigger_group";
+    private static final String JOB_GROUP = "default_job_group";
+    private static final String TRIGGER_GROUP = "default_trigger_group";
 
     @Autowired
     private Scheduler scheduler;
@@ -27,9 +27,10 @@ public class JobController {
     public String start() {
         try {
 
-            JobDetail jobDetail = JobBuilder.newJob(SimpleJob.class).withIdentity("SIMPLE_JOB", JOB_GROUP).build();
+            JobDetail jobDetail = JobBuilder.newJob(SimpleJob.class).withIdentity("CRON_JOB", JOB_GROUP).build();
 
-            Trigger trigger = TriggerBuilder.newTrigger().withIdentity("SIMPLE_TRIGGER", TRIGGER_GROUP).startNow().build();
+            Trigger trigger = TriggerBuilder.newTrigger().withIdentity("CRON_TRIGGER", TRIGGER_GROUP)
+                    .withSchedule(CronScheduleBuilder.cronSchedule("0/5 * * * * ? *")).build();
 
             scheduler.scheduleJob(jobDetail, trigger);
 
