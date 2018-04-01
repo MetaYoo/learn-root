@@ -63,7 +63,7 @@ public class AuthRealm extends AuthorizingRealm {
         AccessToken accessToken = (AccessToken)token.getPrincipal();
         // 查询 token
         AuthToken authToken = this.tokenDao.findByToken(accessToken.getToken());
-        if (accessToken == null || authToken.getExpireTime().before(new Date())) {
+        if (authToken == null || authToken.getExpireTime().before(new Date())) {
             throw new ExpiredCredentialsException("token expired");
         }
         // 查询用户
