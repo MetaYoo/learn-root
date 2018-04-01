@@ -2,12 +2,15 @@ package com.kotall.learn.shiro.controller;
 
 import com.kotall.learn.shiro.auth.AccessToken;
 import com.kotall.learn.shiro.bean.AuthToken;
+import com.kotall.learn.shiro.bean.AuthUser;
 import com.kotall.learn.shiro.dao.AuthUserDao;
 import com.kotall.learn.shiro.dao.AuthTokenDao;
 import com.kotall.learn.shiro.util.IdGenerator;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -49,5 +52,19 @@ public class LoginController {
             log.error("failed to login ", e);
         }
         return Result.ok().put("token", token.getToken());
+    }
+
+    @GetMapping("/logout")
+    public Result logout() {
+        Subject subject = SecurityUtils.getSubject();
+        if (subject.isAuthenticated()) {
+            AuthUser user = (AuthUser) SecurityUtils.getSubject().getPrincipal();
+            AuthToken token = this.tokenDao.findOne(user.getName());
+            token.setToken(IdGenerator.generateValue());
+            this.tokenDao.save(token);
+            SecurityUtils.getSubject().logout();
+        }
+
+        return Result.ok();
     }
 }
