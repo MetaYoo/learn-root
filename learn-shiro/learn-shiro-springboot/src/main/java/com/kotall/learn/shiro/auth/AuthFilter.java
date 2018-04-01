@@ -29,7 +29,7 @@ public class AuthFilter extends AuthenticatingFilter {
                 return null;
             }
         }
-        return new AuthToken(token);
+        return new AccessToken(token);
     }
 
     @Override
