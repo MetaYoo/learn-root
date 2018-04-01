@@ -1,5 +1,6 @@
 package com.kotall.learn.shiro.auth;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.web.filter.authc.AuthenticatingFilter;
 import org.springframework.http.HttpStatus;
@@ -15,12 +16,14 @@ import javax.servlet.http.HttpServletResponse;
  * @version : 1.0.0
  * @date : 2018/3/15 0015 下午 6:49
  */
+@Slf4j
 public class AuthFilter extends AuthenticatingFilter {
 
     private static final String TOKEN_KEY = "token";
 
     @Override
     protected AuthenticationToken createToken(ServletRequest request, ServletResponse response) throws Exception {
+        log.info("===================== create token =======================" );
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         String token = httpRequest.getHeader(TOKEN_KEY);
         if (StringUtils.isEmpty(token)) {
@@ -34,6 +37,7 @@ public class AuthFilter extends AuthenticatingFilter {
 
     @Override
     protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
+        log.info("===================== access denied =======================" );
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         String token = httpRequest.getHeader(TOKEN_KEY);
         if(StringUtils.isEmpty(token)){
