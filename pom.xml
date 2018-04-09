@@ -27,6 +27,7 @@
         <module>learn-test</module>
         <module>learn-sso</module>
         <module>learn-job</module>
+        <module>learn-oauth2</module>
     </modules>
     <packaging>pom</packaging>
 
