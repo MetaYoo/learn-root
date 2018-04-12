@@ -61,6 +61,9 @@ public class AuthRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         log.info("=======doGetAuthenticationInfo========");
         AccessToken accessToken = (AccessToken)token.getPrincipal();
+        if (null == accessToken) {
+            return null;
+        }
         // 查询 token
         AuthToken authToken = this.tokenDao.findByToken(accessToken.getToken());
         if (authToken == null || authToken.getExpireTime().before(new Date())) {
@@ -68,6 +71,9 @@ public class AuthRealm extends AuthorizingRealm {
         }
         // 查询用户
         AuthUser user = this.userDao.findByName(authToken.getId());
+        if (null == user) {
+            throw new UnknownAccountException("unknown account");
+        }
         SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(user, accessToken, getName());
         return info;
     }

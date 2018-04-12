@@ -15,6 +15,7 @@
     <modules>
         <module>learn-spring-ini</module>
         <module>learn-spring-springmvc</module>
+        <module>learn-spring-webflow</module>
     </modules>
 
 </project>

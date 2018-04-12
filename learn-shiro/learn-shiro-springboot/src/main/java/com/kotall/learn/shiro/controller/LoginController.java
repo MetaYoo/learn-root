@@ -47,7 +47,10 @@ public class LoginController {
             Date expireTime = new Date(System.currentTimeMillis() + 1000 * 60 * 30);
             AuthToken authToken = this.tokenDao.save(new AuthToken(username, IdGenerator.generateValue(), expireTime));
             token = new AccessToken(authToken.getToken());
-            SecurityUtils.getSubject().login(token);
+            Subject subject = SecurityUtils.getSubject();
+            if (!subject.isAuthenticated()) {
+                subject.login(token);
+            }
         } catch (Exception e) {
             log.error("failed to login ", e);
         }
