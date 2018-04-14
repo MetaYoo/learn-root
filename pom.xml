@@ -24,10 +24,10 @@
         <module>learn-thymeleaf</module>
         <module>learn-springboot</module>
         <module>learn-springcloud</module>
-        <module>learn-test</module>
         <module>learn-sso</module>
         <module>learn-job</module>
-        <module>learn-oauth2</module>
+        <module>learn-oauth</module>
+        <module>learn-test</module>
     </modules>
     <packaging>pom</packaging>
 
