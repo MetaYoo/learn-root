@@ -11,6 +11,10 @@
 
     <artifactId>learn-oauth</artifactId>
     <packaging>pom</packaging>
+    <modules>
+        <module>learn-oauth-server</module>
+        <module>learn-oauth-client</module>
+    </modules>
 
     <dependencyManagement>
         <dependencies>
@@ -36,16 +40,5 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <scope>compile</scope>
-        </dependency>
-    </dependencies>
 
 </project>
