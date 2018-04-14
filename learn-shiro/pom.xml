@@ -16,6 +16,7 @@
         <module>learn-shiro-ini</module>
         <module>learn-shiro-spring</module>
         <module>learn-shiro-springboot</module>
+        <module>learn-shiro-ssl</module>
     </modules>
 
     <properties>

@@ -16,6 +16,7 @@
         <module>learn-sso-server</module>
         <module>learn-sso-client1</module>
         <module>learn-sso-client2</module>
+        <module>learn-sso-jwt</module>
     </modules>
 
     <properties>
