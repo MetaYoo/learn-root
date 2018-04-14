@@ -1,4 +1,4 @@
-package com.kotall.learn.shiro.oauth;
+package com.kotall.learn.shiro.ssl;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.connector.Connector;
