@@ -4,7 +4,7 @@ package com.kotall.learn.sso;
  * Hello world!
  *
  */
-public class App 
+public class ServerApp
 {
     public static void main( String[] args )
     {
