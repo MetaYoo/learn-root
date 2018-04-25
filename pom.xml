@@ -28,6 +28,7 @@
         <module>learn-job</module>
         <module>learn-oauth</module>
         <module>learn-test</module>
+        <module>learn-io</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -59,6 +60,7 @@
         <jmockit.version>1.22</jmockit.version>
         <httpclient.version>4.5.5</httpclient.version>
         <quartz.version>2.2.1</quartz.version>
+        <xstream.version>1.2.2</xstream.version>
         <spring-boot-starter-thymeleaf.version>1.5.9.RELEASE</spring-boot-starter-thymeleaf.version>
     </properties>
 
@@ -265,6 +267,11 @@
                 <groupId>org.quartz-scheduler</groupId>
                 <artifactId>quartz-jobs</artifactId>
                 <version>${quartz.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xstream</groupId>
+                <artifactId>xstream</artifactId>
+                <version>${xstream.version}</version>
             </dependency>
 
         </dependencies>
