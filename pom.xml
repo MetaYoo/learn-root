@@ -61,6 +61,7 @@
         <httpclient.version>4.5.5</httpclient.version>
         <quartz.version>2.2.1</quartz.version>
         <xstream.version>1.2.2</xstream.version>
+        <zookeeper.version>3.4.9</zookeeper.version>
         <spring-boot-starter-thymeleaf.version>1.5.9.RELEASE</spring-boot-starter-thymeleaf.version>
     </properties>
 
@@ -272,6 +273,11 @@
                 <groupId>xstream</groupId>
                 <artifactId>xstream</artifactId>
                 <version>${xstream.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${zookeeper.version}</version>
             </dependency>
 
         </dependencies>
