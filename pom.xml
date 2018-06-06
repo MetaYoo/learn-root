@@ -29,6 +29,7 @@
         <module>learn-oauth</module>
         <module>learn-test</module>
         <module>learn-io</module>
+        <module>learn-dp</module>
     </modules>
     <packaging>pom</packaging>
 
