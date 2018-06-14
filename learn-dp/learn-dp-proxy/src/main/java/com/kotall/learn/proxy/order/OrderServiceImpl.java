@@ -5,11 +5,11 @@ package com.kotall.learn.proxy.order;
  * @author zpwang
  *
  */
-public class UserServiceImpl implements UserService {
+public class OrderServiceImpl implements OrderService {
 
 	@Override
-	public void addUser() {
-		System.out.println("添加用户处理");
+	public void order() {
+		System.out.println("======下单处理");
 	}
 
 }
