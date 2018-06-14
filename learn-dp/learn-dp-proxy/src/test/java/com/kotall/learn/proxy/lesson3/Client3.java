@@ -11,6 +11,8 @@ public class Client3 {
 
     @Test
     public void testProxy() throws Exception {
-        TimeProxy.newProxyInstance(OrderService.class);
+
+        OrderService timeOrderProxy = (OrderService)TimeProxy.newProxyInstance(OrderService.class);
+        System.out.println(timeOrderProxy.getClass().getName());
     }
 }
