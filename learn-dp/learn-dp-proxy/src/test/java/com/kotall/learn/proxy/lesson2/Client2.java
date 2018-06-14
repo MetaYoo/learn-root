@@ -4,7 +4,7 @@ import com.kotall.learn.proxy.order.OrderService;
 import com.kotall.learn.proxy.order.OrderServiceImpl;
 import org.junit.Test;
 
-public class Client {
+public class Client2 {
 
 
 	@Test
