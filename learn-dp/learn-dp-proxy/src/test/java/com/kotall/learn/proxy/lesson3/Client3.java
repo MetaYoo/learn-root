@@ -10,9 +10,8 @@ import org.junit.Test;
 public class Client3 {
 
     @Test
-    public void testProxy() throws Exception {
-
+    public void testTimeOrderProxy() throws Exception {
         OrderService timeOrderProxy = (OrderService)TimeProxy.newProxyInstance(OrderService.class);
-        System.out.println(timeOrderProxy.getClass().getName());
+        timeOrderProxy.order();
     }
 }

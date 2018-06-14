@@ -1,4 +1,4 @@
-package com.kotall.learn.proxy.lesson3;
+package com.kotall.learn.proxy.lesson5;
 
 import com.kotall.learn.proxy.order.OrderService;
 import com.kotall.learn.proxy.order.OrderServiceImpl;
@@ -10,6 +10,7 @@ import javax.tools.ToolProvider;
 import java.io.File;
 import java.io.FileWriter;
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.Arrays;
@@ -18,14 +19,27 @@ import java.util.Arrays;
  * @author zpwang
  * @version 1.0.0
  */
-public class TimeProxy {
+public class Proxy {
 
     static String binPath = "D:/tmp/";
     static String packagePath = "com/kotall/learn/proxy/";
 
 
-
     public static Object newProxyInstance(Class intrface) throws Exception {
+
+        String methodStr = "";
+        Method[] methods = intrface.getMethods();
+        for (Method method : methods) {
+            String str = "    @Override\n" +
+                     "    public void " + method.getName() + "() {\n" +
+                     "        System.out.println(\"== startTime\");\n" +
+                     "        long startTime = System.currentTimeMillis();\n" +
+                     "        target.order();\n" +
+                     "        long endTime = System.currentTimeMillis();\n" +
+                     "        System.out.println(\"== endTime, cost: \" + (endTime - startTime));\n" +
+                     "    }\n";
+            methodStr += str;
+        }
 
         String clzStr = "package com.kotall.learn.proxy;\n" +
                 "\n" +
@@ -33,20 +47,24 @@ public class TimeProxy {
                 "\n" +
                 "public class TimeOrderProxy implements OrderService {\n" +
                 "\n" +
-                "    private OrderService target;\n" +
+                "    private " + intrface.getName() + " target;\n" +
                 "\n" +
-                "    public TimeOrderProxy(OrderService target) {\n" +
+                "    public TimeOrderProxy(" + intrface.getName() + " target) {\n" +
                 "        this.target = target;\n" +
                 "    }\n" +
                 "\n" +
-                "    @Override\n" +
-                "    public void order() {\n" +
-                "        System.out.println(\"== startTime\");\n" +
-                "        long startTime = System.currentTimeMillis();\n" +
-                "        target.order();\n" +
-                "        long endTime = System.currentTimeMillis();\n" +
-                "        System.out.println(\"== endTime, cost: \" + (endTime - startTime));\n" +
-                "    }\n" +
+
+                methodStr +
+
+//                "    @Override\n" +
+//                "    public void order() {\n" +
+//                "        System.out.println(\"== startTime\");\n" +
+//                "        long startTime = System.currentTimeMillis();\n" +
+//                "        target.order();\n" +
+//                "        long endTime = System.currentTimeMillis();\n" +
+//                "        System.out.println(\"== endTime, cost: \" + (endTime - startTime));\n" +
+//                "    }\n" +
+
                 "}\n";
 
         /**
