@@ -1,8 +1,5 @@
 package com.kotall.learn.proxy.lesson5;
 
-import com.kotall.learn.proxy.order.OrderService;
-import com.kotall.learn.proxy.order.OrderServiceImpl;
-
 import javax.tools.JavaCompiler;
 import javax.tools.JavaFileObject;
 import javax.tools.StandardJavaFileManager;
@@ -25,31 +22,33 @@ public class Proxy {
     static String packagePath = "com/kotall/learn/proxy/";
 
 
-    public static Object newProxyInstance(Class intrface) throws Exception {
+    public static Object newProxyInstance(Class intrface, InvocationHandler invocationHandler) throws Exception {
 
         String methodStr = "";
         Method[] methods = intrface.getMethods();
         for (Method method : methods) {
             String str = "    @Override\n" +
                      "    public void " + method.getName() + "() {\n" +
-                     "        System.out.println(\"== startTime\");\n" +
-                     "        long startTime = System.currentTimeMillis();\n" +
-                     "        target.order();\n" +
-                     "        long endTime = System.currentTimeMillis();\n" +
-                     "        System.out.println(\"== endTime, cost: \" + (endTime - startTime));\n" +
+                     "        try {\n" +
+                     "            Method m = " + intrface.getName() +".class.getMethod(\"" + method.getName() + "\");\n" +
+                     "            target.invoke(this, m);\n" +
+                     "        } catch (Exception e) {\n" +
+                     "            e.printStackTrace();\n" +
+                     "        }\n" +
                      "    }\n";
             methodStr += str;
         }
 
         String clzStr = "package com.kotall.learn.proxy;\n" +
                 "\n" +
+                "import java.lang.reflect.*;\n" +
                 "import com.kotall.learn.proxy.order.OrderService;\n" +
                 "\n" +
                 "public class TimeOrderProxy implements OrderService {\n" +
                 "\n" +
-                "    private " + intrface.getName() + " target;\n" +
+                "    private com.kotall.learn.proxy.lesson5.InvocationHandler target;\n" +
                 "\n" +
-                "    public TimeOrderProxy(" + intrface.getName() + " target) {\n" +
+                "    public TimeOrderProxy(com.kotall.learn.proxy.lesson5.InvocationHandler target) {\n" +
                 "        this.target = target;\n" +
                 "    }\n" +
                 "\n" +
@@ -98,9 +97,8 @@ public class Proxy {
         Class clz = classLoader.loadClass("com.kotall.learn.proxy.TimeOrderProxy");
 
 
-        OrderService target = new OrderServiceImpl();
-        Constructor constructor = clz.getConstructor(intrface);
-        return constructor.newInstance(target);
+        Constructor constructor = clz.getConstructor(InvocationHandler.class);
+        return constructor.newInstance(invocationHandler);
     }
 
 }

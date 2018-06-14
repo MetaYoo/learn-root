@@ -12,11 +12,14 @@ import java.lang.reflect.Method;
 public class RefelctTest {
 
     @Test
-    public void testReflect() {
+    public void testReflect() throws Exception {
         Method[] methods = OrderService.class.getMethods();
         for (Method method : methods) {
             System.out.println(method.getName());
         }
+
+        Method method = OrderService.class.getMethod("order");
+        System.out.println(method.getName());
     }
 
 }

@@ -34,7 +34,7 @@ public class Proxy {
                      "    public void " + method.getName() + "() {\n" +
                      "        System.out.println(\"== startTime\");\n" +
                      "        long startTime = System.currentTimeMillis();\n" +
-                     "        target.order();\n" +
+                     "        target." + method.getName() + "();\n" +
                      "        long endTime = System.currentTimeMillis();\n" +
                      "        System.out.println(\"== endTime, cost: \" + (endTime - startTime));\n" +
                      "    }\n";
