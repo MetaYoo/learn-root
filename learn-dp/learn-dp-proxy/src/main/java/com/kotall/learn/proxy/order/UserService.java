@@ -5,8 +5,8 @@ package com.kotall.learn.proxy.order;
  * @author zpwang
  *
  */
-public interface OrderService {
+public interface UserService {
 	
-	void order();
+	void addUser();
 
 }
