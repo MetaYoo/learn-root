@@ -19,6 +19,7 @@ public class Client7 {
         TimeInvocationHandler invocationHandler = new TimeInvocationHandler(target);
         AccountService proxy = (AccountService) Proxy.newProxyInstance(AccountService.class, invocationHandler);
         String ret = proxy.createAccount("arac", "123456", 100);
+        System.out.println(ret);
     }
 
 }
