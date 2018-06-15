@@ -1,4 +1,4 @@
-package com.kotall.learn.proxy.order;
+package com.kotall.learn.proxy.service;
 
 /**
  * 订单服务接口

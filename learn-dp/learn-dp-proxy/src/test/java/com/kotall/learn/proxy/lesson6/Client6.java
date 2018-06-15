@@ -1,8 +1,11 @@
 package com.kotall.learn.proxy.lesson6;
 
-import com.kotall.learn.proxy.order.OrderService;
-import com.kotall.learn.proxy.order.OrderServiceImpl;
 import org.junit.Test;
+
+import com.kotall.learn.proxy.service.OrderService;
+import com.kotall.learn.proxy.service.OrderServiceImpl;
+import com.kotall.learn.proxy.service.UserService;
+import com.kotall.learn.proxy.service.UserServiceImpl;
 
 /**
  * @author zpwang
@@ -34,6 +37,17 @@ public class Client6 {
         OrderService logOrderProxy = (OrderService) Proxy.newProxyInstance(OrderService.class, logHandler);
         
         logOrderProxy.order();
+    }
+    
+    @Test
+    public void testProxy3() throws Exception {
+
+    	UserServiceImpl target = new UserServiceImpl();
+        
+        TimeInvocationHandler timeHandler = new TimeInvocationHandler(target);
+        UserService userTimeProxy = (UserService) Proxy.newProxyInstance(UserService.class, timeHandler);
+        
+        userTimeProxy.addUser();
     }
 
 }

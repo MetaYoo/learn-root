@@ -1,12 +1,13 @@
 package com.kotall.learn.proxy.lesson4;
 
-import com.kotall.learn.proxy.order.OrderService;
-import com.kotall.learn.proxy.order.OrderServiceImpl;
-
 import javax.tools.JavaCompiler;
 import javax.tools.JavaFileObject;
 import javax.tools.StandardJavaFileManager;
 import javax.tools.ToolProvider;
+
+import com.kotall.learn.proxy.service.OrderService;
+import com.kotall.learn.proxy.service.OrderServiceImpl;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.lang.reflect.Constructor;

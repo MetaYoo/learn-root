@@ -2,10 +2,10 @@ package com.kotall.learn.proxy.lesson1;
 
 import com.kotall.learn.proxy.lesson2.LogOrderProxy2;
 import com.kotall.learn.proxy.lesson2.TimeOrderProxy2;
-import org.junit.Test;
+import com.kotall.learn.proxy.service.OrderService;
+import com.kotall.learn.proxy.service.OrderServiceImpl;
 
-import com.kotall.learn.proxy.order.OrderService;
-import com.kotall.learn.proxy.order.OrderServiceImpl;
+import org.junit.Test;
 
 public class Client1 {
 

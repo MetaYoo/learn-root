@@ -1,7 +1,8 @@
 package com.kotall.learn.proxy;
 
-import com.kotall.learn.proxy.order.OrderService;
 import org.junit.Test;
+
+import com.kotall.learn.proxy.service.OrderService;
 
 import java.lang.reflect.Method;
 

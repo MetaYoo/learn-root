@@ -1,8 +1,9 @@
 package com.kotall.learn.proxy.lesson5;
 
-import com.kotall.learn.proxy.order.OrderService;
-import com.kotall.learn.proxy.order.OrderServiceImpl;
 import org.junit.Test;
+
+import com.kotall.learn.proxy.service.OrderService;
+import com.kotall.learn.proxy.service.OrderServiceImpl;
 
 /**
  * @author zpwang

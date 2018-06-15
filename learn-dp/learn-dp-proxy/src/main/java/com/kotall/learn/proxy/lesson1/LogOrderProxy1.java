@@ -1,6 +1,6 @@
 package com.kotall.learn.proxy.lesson1;
 
-import com.kotall.learn.proxy.order.OrderServiceImpl;
+import com.kotall.learn.proxy.service.OrderServiceImpl;
 
 public class LogOrderProxy1 extends OrderServiceImpl {
 

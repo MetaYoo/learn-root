@@ -2,7 +2,7 @@ package com.kotall.learn.proxy;
 
 import org.junit.Test;
 
-import com.kotall.learn.proxy.order.OrderServiceImpl;
+import com.kotall.learn.proxy.service.OrderServiceImpl;
 
 import net.sf.cglib.proxy.Enhancer;
 
