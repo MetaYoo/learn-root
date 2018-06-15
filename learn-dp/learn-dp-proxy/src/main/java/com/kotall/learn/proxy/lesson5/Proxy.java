@@ -31,7 +31,7 @@ public class Proxy {
                      "    public void " + method.getName() + "() {\n" +
                      "        try {\n" +
                      "            Method m = " + intrface.getName() +".class.getMethod(\"" + method.getName() + "\");\n" +
-                     "            target.invoke(this, m);\n" +
+                     "            handler.invoke(this, m);\n" +
                      "        } catch (Exception e) {\n" +
                      "            e.printStackTrace();\n" +
                      "        }\n" +
@@ -45,10 +45,10 @@ public class Proxy {
                 "\n" +
                 "public class TimeOrderProxy implements "+ intrface.getName() +" {\n" +
                 "\n" +
-                "    private com.kotall.learn.proxy.lesson5.InvocationHandler target;\n" +
+                "    private com.kotall.learn.proxy.lesson5.InvocationHandler handler;\n" +
                 "\n" +
-                "    public TimeOrderProxy(com.kotall.learn.proxy.lesson5.InvocationHandler target) {\n" +
-                "        this.target = target;\n" +
+                "    public TimeOrderProxy(com.kotall.learn.proxy.lesson5.InvocationHandler handler) {\n" +
+                "        this.handler = handler;\n" +
                 "    }\n" +
                 "\n" +
 
