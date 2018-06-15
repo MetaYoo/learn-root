@@ -19,7 +19,7 @@ import java.util.Arrays;
  * @author zpwang
  * @version 1.0.0
  */
-public class TimeProxy {
+public class Proxy {
 
     static String binPath = "D:/tmp/";
     static String packagePath = "com/kotall/learn/proxy/";

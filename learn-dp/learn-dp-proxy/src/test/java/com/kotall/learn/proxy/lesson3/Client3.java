@@ -12,7 +12,7 @@ public class Client3 {
 
     @Test
     public void testTimeOrderProxy() throws Exception {
-        OrderService timeOrderProxy = (OrderService)TimeProxy.newProxyInstance(OrderService.class);
+        OrderService timeOrderProxy = (OrderService)Proxy.newProxyInstance(OrderService.class);
         timeOrderProxy.order();
     }
 }
