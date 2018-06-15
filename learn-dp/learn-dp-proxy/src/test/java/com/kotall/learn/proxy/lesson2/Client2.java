@@ -11,7 +11,7 @@ public class Client2 {
 	@Test
 	public void testInterface2() {
 		OrderService target = new OrderServiceImpl();
-		OrderService proxy = new TimeOrderProxy2(target);
+		OrderService proxy = new TimeOrderProxy(target);
 		proxy.order();
 	}
 	
@@ -19,8 +19,8 @@ public class Client2 {
 	public void testNestProxy2() {
 		OrderService target = new OrderServiceImpl();
 		
-		OrderService timeProxy = new TimeOrderProxy2(target);
-		OrderService logProxy = new LogOrderProxy2(timeProxy);
+		OrderService timeProxy = new TimeOrderProxy(target);
+		OrderService logProxy = new LogOrderProxy(timeProxy);
 		logProxy.order();
 		
 		

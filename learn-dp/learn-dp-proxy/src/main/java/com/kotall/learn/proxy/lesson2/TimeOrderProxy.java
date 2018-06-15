@@ -2,11 +2,11 @@ package com.kotall.learn.proxy.lesson2;
 
 import com.kotall.learn.proxy.service.OrderService;
 
-public class TimeOrderProxy2 implements OrderService {
+public class TimeOrderProxy implements OrderService {
 
 	private OrderService target;
 	
-	public TimeOrderProxy2(OrderService target) {
+	public TimeOrderProxy(OrderService target) {
 		this.target = target;
 	}
 	
