@@ -43,9 +43,8 @@ public class Proxy {
 
         String clzStr = "package com.kotall.learn.proxy;\n" +
                 "\n" +
-                "import com.kotall.learn.proxy.order.OrderService;\n" +
                 "\n" +
-                "public class TimeOrderProxy implements OrderService {\n" +
+                "public class TimeOrderProxy implements "+ intrface.getName() + " {\n" +
                 "\n" +
                 "    private " + intrface.getName() + " target;\n" +
                 "\n" +
