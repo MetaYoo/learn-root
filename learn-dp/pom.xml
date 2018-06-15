@@ -10,7 +10,6 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>learn-dp-proxy</module>
-		<module>learn-dp-proxy1</module>
 	</modules>
 
 	<artifactId>learn-dp</artifactId>
