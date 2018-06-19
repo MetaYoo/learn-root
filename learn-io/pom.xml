@@ -15,6 +15,7 @@
     <name>learn-io</name>
     <url>http://www.example.com</url>
     <modules>
+        <module>learn-io-bio</module>
         <module>learn-io-xstream</module>
         <module>learn-io-httpclient</module>
     </modules>
