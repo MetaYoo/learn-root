@@ -9,5 +9,8 @@
 
 <body>
 <h1>Hello : <a th:href="@{http://www.baidu.com}">百度</a></h1>
+<h1>Hello : <a th:href="@{/param?name=skyarac}">获取请求参数</a></h1>
+<h1>Hello : <a th:href="@{/demo/param?name=skyarac}">获取请求参数</a></h1>
+<h1>Hello : <a th:href="@{/param/{orderId}/(orderId=${id})}">获取请求参数</a></h1>
 </body>
 </html>

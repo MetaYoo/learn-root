@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-CN"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>study06 - helloWorld</title>
+</head>
+
+<body>
+	
+    <div th:fragment="frag (a1, a2)">
+      <p th:text="${a1} + '-' + ${a2}">...</p>
+    </div>
+   
+    <div th:replace="::frag(${arg1}, ${arg2})"></div>
+    
+    <div th:replace="footer :: copy"></div>
+</body>
+</html>
