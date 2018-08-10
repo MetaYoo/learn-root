@@ -10,8 +10,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class Bootstrap {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("spring-context.xml");
         ctx.start();
+        System.out.println("======================================================");
+        AnimalService paymentService = (AnimalService)ctx.getBean("paymentService");
+        paymentService.run();
     }
 }

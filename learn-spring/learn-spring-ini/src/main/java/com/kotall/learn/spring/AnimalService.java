@@ -13,4 +13,9 @@ public class AnimalService {
     AnimalService() {
         System.out.println("constructor Animal");
     }
+
+    void run() throws Exception {
+        System.out.println(" animal run ...");
+        throw new Exception("xxxx");
+    }
 }
