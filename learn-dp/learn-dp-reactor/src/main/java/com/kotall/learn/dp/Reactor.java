@@ -1,6 +1,7 @@
 package com.kotall.learn.dp;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
@@ -16,162 +17,53 @@ import java.util.Set;
  */
 public class Reactor implements Runnable {
 
-    final Selector selector;
-    final ServerSocketChannel serverSocket;
+    public final Selector selector;
+    public final ServerSocketChannel serverSocketChannel;
 
-    Reactor(int port) throws IOException { //Reactor初始化
-        selector = Selector.open();
-        serverSocket = ServerSocketChannel.open();
-        serverSocket.socket().bind(new InetSocketAddress(port));
-        serverSocket.configureBlocking(false); //非阻塞
-        SelectionKey sk = serverSocket.register(selector, SelectionKey.OP_ACCEPT); //分步处理,第一步,接收accept事件
-        sk.attach(new Acceptor()); //attach callback object, Acceptor
+    public Reactor(int port) throws IOException{
+        selector=Selector.open();
+        serverSocketChannel=ServerSocketChannel.open();
+        InetSocketAddress inetSocketAddress=new InetSocketAddress(InetAddress.getLocalHost(),port);
+        serverSocketChannel.socket().bind(inetSocketAddress);
+        serverSocketChannel.configureBlocking(false);
+
+        //向selector注册该channel
+        SelectionKey selectionKey=serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
+
+        //利用selectionKey的attache功能绑定Acceptor 如果有事情，触发Acceptor
+        selectionKey.attach(new Acceptor(this));
     }
 
     @Override
     public void run() {
         try {
-            while (!Thread.interrupted()) {
+            while(!Thread.interrupted()){
                 selector.select();
-                Set selected = selector.selectedKeys();
-                Iterator it = selected.iterator();
-                while (it.hasNext())
-                    dispatch((SelectionKey)(it.next())); //Reactor负责dispatch收到的事件
-                selected.clear();
-            }
-        } catch (IOException ex) { /* ... */ }
-    }
-
-    void dispatch(SelectionKey k) {
-        Runnable r = (Runnable)(k.attachment()); //调用之前注册的callback对象
-        if (r != null)
-            r.run();
-    }
-
-    class Acceptor implements Runnable { // inner
-        @Override
-        public void run() {
-            try {
-                SocketChannel socket = serverSocket.accept();
-                if (socket != null)
-                    new Handler(selector, socket);
-            }
-            catch(IOException ex) { /* ... */ }
-        }
-    }
-}
-
-final class Handler implements Runnable {
-    final SocketChannel socket;
-    final SelectionKey sk;
-    final int MAXIN = 1024;
-    final int MAXOUT = 1024;
-    ByteBuffer input = ByteBuffer.allocate(MAXIN);
-    ByteBuffer output = ByteBuffer.allocate(MAXOUT);
-    static final int READING = 0, SENDING = 1;
-    int state = READING;
-
-    Handler(Selector sel, SocketChannel socket) throws IOException {
-        this.socket = socket;
-        socket.configureBlocking(false);
-        // Optionally try first read now
-        sk = this.socket.register(sel, 0);
-        sk.attach(this); //将Handler作为callback对象
-        sk.interestOps(SelectionKey.OP_READ); //第二步,接收Read事件
-        sel.wakeup();
-    }
-    boolean inputIsComplete() {
-        /* ... */
-        return true;
-    }
-    boolean outputIsComplete() {
-        /* ... */
-        return true;
-    }
-
-    void process() { /* ... */ }
-
-    @Override
-    public void run() {
-        try {
-            if (state == READING) read();
-            else if (state == SENDING) send();
-        } catch (IOException ex) { /* ... */ }
-    }
-
-    void read() throws IOException {
-        socket.read(input);
-        if (inputIsComplete()) {
-            process();
-            state = SENDING;
-            // Normally also do first write now
-            sk.interestOps(SelectionKey.OP_WRITE); //第三步,接收write事件
-        }
-    }
-
-    void send() throws IOException {
-        socket.write(output);
-        if (outputIsComplete()) sk.cancel(); //write完就结束了, 关闭select key
-    }
-}
-
-// 上面 的实现用Handler来同时处理Read和Write事件, 所以里面出现状态判断
-// 我们可以用State-Object pattern来更优雅的实现
-final class Handler1 implements Runnable { // ...
-    final SocketChannel socket;
-    final SelectionKey sk;
-    final int MAXIN = 1024;
-    final int MAXOUT = 1024;
-    ByteBuffer input = ByteBuffer.allocate(MAXIN);
-    ByteBuffer output = ByteBuffer.allocate(MAXOUT);
-
-    Handler1(Selector sel, SocketChannel socket) throws IOException {
-        this.socket = socket;
-        socket.configureBlocking(false);
-        // Optionally try first read now
-        sk = this.socket.register(sel, 0);
-        sk.attach(this); //将Handler作为callback对象
-        sk.interestOps(SelectionKey.OP_READ); //第二步,接收Read事件
-        sel.wakeup();
-    }
-
-    boolean inputIsComplete() {
-        /* ... */
-        return true;
-    }
-    boolean outputIsComplete() {
-        /* ... */
-        return true;
-    }
-
-    void process() { /* ... */ }
-
-    @Override
-    public void run() { // initial state is reader
-        try {
-            socket.read(input);
-            if (inputIsComplete()) {
-                process();
-                sk.attach(new Sender());  //状态迁移, Read后变成write, 用Sender作为新的callback对象
-                sk.interestOps(SelectionKey.OP_WRITE);
-                sk.selector().wakeup();
+                Set<SelectionKey> selectionKeys= selector.selectedKeys();
+                Iterator<SelectionKey> it=selectionKeys.iterator();
+                //Selector如果发现channel有OP_ACCEPT或READ事件发生，下列遍历就会进行。
+                while(it.hasNext()){
+                    //来一个事件 第一次触发一个accepter线程
+                    //以后触发SocketReadHandler
+                    SelectionKey selectionKey=it.next();
+                    dispatch(selectionKey);
+                    selectionKeys.clear();
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
-    class Sender implements Runnable {
-
-        @Override
-        public void run() { // ...
-            try {
-                socket.write(output);
-                if (outputIsComplete()) sk.cancel();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+    /**
+     * 运行Acceptor或SocketReadHandler
+     * @param key
+     */
+    void dispatch(SelectionKey key) {
+        Runnable r = (Runnable)(key.attachment());
+        if (r != null){
+            r.run();
         }
     }
+
 }
