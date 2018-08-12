@@ -12,6 +12,8 @@
 		<module>learn-dp-proxy</module>
 		<module>learn-dp-proxy-live</module>
         <module>learn-dp-filterchain</module>
+        <module>learn-dp-reactor</module>
+        <module>learn-dp-state</module>
     </modules>
 
 	<artifactId>learn-dp</artifactId>
