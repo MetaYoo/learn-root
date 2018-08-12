@@ -18,6 +18,8 @@
         <module>learn-io-bio</module>
         <module>learn-io-xstream</module>
         <module>learn-io-httpclient</module>
+        <module>learn-io-nio</module>
+        <module>learn-io-aio</module>
     </modules>
 
     <properties>
