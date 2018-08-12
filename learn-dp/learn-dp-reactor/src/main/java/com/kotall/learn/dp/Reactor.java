@@ -47,8 +47,9 @@ public class Reactor implements Runnable {
                     //以后触发SocketReadHandler
                     SelectionKey selectionKey=it.next();
                     dispatch(selectionKey);
-                    selectionKeys.clear();
+                    //it.remove();
                 }
+                selectionKeys.clear();
             }
         } catch (IOException e) {
             e.printStackTrace();
