@@ -31,7 +31,8 @@
         <module>learn-io</module>
         <module>learn-dp</module>
         <module>learn-netty</module>
-  </modules>
+        <module>learn-zk</module>
+    </modules>
     <packaging>pom</packaging>
 
     <name>learn-root</name>
