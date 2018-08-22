@@ -94,7 +94,6 @@ public class ZkDemo {
             } else if (Event.KeeperState.Expired.equals(state)) {
                 System.out.println(logPrefix + " 会话失效");
             } else;
-            System.out.println("---------------------------------------------");
 
 
         }
