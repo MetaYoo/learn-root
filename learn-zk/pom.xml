@@ -13,7 +13,9 @@
 
     <packaging>pom</packaging>
     <modules>
-        <module>learn-zk-demo</module>
+        <module>learn-zk-zookeeper</module>
+        <module>learn-zk-zkclient</module>
+        <module>learn-zk-curator</module>
     </modules>
 
     <dependencyManagement>
