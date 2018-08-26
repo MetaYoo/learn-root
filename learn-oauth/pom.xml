@@ -18,7 +18,7 @@
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
+            <!--<dependency>
                 <groupId>org.apache.oltu.oauth2</groupId>
                 <artifactId>org.apache.oltu.oauth2.client</artifactId>
                 <version>1.0.2</version>
@@ -37,7 +37,7 @@
                 <groupId>org.apache.oltu.oauth2</groupId>
                 <artifactId>org.apache.oltu.oauth2.jwt</artifactId>
                 <version>1.0.2</version>
-            </dependency>
+            </dependency>-->
         </dependencies>
     </dependencyManagement>
 
