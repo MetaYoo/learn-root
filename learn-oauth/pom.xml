@@ -14,6 +14,7 @@
     <modules>
         <module>learn-oauth-server</module>
         <module>learn-oauth-client</module>
+        <module>learn-oauth-oauth2</module>
     </modules>
 
     <dependencyManagement>
