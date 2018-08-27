@@ -8,10 +8,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>learn-springboot</artifactId>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
     <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
+    <modules>
+        <module>learn-springboot-security</module>
+        <module>learn-springboot-demo</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
