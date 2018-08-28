@@ -15,6 +15,7 @@
     <modules>
         <module>learn-springboot-security</module>
         <module>learn-springboot-demo</module>
+        <module>learn-springboot-oauth2</module>
     </modules>
 
     <properties>
