@@ -1,0 +1,9 @@
+security:
+  oauth2:
+    client:
+      client-id: VaAykBZSIK33tD1yRK3XoPtx
+      client-secret: FgL5vYi1Fs11IprXB8LprHIv4fslTqsC
+      access-token-uri: http://openapi.baidu.com/oauth/2.0/token
+      user-authorization-uri: http://openapi.baidu.com/oauth/2.0/authorize
+    resource:
+      userInfoUri: https://openapi.baidu.com/rest/2.0/passport/users/getInfo
