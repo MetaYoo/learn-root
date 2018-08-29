@@ -1,8 +1,8 @@
 security:
   oauth2:
     client:
-      client-id: VaAykBZSIK33tD1yRK3XoPtx
-      client-secret: FgL5vYi1Fs11IprXB8LprHIv4fslTqsC
+      client-id: YWDsSkYdfMZKyGqAoW4R0xOO
+      client-secret: RWIHz5dXmt3EAFrxkYQ3rvI6tbFp7Fvs
       access-token-uri: http://openapi.baidu.com/oauth/2.0/token
       user-authorization-uri: http://openapi.baidu.com/oauth/2.0/authorize
     resource:

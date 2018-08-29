@@ -10,5 +10,11 @@ public class PublicController {
     public String index() {
         return "Hello abc";
     }
+
+
+    @RequestMapping("/login")
+    public String login() {
+        return "Hello oauth2";
+    }
  
 }
