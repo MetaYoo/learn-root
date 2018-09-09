@@ -10,8 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>learn-spring-security</artifactId>
+    <packaging>war</packaging>
 
-    <name>learn-spring-security</name>
+    <name>learn-spring-security Maven Webapp</name>
     <url>http://www.example.com</url>
 
     <properties>
@@ -22,14 +23,14 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-web</artifactId>
-            <version>5.0.7.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-config</artifactId>
-            <version>5.0.7.RELEASE</version>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>learn-spring-security</finalName>
+    </build>
 </project>

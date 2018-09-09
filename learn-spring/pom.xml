@@ -17,6 +17,7 @@
         <module>learn-spring-springmvc</module>
         <module>learn-spring-webflow</module>
         <module>learn-spring-security</module>
+        <module>learn-spring-security</module>
     </modules>
 
 </project>
