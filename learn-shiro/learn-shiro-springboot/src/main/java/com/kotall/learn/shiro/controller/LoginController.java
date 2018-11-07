@@ -10,12 +10,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
+import java.util.Optional;
 
 /**
  * @author : aracwong
@@ -62,7 +64,11 @@ public class LoginController {
         Subject subject = SecurityUtils.getSubject();
         if (subject.isAuthenticated()) {
             AuthUser user = (AuthUser) SecurityUtils.getSubject().getPrincipal();
-            AuthToken token = this.tokenDao.findOne(user.getName());
+            AuthToken qbe = new AuthToken();
+            qbe.setId(user.getName());
+            Example<AuthToken> example = Example.of(qbe);
+            Optional<AuthToken> optional = this.tokenDao.findOne(example);
+            AuthToken token = optional.get();
             token.setToken(IdGenerator.generateValue());
             this.tokenDao.save(token);
             SecurityUtils.getSubject().logout();
