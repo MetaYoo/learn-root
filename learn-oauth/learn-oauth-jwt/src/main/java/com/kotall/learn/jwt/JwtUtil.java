@@ -1,6 +1,6 @@
 package com.kotall.learn.jwt;
 
-import com.kotall.learn.User;
+import com.kotall.learn.bean.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;

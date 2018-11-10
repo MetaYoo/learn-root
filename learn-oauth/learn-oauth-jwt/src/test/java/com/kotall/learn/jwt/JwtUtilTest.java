@@ -1,10 +1,8 @@
 package com.kotall.learn.jwt;
 
-import com.kotall.learn.User;
+import com.kotall.learn.bean.User;
 import io.jsonwebtoken.Claims;
 import org.junit.Test;
-
-import java.time.format.DateTimeFormatter;
 
 /**
  * @author zpwang

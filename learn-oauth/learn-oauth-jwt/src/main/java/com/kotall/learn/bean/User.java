@@ -1,4 +1,4 @@
-package com.kotall.learn;
+package com.kotall.learn.bean;
 
 
 import lombok.Getter;
