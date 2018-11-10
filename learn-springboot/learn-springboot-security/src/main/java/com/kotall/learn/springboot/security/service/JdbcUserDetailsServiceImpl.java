@@ -1,4 +1,4 @@
-package com.kotall.learn.springboot.security;
+package com.kotall.learn.springboot.security.service;
 
 import com.kotall.learn.springboot.security.dao.UserRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -30,7 +30,7 @@ public class JdbcUserDetailsServiceImpl implements UserDetailsService {
             log.info("=== query user by username : {}", username);
             com.kotall.learn.springboot.security.bean.User user = this.userRepository.findByUsername(username);
             log.info("=== user : {}", user);
-            userDetails = new User(username, user.getPassword().toLowerCase(),true,true,true,true,new ArrayList<GrantedAuthority>());
+            userDetails = new User(username, user.getPassword(),true,true,true,true,new ArrayList<GrantedAuthority>());
         }catch (Exception e) {
             e.printStackTrace();
         }

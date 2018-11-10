@@ -14,7 +14,8 @@ public class PasswordENcoderTest {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode("123456");
         System.out.println(encodedPassword);
+        String eP = "$2a$10$ltIhc5nHjSfkkXnKBRHQiOL5JRKb4pjddvEf.VjwhFkKCtp18k/e2";
 
-        System.out.println(passwordEncoder.matches("123456", "$2a$10$ltIhc5nHjSfkkXnKBRHQiOL5JRKb4pjddvEf.VjwhFkKCtp18k/e2"));
+        System.out.println(passwordEncoder.matches("123456", eP));
     }
 }
