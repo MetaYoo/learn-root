@@ -3,8 +3,7 @@ package com.kotall.learn.springboot.security;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
  *
@@ -14,17 +13,15 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  *
  */
 @SpringBootApplication
-public class Application {
+public class JwtAuthApplication {
 
 	public static void main(String[] args) {
-
-		SpringApplication.run(Application.class, args);
-
+		SpringApplication.run(JwtAuthApplication.class, args).start();
 	}
 
 	@Bean
-	public static PasswordEncoder passwordEncoder(){
-		return NoOpPasswordEncoder.getInstance();
+	public BCryptPasswordEncoder bCryptPasswordEncoder() {
+		return new BCryptPasswordEncoder();
 	}
 
 }
