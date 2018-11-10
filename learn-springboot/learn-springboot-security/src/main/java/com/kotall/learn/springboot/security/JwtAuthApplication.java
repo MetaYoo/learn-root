@@ -7,9 +7,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
  *
- * @author 程序猿DD
+ * @author aracwong
  * @version 1.0.0
- * @blog http://blog.didispace.com
  *
  */
 @SpringBootApplication
