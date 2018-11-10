@@ -24,6 +24,7 @@
         <module>learn-dp</module>
         <module>learn-netty</module>
         <module>learn-zk</module>
+        <module>learn-demo</module>
     </modules>
     <packaging>pom</packaging>
 
