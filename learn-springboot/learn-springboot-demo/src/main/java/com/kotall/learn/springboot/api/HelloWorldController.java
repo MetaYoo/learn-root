@@ -1,4 +1,4 @@
-package com.kotall.learn.springboot.controller;
+package com.kotall.learn.springboot.api;
 
 import com.kotall.learn.springboot.configuration.AppConfig;
 import com.kotall.learn.springboot.entity.UserEntity;

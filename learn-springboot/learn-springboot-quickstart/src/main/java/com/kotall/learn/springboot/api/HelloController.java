@@ -1,4 +1,4 @@
-package com.kotall.learn.springboot.controller;
+package com.kotall.learn.springboot.api;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
