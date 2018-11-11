@@ -12,6 +12,7 @@
     <modules>
         <module>learn-demo-login-springsecurity-memory</module>
         <module>learn-demo-login-springsecurity-db</module>
+        <module>learn-demo-login-springsecurity-jwt</module>
     </modules>
 
     <artifactId>learn-demo-login</artifactId>
