@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -23,6 +24,8 @@ public class JdbcUserDetailService implements UserDetailsService, UserService {
 
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -55,7 +58,9 @@ public class JdbcUserDetailService implements UserDetailsService, UserService {
         String username = userEntity.getUsername();
         if (exist(username))
             return false;
-        userEntity.setRoles("USER");
+        userEntity.setRoles("ROLE_USER");
+        // 密码加密
+        userEntity.setPassword(this.bCryptPasswordEncoder.encode(userEntity.getPassword()));
         int result = userMapper.insert(userEntity);
         return  result == 1;
     }

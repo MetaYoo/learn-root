@@ -51,4 +51,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .withUser("admin").password("{noop}1").roles("USER");
     }
 
+    /**
+     * 在内存中创建一个名为 "user" 的用户，密码为 "1"，拥有 "USER" 权限
+     */
+//    @Bean
+//    @Override
+//    protected UserDetailsService userDetailsService() {
+//        User.UserBuilder users = User.withDefaultPasswordEncoder();
+//        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
+//        manager.createUser(users.username("user").password("{noop}1").roles("USER").build());
+//        return manager;
+//    }
+
 }
