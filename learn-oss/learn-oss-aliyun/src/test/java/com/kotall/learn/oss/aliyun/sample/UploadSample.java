@@ -28,7 +28,6 @@ import com.aliyun.oss.OSSException;
 import com.aliyun.oss.model.CompleteMultipartUploadResult;
 import com.aliyun.oss.model.UploadFileRequest;
 import com.aliyun.oss.model.UploadFileResult;
-import com.kotall.learn.oss.aliyun.OSS;
 
 /**
  * Examples of uploading with enabling checkpoint file.
