@@ -17,83 +17,57 @@
  * under the License.
  */
 
-package com.kotall.learn.oss.aliyun.samples;
+package com.kotall.learn.oss.aliyun.sample;
 
-import java.io.File;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
-
 import com.aliyun.oss.ClientException;
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
 import com.aliyun.oss.OSSException;
-import com.aliyun.oss.model.GetObjectRequest;
+import com.aliyun.oss.model.ObjectMetadata;
 
 /**
- * Image process examples.
- *
+ * Examples about metadata information get and set.
+ * 
  */
-public class ImageSample {
+public class ObjectMetaSample {
     
     private static String endpoint = "<endpoint, http://oss-cn-hangzhou.aliyuncs.com>";
     private static String accessKeyId = "<accessKeyId>";
     private static String accessKeySecret = "<accessKeySecret>";
     private static String bucketName = "<bucketName>";
-    private static String key = "example.jpg";
+    private static String key = "<key>";
+    private static String content = "Hello OSS";
     
     
-    public static void main(String[] args) throws IOException {        
-
+    public static void main(String[] args) throws IOException {
+        /*
+         * Constructs a client instance with your account for accessing OSS
+         */
         OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
-        
+                
         try {
-            // resize
-            String style = "image/resize,m_fixed,w_100,h_100";  
-            GetObjectRequest request = new GetObjectRequest(bucketName, key);
-            request.setProcess(style);
+            ObjectMetadata meta = new ObjectMetadata();
             
-            ossClient.getObject(request, new File("example-resize.jpg"));
+            // Sets the content type.
+            meta.setContentType("text/plain");
+            // Sets the MD5 data---please update it with the actual value.
+            meta.setContentMD5("");
+            // Sets the custom metadata.
+            meta.addUserMetadata("meta", "meta-value");
             
-            // crop
-            style = "image/crop,w_100,h_100,x_100,y_100,r_1"; 
-            request = new GetObjectRequest(bucketName, key);
-            request.setProcess(style);
+            // Uploads the file
+            ossClient.putObject(bucketName, key, 
+                    new ByteArrayInputStream(content.getBytes()), meta);
+           
+            // Gets the object metadata information.
+            ObjectMetadata metadata = ossClient.getObjectMetadata(bucketName, key);
+            System.out.println(metadata.getContentType());
+            System.out.println(metadata.getLastModified());
+            System.out.println(metadata.getUserMetadata().get("meta")); 
             
-            ossClient.getObject(request, new File("example-crop.jpg"));
-            
-            // rotate
-            style = "image/rotate,90"; 
-            request = new GetObjectRequest(bucketName, key);
-            request.setProcess(style);
-            
-            ossClient.getObject(request, new File("example-rotate.jpg"));
-            
-            // sharpen
-            style = "image/sharpen,100"; 
-            request = new GetObjectRequest(bucketName, key);
-            request.setProcess(style);
-            
-            ossClient.getObject(request, new File("example-sharpen.jpg"));
-            
-            // add watermark into the image
-            style = "image/watermark,text_SGVsbG8g5Zu-54mH5pyN5YqhIQ"; 
-            request = new GetObjectRequest(bucketName, key);
-            request.setProcess(style);
-            
-            ossClient.getObject(request, new File("example-watermark.jpg"));
-            
-            // convert format
-            style = "image/format,png"; 
-            request = new GetObjectRequest(bucketName, key);
-            request.setProcess(style);
-            
-            ossClient.getObject(request, new File("example-format.png"));
-            
-            // image information
-            style = "image/info"; 
-            request = new GetObjectRequest(bucketName, key);
-            request.setProcess(style);
-            
-            ossClient.getObject(request, new File("example-info.txt"));
+            ossClient.deleteObject(bucketName, key);
             
         } catch (OSSException oe) {
             System.out.println("Caught an OSSException, which means your request made it to OSS, "
@@ -107,10 +81,12 @@ public class ImageSample {
                     + "a serious internal problem while trying to communicate with OSS, "
                     + "such as not being able to access the network.");
             System.out.println("Error Message: " + ce.getMessage());
-        } catch (Throwable e) {
-            e.printStackTrace();
         } finally {
+            /*
+             * Do not forget to shut down the client finally to release all allocated resources.
+             */
             ossClient.shutdown();
         }
     }
+    
 }

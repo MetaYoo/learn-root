@@ -17,52 +17,53 @@
  * under the License.
  */
 
-package com.kotall.learn.oss.aliyun.samples;
+package com.kotall.learn.oss.aliyun.sample;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 import com.aliyun.oss.ClientException;
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
 import com.aliyun.oss.OSSException;
-import com.aliyun.oss.model.OSSObject;
+import com.aliyun.oss.model.CompleteMultipartUploadResult;
+import com.aliyun.oss.model.UploadFileRequest;
+import com.aliyun.oss.model.UploadFileResult;
+import com.kotall.learn.oss.aliyun.OSS;
 
 /**
- * This sample demonstrates how to create an empty folder under 
- * specfied bucket to Aliyun OSS using the OSS SDK for Java.
+ * Examples of uploading with enabling checkpoint file.
+ *
  */
-public class CreateFolderSample {
+public class UploadSample {
     
-    private static String endpoint = "*** Provide OSS endpoint ***";
-    private static String accessKeyId = "*** Provide your AccessKeyId ***";
-    private static String accessKeySecret = "*** Provide your AccessKeySecret ***";
-
-    private static String bucketName = "*** Provide bucket name ***";
+    private static String endpoint = "<endpoint, http://oss-cn-hangzhou.aliyuncs.com>";
+    private static String accessKeyId = "<accessKeyId>";
+    private static String accessKeySecret = "<accessKeySecret>";
+    private static String bucketName = "<bucketName>";
+    private static String key = "<downloadKey>";
+    private static String uploadFile = "<uploadFile>";
 
     public static void main(String[] args) throws IOException {        
-        /*
-         * Constructs a client instance with your account for accessing OSS
-         */
-        OSS client = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
+
+        OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
         
         try {
-            /*
-             * Create an empty folder without request body, note that the key must be 
-             * suffixed with a slash
-             */
-            final String keySuffixWithSlash = "MyObjectKey/";
-            client.putObject(bucketName, keySuffixWithSlash, new ByteArrayInputStream(new byte[0]));
-            System.out.println("Creating an empty folder " + keySuffixWithSlash + "\n");
+            UploadFileRequest uploadFileRequest = new UploadFileRequest(bucketName, key);
+            // The local file to upload---it must exist.
+            uploadFileRequest.setUploadFile(uploadFile);
+            // Sets the concurrent upload task number to 5.
+            uploadFileRequest.setTaskNum(5);
+            // Sets the part size to 1MB.
+            uploadFileRequest.setPartSize(1024 * 1024 * 1);
+            // Enables the checkpoint file. By default it's off.
+            uploadFileRequest.setEnableCheckpoint(true);
             
-            /*
-             * Verify whether the size of the empty folder is zero 
-             */
-            OSSObject object = client.getObject(bucketName, keySuffixWithSlash);
-            System.out.println("Size of the empty folder '" + object.getKey() + "' is " + 
-                    object.getObjectMetadata().getContentLength());
-            object.getObjectContent().close();
-
+            UploadFileResult uploadResult = ossClient.uploadFile(uploadFileRequest);
+            
+            CompleteMultipartUploadResult multipartUploadResult = 
+                    uploadResult.getMultipartUploadResult();
+            System.out.println(multipartUploadResult.getETag());
+            
         } catch (OSSException oe) {
             System.out.println("Caught an OSSException, which means your request made it to OSS, "
                     + "but was rejected with an error response for some reason.");
@@ -75,11 +76,10 @@ public class CreateFolderSample {
                     + "a serious internal problem while trying to communicate with OSS, "
                     + "such as not being able to access the network.");
             System.out.println("Error Message: " + ce.getMessage());
+        } catch (Throwable e) {
+            e.printStackTrace();
         } finally {
-            /*
-             * Do not forget to shut down the client finally to release all allocated resources.
-             */
-            client.shutdown();
+            ossClient.shutdown();
         }
     }
 }

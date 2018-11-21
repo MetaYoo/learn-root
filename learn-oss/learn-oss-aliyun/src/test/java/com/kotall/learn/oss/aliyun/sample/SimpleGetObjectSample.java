@@ -17,67 +17,73 @@
  * under the License.
  */
 
-package com.kotall.learn.oss.aliyun.samples;
+package com.kotall.learn.oss.aliyun.sample;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 
 import com.aliyun.oss.ClientException;
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
 import com.aliyun.oss.OSSException;
-import com.aliyun.oss.model.DeleteObjectsRequest;
-import com.aliyun.oss.model.DeleteObjectsResult;
+import com.aliyun.oss.model.GetObjectRequest;
+import com.aliyun.oss.model.OSSObject;
+import com.aliyun.oss.model.PutObjectRequest;
 
 /**
- * This sample demonstrates how to delete objects under specfied bucket 
- * from Aliyun OSS using the OSS SDK for Java.
+ * This sample demonstrates how to upload/download an object to/from 
+ * Aliyun OSS using the OSS SDK for Java.
  */
-public class DeleteObjectsSample {
+public class SimpleGetObjectSample {
     
     private static String endpoint = "*** Provide OSS endpoint ***";
     private static String accessKeyId = "*** Provide your AccessKeyId ***";
     private static String accessKeySecret = "*** Provide your AccessKeySecret ***";
-
-    private static String bucketName = "*** Provide bucket name ***";
     
-    public static void main(String[] args) throws IOException {        
+    private static String bucketName = "*** Provide bucket name ***";
+    private static String key = "*** Provide key ***";
+    
+    public static void main(String[] args) throws IOException {
         /*
          * Constructs a client instance with your account for accessing OSS
          */
         OSS client = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
         
         try {
-            /*
-             * Batch put objects into the bucket
+            
+            /**
+             * Note that there are two ways of uploading an object to your bucket, the one 
+             * by specifying an input stream as content source, the other by specifying a file.
              */
-            final String content = "Thank you for using Aliyun Object Storage Service";
-            final String keyPrefix = "MyObjectKey";
-            List<String> keys = new ArrayList<String>();
-            for (int i = 0; i < 100; i++) {
-                String key = keyPrefix + i;
-                InputStream instream = new ByteArrayInputStream(content.getBytes());
-                client.putObject(bucketName, key, instream);
-                System.out.println("Succeed to put object " + key);
-                keys.add(key);
-            }
-            System.out.println();
             
             /*
-             * Delete all objects uploaded recently under the bucket
+             * Upload an object to your bucket from an input stream
              */
-            System.out.println("\nDeleting all objects:");
-            DeleteObjectsResult deleteObjectsResult = client.deleteObjects(
-                    new DeleteObjectsRequest(bucketName).withKeys(keys));
-            List<String> deletedObjects = deleteObjectsResult.getDeletedObjects();
-            for (String object : deletedObjects) {
-                System.out.println("\t" + object);
-            }
-            System.out.println();
-
+            System.out.println("Uploading a new object to OSS from an input stream\n");
+            String content = "Thank you for using Aliyun Object Storage Service";
+            client.putObject(bucketName, key, new ByteArrayInputStream(content.getBytes()));
+            
+            /*
+             * Upload an object to your bucket from a file
+             */
+            System.out.println("Uploading a new object to OSS from a file\n");
+            client.putObject(new PutObjectRequest(bucketName, key, createSampleFile()));
+            
+            /*
+             * Download an object from your bucket
+             */
+            System.out.println("Downloading an object");
+            OSSObject object = client.getObject(new GetObjectRequest(bucketName, key));
+            System.out.println("Content-Type: "  + object.getObjectMetadata().getContentType());
+            displayTextInputStream(object.getObjectContent());
+            
         } catch (OSSException oe) {
             System.out.println("Caught an OSSException, which means your request made it to OSS, "
                     + "but was rejected with an error response for some reason.");
@@ -97,4 +103,30 @@ public class DeleteObjectsSample {
             client.shutdown();
         }
     }
+    
+    private static File createSampleFile() throws IOException {
+        File file = File.createTempFile("oss-java-sdk-", ".txt");
+        file.deleteOnExit();
+
+        Writer writer = new OutputStreamWriter(new FileOutputStream(file));
+        writer.write("abcdefghijklmnopqrstuvwxyz\n");
+        writer.write("0123456789011234567890\n");
+        writer.close();
+
+        return file;
+    }
+
+    private static void displayTextInputStream(InputStream input) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+        while (true) {
+            String line = reader.readLine();
+            if (line == null) break;
+
+            System.out.println("\t" + line);
+        }
+        System.out.println();
+
+        reader.close();
+    }
+    
 }

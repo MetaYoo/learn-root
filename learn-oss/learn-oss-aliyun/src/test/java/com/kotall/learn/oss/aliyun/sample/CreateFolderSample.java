@@ -17,7 +17,7 @@
  * under the License.
  */
 
-package com.kotall.learn.oss.aliyun.samples;
+package com.kotall.learn.oss.aliyun.sample;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -26,51 +26,42 @@ import com.aliyun.oss.ClientException;
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
 import com.aliyun.oss.OSSException;
-import com.aliyun.oss.model.Callback;
-import com.aliyun.oss.model.Callback.CalbackBodyType;
-import com.aliyun.oss.model.PutObjectRequest;
-import com.aliyun.oss.model.PutObjectResult;
+import com.aliyun.oss.model.OSSObject;
 
 /**
- * Examples about how to use the callback
- *
+ * This sample demonstrates how to create an empty folder under 
+ * specfied bucket to Aliyun OSS using the OSS SDK for Java.
  */
-public class CallbackSample {
+public class CreateFolderSample {
     
     private static String endpoint = "*** Provide OSS endpoint ***";
     private static String accessKeyId = "*** Provide your AccessKeyId ***";
     private static String accessKeySecret = "*** Provide your AccessKeySecret ***";
+
     private static String bucketName = "*** Provide bucket name ***";
-    
-    // The callback url，for example: http://oss-demo.aliyuncs.com:23450或http://0.0.0.0:9090
-    // The service of that url must support the post method.
-    private static final String callbackUrl = "<yourCallbackServerUrl>";
-    
 
     public static void main(String[] args) throws IOException {        
-
-        OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
+        /*
+         * Constructs a client instance with your account for accessing OSS
+         */
+        OSS client = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
         
         try {
-            String content = "Hello OSS";
-            PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, "key", 
-                    new ByteArrayInputStream(content.getBytes())); 
+            /*
+             * Create an empty folder without request body, note that the key must be 
+             * suffixed with a slash
+             */
+            final String keySuffixWithSlash = "MyObjectKey/";
+            client.putObject(bucketName, keySuffixWithSlash, new ByteArrayInputStream(new byte[0]));
+            System.out.println("Creating an empty folder " + keySuffixWithSlash + "\n");
             
-            Callback callback = new Callback();
-            callback.setCallbackUrl(callbackUrl);
-            callback.setCallbackHost("oss-cn-hangzhou.aliyuncs.com");
-            callback.setCallbackBody("{\\\"bucket\\\":${bucket},\\\"object\\\":${object},"
-                    + "\\\"mimeType\\\":${mimeType},\\\"size\\\":${size},"
-                    + "\\\"my_var1\\\":${x:var1},\\\"my_var2\\\":${x:var2}}");
-            callback.setCalbackBodyType(CalbackBodyType.JSON);
-            callback.addCallbackVar("x:var1", "value1");
-            callback.addCallbackVar("x:var2", "value2");
-            putObjectRequest.setCallback(callback);
-            
-            PutObjectResult putObjectResult = ossClient.putObject(putObjectRequest);
-            byte[] buffer = new byte[1024];
-            putObjectResult.getResponse().getContent().read(buffer);
-            putObjectResult.getResponse().getContent().close();
+            /*
+             * Verify whether the size of the empty folder is zero 
+             */
+            OSSObject object = client.getObject(bucketName, keySuffixWithSlash);
+            System.out.println("Size of the empty folder '" + object.getKey() + "' is " + 
+                    object.getObjectMetadata().getContentLength());
+            object.getObjectContent().close();
 
         } catch (OSSException oe) {
             System.out.println("Caught an OSSException, which means your request made it to OSS, "
@@ -85,7 +76,10 @@ public class CallbackSample {
                     + "such as not being able to access the network.");
             System.out.println("Error Message: " + ce.getMessage());
         } finally {
-            ossClient.shutdown();
+            /*
+             * Do not forget to shut down the client finally to release all allocated resources.
+             */
+            client.shutdown();
         }
     }
 }

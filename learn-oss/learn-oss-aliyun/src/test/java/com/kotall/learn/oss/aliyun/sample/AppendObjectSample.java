@@ -17,7 +17,7 @@
  * under the License.
  */
 
-package com.kotall.learn.oss.aliyun.samples;
+package com.kotall.learn.oss.aliyun.sample;
 
 import com.aliyun.oss.ClientException;
 import com.aliyun.oss.OSS;

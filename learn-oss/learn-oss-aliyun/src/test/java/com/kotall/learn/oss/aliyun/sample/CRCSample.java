@@ -17,7 +17,7 @@
  * under the License.
  */
 
-package com.kotall.learn.oss.aliyun.samples;
+package com.kotall.learn.oss.aliyun.sample;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -34,8 +34,7 @@ import com.aliyun.oss.model.AppendObjectRequest;
 import com.aliyun.oss.model.AppendObjectResult;
 import com.aliyun.oss.model.OSSObject;
 import com.aliyun.oss.model.UploadFileRequest;
-import com.kotall.learn.oss.aliyun.*;
-import junit.framework.Assert;
+import org.junit.Assert;
 
 /**
  * Examples about how to enable and check CRC for uploading and downloading data.
