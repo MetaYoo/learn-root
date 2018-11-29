@@ -14,7 +14,8 @@
         <module>learn-dp-filterchain</module>
         <module>learn-dp-reactor</module>
         <module>learn-dp-state</module>
-    </modules>
+		<module>learn-dp-dl</module>
+	</modules>
 
 	<artifactId>learn-dp</artifactId>
 
