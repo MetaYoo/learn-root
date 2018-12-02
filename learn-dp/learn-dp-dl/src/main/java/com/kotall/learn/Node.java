@@ -3,6 +3,9 @@ package com.kotall.learn;
 
 import lombok.Data;
 
+/**
+ * 树木节点
+ */
 @Data
 public class Node {
     /**
