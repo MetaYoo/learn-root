@@ -26,6 +26,7 @@
         <module>learn-zk</module>
         <module>learn-demo</module>
         <module>learn-oss</module>
+        <module>learn-web</module>
     </modules>
     <packaging>pom</packaging>
 
