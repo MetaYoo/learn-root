@@ -27,6 +27,7 @@
         <module>learn-demo</module>
         <module>learn-oss</module>
         <module>learn-web</module>
+        <module>learn-jvm</module>
     </modules>
     <packaging>pom</packaging>
 
