@@ -28,6 +28,7 @@
         <module>learn-oss</module>
         <module>learn-web</module>
         <module>learn-jvm</module>
+        <module>learn-mybatis</module>
     </modules>
     <packaging>pom</packaging>
 
