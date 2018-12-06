@@ -20,6 +20,8 @@
         <module>learn-auth</module>
         <module>learn-test</module>
         <module>learn-samples</module>
+        <module>learn-jms</module>
+        <module>learn-mail</module>
     </modules>
     <packaging>pom</packaging>
 
