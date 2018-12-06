@@ -5,24 +5,21 @@
     <artifactId>learn-root</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <modules>
+        <module>learn-dp</module>
         <module>learn-spring</module>
         <module>learn-orm</module>
-        <module>learn-logback</module>
         <module>learn-rpc</module>
-        <module>learn-i18n</module>
-        <module>learn-shiro</module>
         <module>learn-springboot</module>
         <module>learn-springcloud</module>
-        <module>learn-sso</module>
         <module>learn-job</module>
-        <module>learn-oauth</module>
-        <module>learn-test</module>
         <module>learn-io</module>
-        <module>learn-dp</module>
         <module>learn-oss</module>
-        <module>learn-web</module>
         <module>learn-jvm</module>
+        <module>learn-logs</module>
+        <module>learn-web</module>
         <module>learn-template</module>
+        <module>learn-auth</module>
+        <module>learn-test</module>
         <module>learn-samples</module>
     </modules>
     <packaging>pom</packaging>

@@ -1,7 +1,0 @@
-server:
-  port: 8443 #端口号
-  ssl:
-    key-store: tomcat.keystore #你生成的证书名字
-    key-store-password: wangge #密钥库密码
-    key-alias: tomcat
-    key-store-type: JKS
