@@ -6,22 +6,22 @@
     <version>1.0.0-SNAPSHOT</version>
     <modules>
         <module>learn-dp</module>
-        <module>learn-spring</module>
         <module>learn-orm</module>
         <module>learn-rpc</module>
-        <module>learn-springboot</module>
-        <module>learn-springcloud</module>
         <module>learn-io</module>
         <module>learn-oss</module>
         <module>learn-jvm</module>
-        <module>learn-logs</module>
-        <module>learn-web</module>
-        <module>learn-template</module>
-        <module>learn-auth</module>
-        <module>learn-test</module>
-        <module>learn-samples</module>
         <module>learn-jms</module>
         <module>learn-mail</module>
+        <module>learn-logs</module>
+        <module>learn-web</module>
+        <module>learn-auth</module>
+        <module>learn-test</module>
+        <module>learn-template</module>
+        <module>learn-samples</module>
+        <module>learn-spring</module>
+        <module>learn-springboot</module>
+        <module>learn-springcloud</module>
     </modules>
     <packaging>pom</packaging>
 
