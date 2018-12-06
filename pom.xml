@@ -11,7 +11,6 @@
         <module>learn-rpc</module>
         <module>learn-springboot</module>
         <module>learn-springcloud</module>
-        <module>learn-job</module>
         <module>learn-io</module>
         <module>learn-oss</module>
         <module>learn-jvm</module>

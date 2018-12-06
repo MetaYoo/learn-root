@@ -18,6 +18,7 @@
         <module>learn-springboot-oauth2</module>
         <module>learn-springboot-quickstart</module>
         <module>learn-springboot-swagger</module>
+        <module>learn-springboot-job</module>
     </modules>
 
     <properties>
