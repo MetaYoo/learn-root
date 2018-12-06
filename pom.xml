@@ -8,7 +8,6 @@
         <module>learn-spring</module>
         <module>learn-logback</module>
         <module>learn-rpc</module>
-        <module>learn-dubbo</module>
         <module>learn-i18n</module>
         <module>learn-shiro</module>
         <module>learn-jquery</module>
@@ -20,8 +19,6 @@
         <module>learn-test</module>
         <module>learn-io</module>
         <module>learn-dp</module>
-        <module>learn-netty</module>
-        <module>learn-zk</module>
         <module>learn-demo</module>
         <module>learn-oss</module>
         <module>learn-web</module>

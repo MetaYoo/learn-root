@@ -20,6 +20,7 @@
         <module>learn-io-httpclient</module>
         <module>learn-io-nio</module>
         <module>learn-io-aio</module>
+        <module>learn-io-netty</module>
     </modules>
 
     <properties>

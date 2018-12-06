@@ -14,6 +14,7 @@
     <url>http://maven.apache.org</url>
     <modules>
         <module>learn-rpc-zk</module>
+        <module>learn-rpc-dubbo</module>
     </modules>
 
     <properties>
