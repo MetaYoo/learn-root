@@ -6,6 +6,7 @@
     <version>1.0.0-SNAPSHOT</version>
     <modules>
         <module>learn-spring</module>
+        <module>learn-orm</module>
         <module>learn-logback</module>
         <module>learn-rpc</module>
         <module>learn-i18n</module>
@@ -19,12 +20,11 @@
         <module>learn-test</module>
         <module>learn-io</module>
         <module>learn-dp</module>
-        <module>learn-demo</module>
         <module>learn-oss</module>
         <module>learn-web</module>
         <module>learn-jvm</module>
-        <module>learn-mybatis</module>
         <module>learn-template</module>
+        <module>learn-demo</module>
     </modules>
     <packaging>pom</packaging>
 
