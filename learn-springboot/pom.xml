@@ -13,8 +13,8 @@
     <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
     <modules>
+        <module>learn-springboot-helloworld</module>
         <module>learn-springboot-security</module>
-        <module>learn-springboot-demo</module>
         <module>learn-springboot-oauth2</module>
         <module>learn-springboot-quickstart</module>
         <module>learn-springboot-swagger</module>
