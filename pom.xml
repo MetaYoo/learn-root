@@ -11,9 +11,7 @@
         <module>learn-dubbo</module>
         <module>learn-i18n</module>
         <module>learn-shiro</module>
-        <module>learn-freemarker</module>
         <module>learn-jquery</module>
-        <module>learn-thymeleaf</module>
         <module>learn-springboot</module>
         <module>learn-springcloud</module>
         <module>learn-sso</module>
@@ -29,6 +27,7 @@
         <module>learn-web</module>
         <module>learn-jvm</module>
         <module>learn-mybatis</module>
+        <module>learn-template</module>
     </modules>
     <packaging>pom</packaging>
 

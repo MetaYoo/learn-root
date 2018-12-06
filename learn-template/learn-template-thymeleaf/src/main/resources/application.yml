@@ -1,0 +1,14 @@
+server:
+  port: 8080
+  context-path: /demo
+spring:
+  thymeleaf:
+    suffix: .html
+    prefix: classpath:/templates/
+    mode: LEGACYHTML5
+    content-type: text/html
+    encoding: UTF-8
+  resources:
+    static-locations: classpath:/static/,classpath:/templates/
+
+

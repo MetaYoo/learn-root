@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh-CN"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>study01 - helloWorld</title>
+</head>
+
+<body>
+<h1 th:text="${#locale}"></h1>
+<h1 th:text="${#locale.country}"></h1>
+<h1 th:text="${name}"></h1>
+<h1>Hello : <b th:utext="#{msg.welcome}">hello, world!</b></h1>
+<h1>Hello : <b th:utext="#{msg.welcome.user(${user})}">hello, world!</b></h1>
+<h1 th:text="${#calendars.format(today, 'yyyy-MM-dd HH:mm:ss')}"></h1>
+</body>
+</html>
