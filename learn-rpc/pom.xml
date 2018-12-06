@@ -13,7 +13,7 @@
     <name>${project.artifactId}</name>
     <url>http://maven.apache.org</url>
     <modules>
-        <module>learn-rpc-zookeeper</module>
+        <module>learn-rpc-zk</module>
     </modules>
 
     <properties>
