@@ -9,9 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>learn-demo-login-springsecurity-db</artifactId>
+    <artifactId>learn-samples-login-springsecurity-jwt</artifactId>
 
-    <name>learn-demo-login-springsecurity-db</name>
+    <name>learn-samples-login-springsecurity-jwt</name>
     <url>http://www.example.com</url>
 
     <properties>
@@ -52,6 +52,16 @@
             <version>2.0.2</version>
         </dependency>
 
+        <!--<dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.0</version>
+        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-jwt</artifactId>
+            <version>1.0.8.RELEASE</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -80,6 +90,4 @@
             </snapshots>
         </repository>
     </repositories>
-
-
 </project>

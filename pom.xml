@@ -23,7 +23,7 @@
         <module>learn-web</module>
         <module>learn-jvm</module>
         <module>learn-template</module>
-        <module>learn-demo</module>
+        <module>learn-samples</module>
     </modules>
     <packaging>pom</packaging>
 

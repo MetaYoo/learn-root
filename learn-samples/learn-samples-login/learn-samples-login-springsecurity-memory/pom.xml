@@ -10,9 +10,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>learn-demo-login-springsecurity-memory</artifactId>
+    <artifactId>learn-samples-login-springsecurity-memory</artifactId>
 
-    <name>learn-demo-login-springsecurity-memory</name>
+    <name>learn-samples-login-springsecurity-memory</name>
     <url>http://www.example.com</url>
 
     <properties>
