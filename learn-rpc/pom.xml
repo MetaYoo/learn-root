@@ -15,6 +15,7 @@
     <modules>
         <module>learn-rpc-zk</module>
         <module>learn-rpc-dubbo</module>
+        <module>learn-rpc-redis</module>
     </modules>
 
     <properties>
