@@ -22,6 +22,7 @@
         <module>learn-spring</module>
         <module>learn-springboot</module>
         <module>learn-springcloud</module>
+        <module>learn-openframework</module>
     </modules>
     <packaging>pom</packaging>
 
