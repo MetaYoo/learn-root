@@ -1,13 +1,13 @@
 package com.kotall.learn;
 
+import com.kotall.learn.jvm.Animal;
+
 /**
  * Hello world!
- *
  */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+public class App {
+
+    public int test(Animal animal) {
+        return animal.getAge();
     }
 }

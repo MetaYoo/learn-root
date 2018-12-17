@@ -1,20 +1,18 @@
 package com.kotall.learn;
 
-import static org.junit.Assert.assertTrue;
-
+import com.kotall.learn.jvm.Animal;
+import com.kotall.learn.jvm.Cat;
 import org.junit.Test;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-{
-    /**
-     * Rigorous Test :-)
-     */
+public class AppTest {
+
     @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
+    public void shouldAnswerWithTrue() {
+        Animal animal = new Cat();
+        int age = new App().test(animal);
+        System.out.println(age);
     }
 }
