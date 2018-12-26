@@ -14,6 +14,7 @@
         <module>learn-jvm-lock</module>
         <module>learn-jvm-collections</module>
         <module>learn-jvm-jdbc</module>
+        <module>learn-jvm-thread</module>
     </modules>
 
     <artifactId>learn-jvm</artifactId>
