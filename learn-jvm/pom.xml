@@ -15,6 +15,7 @@
         <module>learn-jvm-collections</module>
         <module>learn-jvm-jdbc</module>
         <module>learn-jvm-thread</module>
+        <module>learn-jvm-queue</module>
     </modules>
 
     <artifactId>learn-jvm</artifactId>
