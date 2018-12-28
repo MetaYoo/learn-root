@@ -11,7 +11,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @author zpwang
  * @version 1.0.0
  */
-public class TestCondition {
+public class ConditionTest {
     public static void main(String[] args) {
         BoundedBuffer buffer = new BoundedBuffer();
 
