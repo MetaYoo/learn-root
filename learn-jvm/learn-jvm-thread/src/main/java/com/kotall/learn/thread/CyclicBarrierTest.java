@@ -19,7 +19,7 @@ public class CyclicBarrierTest {
             System.out.println("所有线程执行完毕后，从所有线程中选出一个执行此逻辑， 当前线程：" + Thread.currentThread().getName());
         });
         for (int i = 0; i < 4; i++) {
-            new Thread(new Task(barrier)).start();
+            new Thread(new CyclicBarrierTask(barrier)).start();
         }
 
         try {
@@ -29,15 +29,15 @@ public class CyclicBarrierTest {
         }
         System.out.println("CyclicBarrier重用");
         for (int i = 0; i < 4; i++) {
-            new Thread(new Task(barrier)).start();
+            new Thread(new CyclicBarrierTask(barrier)).start();
         }
     }
 }
 
-class Task implements Runnable {
+class CyclicBarrierTask implements Runnable {
     CyclicBarrier barrier = null;
 
-    public Task(CyclicBarrier barrier) {
+    public CyclicBarrierTask(CyclicBarrier barrier) {
         this.barrier = barrier;
     }
 
