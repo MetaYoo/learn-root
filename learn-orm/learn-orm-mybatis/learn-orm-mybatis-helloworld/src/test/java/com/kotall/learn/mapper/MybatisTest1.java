@@ -1,4 +1,4 @@
-package com.kotall.learn.mybatis;
+package com.kotall.learn.mapper;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;

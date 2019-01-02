@@ -1,7 +1,7 @@
 package com.kotall.learn.service;
 
-import com.kotall.learn.mybatis.Blog;
-import com.kotall.learn.mybatis.BlogMapper;
+import com.kotall.learn.mapper.Blog;
+import com.kotall.learn.mapper.BlogMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

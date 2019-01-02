@@ -1,8 +1,8 @@
 package com.kotall.learn;
 
 
-import com.kotall.learn.mybatis.Blog;
-import com.kotall.learn.mybatis.BlogMapper;
+import com.kotall.learn.mapper.Blog;
+import com.kotall.learn.mapper.BlogMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;

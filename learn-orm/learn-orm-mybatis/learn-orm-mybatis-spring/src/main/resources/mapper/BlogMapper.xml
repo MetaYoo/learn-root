@@ -3,9 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.kotall.learn.mybatis.BlogMapper">
+<mapper namespace="com.kotall.learn.mapper.BlogMapper">
 
-    <select id="selectBlog" resultType="com.kotall.learn.mybatis.Blog">
+    <select id="selectBlog" resultType="com.kotall.learn.mapper.Blog">
         select * from t_blog where id = #{id}
     </select>
 

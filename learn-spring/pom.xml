@@ -19,6 +19,7 @@
         <module>learn-spring-webflow</module>
         <module>learn-spring-security</module>
         <module>learn-spring-i18n</module>
+        <module>learn-spring-javaconfig</module>
     </modules>
 
 </project>

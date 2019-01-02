@@ -1,4 +1,4 @@
-package com.kotall.learn.mybatis;
+package com.kotall.learn.mapper;
 
 public interface BlogMapper {
 
