@@ -11,6 +11,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>learn-orm-mybatis-helloworld</module>
+        <module>learn-orm-mybatis-spring</module>
     </modules>
 
     <artifactId>learn-orm-mybatis</artifactId>
