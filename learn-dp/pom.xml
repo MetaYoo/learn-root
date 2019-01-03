@@ -15,7 +15,8 @@
         <module>learn-dp-reactor</module>
         <module>learn-dp-state</module>
 		<module>learn-dp-dl</module>
-	</modules>
+        <module>learn-dp-singleton</module>
+    </modules>
 
 	<artifactId>learn-dp</artifactId>
 
