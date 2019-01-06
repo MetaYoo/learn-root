@@ -20,6 +20,7 @@
         <module>learn-spring-security</module>
         <module>learn-spring-i18n</module>
         <module>learn-spring-javaconfig</module>
+        <module>learn-spring-configreload</module>
     </modules>
 
 </project>
