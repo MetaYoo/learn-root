@@ -21,6 +21,8 @@
         <module>learn-spring-i18n</module>
         <module>learn-spring-javaconfig</module>
         <module>learn-spring-configreload</module>
+        <module>learn-spring-jdbc</module>
+        <module>learn-spring-aop</module>
     </modules>
 
 </project>
