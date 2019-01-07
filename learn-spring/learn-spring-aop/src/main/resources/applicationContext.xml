@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd">
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 
+    <bean id="blogService" class="com.kotall.learn.spring.service.impl.BlogServiceImpl"/>
+    <bean id="logAspect" class="com.kotall.learn.spring.aop.LogAspect"/>
+
+    <aop:config>
+        <aop:aspect ref="logAspect">
+            <aop:pointcut id="logPointCut" expression="execution( * com.kotall.learn.spring.service..*.*(..))"/>
+            <aop:before method="doBefore" pointcut-ref="logPointCut"/>
+            <aop:after method="doAfter" pointcut-ref="logPointCut"/>
+            <aop:around method="doAround" pointcut-ref="logPointCut"/>
+            <aop:after-returning method="doAfterReturning" pointcut-ref="logPointCut" returning="ret"/>
+            <aop:after-throwing method="doAfterThrowing" pointcut-ref="logPointCut" throwing="e"/>
+        </aop:aspect>
+    </aop:config>
 
 </beans>
