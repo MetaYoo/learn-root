@@ -23,6 +23,7 @@
         <module>learn-spring-configreload</module>
         <module>learn-spring-jdbc</module>
         <module>learn-spring-aop</module>
+        <module>learn-spring-tx</module>
     </modules>
 
 </project>
