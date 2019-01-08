@@ -17,5 +17,6 @@ public class AppTest {
     @Test
     public void post() {
         blogService.post("hello world !");
+
     }
 }
