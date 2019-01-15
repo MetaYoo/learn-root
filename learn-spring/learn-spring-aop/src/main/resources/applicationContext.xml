@@ -7,6 +7,8 @@
        http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop.xsd">
 
+    <!--<aop:scoped-proxy proxy-target-class="true"/>
+    <aop:aspectj-autoproxy proxy-target-class="true" expose-proxy="true"/>-->
 
     <bean id="blogService" class="com.kotall.learn.spring.service.impl.BlogServiceImpl"/>
     <bean id="logAspect" class="com.kotall.learn.spring.aop.LogAspect"/>

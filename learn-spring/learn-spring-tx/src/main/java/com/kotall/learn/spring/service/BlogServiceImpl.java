@@ -1,7 +1,7 @@
 package com.kotall.learn.spring.service;
 
+import com.kotall.learn.spring.dao.BlogDao;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,10 +12,10 @@ import org.springframework.stereotype.Service;
 public class BlogServiceImpl implements BlogService {
 
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private BlogDao blogDao;
 
     @Override
     public void post(String content) {
-        int rt = jdbcTemplate.update("insert into t_blog(title, content) values (?, ?)", "标题", content);
+        int rt = this.blogDao.saveOrUpdate(content);
     }
 }

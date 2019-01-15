@@ -40,7 +40,7 @@
 
     <tx:advice id="transactionAdvice" transaction-manager="transactionManager">
         <tx:attributes>
-            <tx:method name="add*" propagation="REQUIRED" rollback-for="Exception"/>
+            <tx:method name="add*" propagation="REQUIRED" rollback-for="Exception" isolation="DEFAULT"/>
             <tx:method name="post*" propagation="REQUIRED" rollback-for="Exception"/>
             <tx:method name="delete*" propagation="REQUIRED" rollback-for="Exception"/>
             <tx:method name="query*" read-only="true"/>
