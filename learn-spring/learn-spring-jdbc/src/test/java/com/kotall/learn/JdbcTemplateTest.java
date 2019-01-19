@@ -173,6 +173,10 @@ public class JdbcTemplateTest {
     public void testQuery8() {
         String sql = "select * from t_blog";
         SqlRowSet rs = this.jdbcTemplate.queryForRowSet(sql);
+        while (rs.next()) {
+            System.out.println(rs.getInt("id"));
+        }
+
     }
 
 

@@ -5,8 +5,6 @@ import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
-import java.util.Iterator;
-import java.util.Set;
 
 /**
  * @author zpwang
@@ -19,53 +17,67 @@ public class Client {
 
 
         Selector selector = Selector.open();
-        boolean isConnected = socketChannel.connect(new InetSocketAddress(8000));
+        boolean isConnected = socketChannel.connect(new InetSocketAddress(20880));
 
         if (isConnected) {
             socketChannel.register(selector, SelectionKey.OP_READ);
+            String message = "QUERY DATE!";
+            ByteBuffer writeBuffer = ByteBuffer.allocate(1024);
+            writeBuffer.put(message.getBytes("UTF-8"));
+            writeBuffer.flip();
+            socketChannel.write(writeBuffer);
         } else {
             socketChannel.register(selector, SelectionKey.OP_CONNECT);
         }
 
+//        Scanner scan=new Scanner(System.in);
+//        Charset charset = Charset.forName("UTF-8");
+//        while(scan.hasNextLine()){
+//            // 读取键盘输入
+//            String line=scan.nextLine();
+//            // 将键盘输入的内容输出到SocketChannel中
+//            socketChannel.write(charset.encode(line));
+//        }
+
         while (true) {
-            selector.select();
-            Set<SelectionKey> keys = selector.selectedKeys();
-            Iterator<SelectionKey> it = keys.iterator();
-            while (it.hasNext()) {
-                SelectionKey key = it.next();
+            while (selector.select() > 0) {
+                for (SelectionKey key : selector.selectedKeys()) {
+                    selector.selectedKeys().remove(key);
+                    // ========================================================
 
-                it.remove();
-                if (key.isValid()) {
-                    SocketChannel sc = (SocketChannel) key.channel();
-                    if (key.isConnectable()) {
-                        if (sc.finishConnect()) {
-                            sc.register(selector, SelectionKey.OP_READ);
-                            // 写数据
-                            String message = "QUERY DATE!";
-                            ByteBuffer writeBuffer = ByteBuffer.allocate(1024);
-                            writeBuffer.put(message.getBytes("UTF-8"));
-                            writeBuffer.flip();
-                            sc.write(writeBuffer);
+                    if (key.isValid()) {
+                        SocketChannel sc = (SocketChannel) key.channel();
+                        if (key.isConnectable()) {
+                            if (sc.finishConnect()) {
+                                sc.register(selector, SelectionKey.OP_READ);
+                                // 写数据
+                                System.out.println("向服务端写数据！");
+                                String message = "QUERY DATE!";
+                                ByteBuffer writeBuffer = ByteBuffer.allocate(1024);
+                                writeBuffer.put(message.getBytes("UTF-8"));
+                                writeBuffer.flip();
+                                sc.write(writeBuffer);
+                            }
+                        }
+
+                        if (key.isReadable()) {
+                            ByteBuffer readBuffer = ByteBuffer.allocate(1024);
+                            int readLength = sc.read(readBuffer);
+                            if (readLength > 0) {
+                                readBuffer.flip();
+                                byte[] bytes = new byte[readBuffer.remaining()];
+                                readBuffer.get(bytes);
+                                System.out.println("接收到服务端响应数据：" + new String(bytes, "UTF-8"));
+                            }
+
+                            key.interestOps(SelectionKey.OP_READ);
                         }
                     }
 
-                    System.out.println(key.isReadable());
-
-                    if (key.isReadable()) {
-                        ByteBuffer readBuffer = ByteBuffer.allocate(1024);
-                        int readLength = sc.read(readBuffer);
-                        if (readLength > 0) {
-                            readBuffer.flip();
-                            byte[] bytes = new byte[readBuffer.remaining()];
-                            readBuffer.get(bytes);
-                            System.out.println("接收到服务端响应数据：" + new String(bytes, "UTF-8"));
-                        }
-                    }
+                    // ========================================================
                 }
-                key.cancel();
-
             }
         }
-
     }
+
 }

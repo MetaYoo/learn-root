@@ -18,7 +18,7 @@ public class Server {
 
     public static void main(String[] args) throws Exception {
         ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
-        serverSocketChannel.bind(new InetSocketAddress(8000));
+        serverSocketChannel.bind(new InetSocketAddress(20880));
         serverSocketChannel.configureBlocking(false);
 
         Selector selector = Selector.open();
