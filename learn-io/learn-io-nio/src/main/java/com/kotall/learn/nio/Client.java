@@ -39,8 +39,10 @@ public class Client {
 //            socketChannel.write(charset.encode(line));
 //        }
 
-        while (true) {
-            while (selector.select() > 0) {
+        boolean isDone = false;
+        while (!isDone) {
+            int n = selector.select();
+            if (n > 0) {
                 for (SelectionKey key : selector.selectedKeys()) {
                     selector.selectedKeys().remove(key);
                     // ========================================================
@@ -70,7 +72,11 @@ public class Client {
                                 System.out.println("接收到服务端响应数据：" + new String(bytes, "UTF-8"));
                             }
 
-                            key.interestOps(SelectionKey.OP_READ);
+                            //key.interestOps(SelectionKey.OP_READ);
+                            isDone = true;
+                            System.out.println("任务完毕");
+                            key.cancel();
+                            key.channel().close();
                         }
                     }
 
@@ -78,6 +84,10 @@ public class Client {
                 }
             }
         }
+
+        selector.close();
+        socketChannel.close();
+
     }
 
 }
