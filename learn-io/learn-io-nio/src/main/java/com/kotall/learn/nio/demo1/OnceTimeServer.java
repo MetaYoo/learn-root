@@ -61,7 +61,7 @@ public class OnceTimeServer {
                             sc.write(buffer);
                             System.out.println("服务端返回：" + response);
 
-                            key.channel();
+                            key.cancel();
                             key.channel().close();
                         }
                     }

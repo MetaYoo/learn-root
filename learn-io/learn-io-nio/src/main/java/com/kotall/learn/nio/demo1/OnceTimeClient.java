@@ -69,7 +69,7 @@ public class OnceTimeClient {
                             bos.close();
                             System.out.println("服务端响应数据：" + response);
 
-                            key.channel();
+                            key.cancel();
                             key.channel().close();
                             break;
                         }
