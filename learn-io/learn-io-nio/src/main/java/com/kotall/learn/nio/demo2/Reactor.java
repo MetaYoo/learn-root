@@ -76,9 +76,6 @@ public class Reactor implements Runnable {
         static final int READING = 0, SENDING = 1;
         int state = READING;
 
-        boolean isInputComplete = false;
-        boolean isOutputComplete = false;
-
         public Handler(Selector selector, SocketChannel socketChannel) throws IOException {
             this.socket = socketChannel;
             socket.configureBlocking(false);
@@ -113,11 +110,13 @@ public class Reactor implements Runnable {
             // TODO
             // 处理数据
             // 往缓冲区放数据
+            input.flip();
             byte[] bytes = new byte[input.remaining()];
             input.get(bytes);
 
             System.out.println("读取到的数据：" + new String(bytes));
             output.put("I am from SUN !".getBytes());
+            output.flip();
         }
 
         void read() throws IOException {
@@ -127,7 +126,6 @@ public class Reactor implements Runnable {
                 state = SENDING;
                 key.interestOps(SelectionKey.OP_WRITE);
             }
-
         }
 
         void send() throws IOException {
@@ -135,7 +133,6 @@ public class Reactor implements Runnable {
             if (outputIsComplete()) {
                 key.cancel();
             }
-
         }
     }
 
