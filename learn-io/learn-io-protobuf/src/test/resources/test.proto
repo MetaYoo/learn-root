@@ -1,0 +1,8 @@
+package protobuf;
+option java_package = "com.kotall.learn.io.protobuf";
+option java_outer_classname = "FirstProtobuf";
+message testBuf  {
+  required int32 ID = 1;
+  optional string Url = 2;
+  repeated string name=3;
+}

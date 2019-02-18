@@ -16,6 +16,7 @@
         <module>learn-springcloud-eureka</module>
         <module>learn-springcloud-ribbon</module>
         <module>learn-springcloud-config</module>
+        <module>learn-springcloud-demo</module>
     </modules>
 
 

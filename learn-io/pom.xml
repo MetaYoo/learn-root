@@ -21,6 +21,7 @@
         <module>learn-io-nio</module>
         <module>learn-io-aio</module>
         <module>learn-io-netty</module>
+        <module>learn-io-protobuf</module>
     </modules>
 
     <properties>
