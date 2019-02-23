@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author zpwang
  * @version 1.0.0
  */
-@FeignClient(name="producer-server")
+@FeignClient(name="producer-server", fallback = WeatherReportFeignClientHystrix.class)
 public interface WeatherReportFeignClient {
 
     @RequestMapping(value = "/report/{id}",method = RequestMethod.GET)
