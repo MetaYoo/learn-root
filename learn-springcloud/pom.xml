@@ -17,6 +17,7 @@
         <module>learn-springcloud-ribbon</module>
         <module>learn-springcloud-config</module>
         <module>learn-springcloud-demo</module>
+        <module>learn-springcloud-apollo</module>
     </modules>
 
 
