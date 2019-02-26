@@ -24,6 +24,7 @@
         <module>learn-springcloud</module>
         <module>learn-openframework</module>
         <module>learn-arithmetic</module>
+        <module>learn-nosql</module>
     </modules>
     <packaging>pom</packaging>
 
