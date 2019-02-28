@@ -5,7 +5,9 @@ import java.util.HashSet;
 
 /**
  * desc:
- *  详情参考： https://github.com/datawlb/code/tree/master/all
+ *  详情参考：
+ *  https://blog.csdn.net/luoyexuge/article/details/53837063
+ *  https://github.com/datawlb/code/tree/master/all
  * @author zpwang
  * @create 2019/2/28 13:04
  * @since 1.0.0
