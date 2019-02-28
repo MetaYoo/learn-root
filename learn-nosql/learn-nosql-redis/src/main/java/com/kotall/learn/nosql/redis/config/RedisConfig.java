@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.RedisPassword;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
@@ -21,7 +20,7 @@ import redis.clients.jedis.JedisPoolConfig;
  * @author zpwang
  * @version 1.0.0
  */
-@Configuration
+//@Configuration
 public class RedisConfig {
 
     @Value("${spring.redis.host:localhost}")
