@@ -13,6 +13,6 @@ public class HelloController {
 
     @GetMapping("/{param}")
     public String hello(@PathVariable("param") String param) {
-        return param;
+        return "您好 网站暂时还未上线，敬请期待！";
     }
 }

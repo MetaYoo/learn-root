@@ -13,7 +13,7 @@
     <artifactId>learn-springboot-quickstart</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
-    <name>springbootdemo-${project.version}</name>
+    <name>spring-quickstart-${project.version}</name>
     <url>http://www.example.com</url>
 
     <properties>
