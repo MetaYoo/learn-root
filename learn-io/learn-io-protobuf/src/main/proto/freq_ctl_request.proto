@@ -1,0 +1,36 @@
+syntax="proto2";
+package protobuf;
+option java_package = "com.ycmedia.bid.protobuf";
+option java_outer_classname = "FreqCtlRequest";
+message Request {
+	//请求 ID
+	required string request_id = 1;
+
+	//请求时间 2014-06-17 16:09:15.345
+	required string request_time = 2;
+	required string device_id= 3;
+	required string client_id= 4;
+	// 用户来源渠道
+	enum ChannelTypeEnum{
+		APP = 0;
+		PC=1;
+		WAP=2;
+	}
+	required ChannelTypeEnum channelType = 5[default=APP];
+	// 百度用户ID
+	required string bai_du_user_id= 6;
+	// 创意ID
+	repeated string creative_id = 7;
+	// 媒体ID
+	required string media_id= 8;
+	// 竞价请求ip
+	optional string ip= 9;
+
+	// 广告位ID
+	optional string ad_space_id = 10;
+	// 竞价时间
+	optional string rtb_time= 11;
+	// 出价 -> BigDecimal
+	optional string rtb_price= 12;
+}
+
