@@ -3,29 +3,27 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>learn-root</artifactId>
+        <artifactId>learn-jvm</artifactId>
         <groupId>com.kotall.learn</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <packaging>pom</packaging>
-    <modules>
-        <module>learn-jvm-gc</module>
-        <module>learn-jvm-lock</module>
-        <module>learn-jvm-collections</module>
-        <module>learn-jvm-jdbc</module>
-        <module>learn-jvm-thread</module>
-        <module>learn-jvm-queue</module>
-        <module>learn-jvm-objectcopy</module>
-    </modules>
 
-    <artifactId>learn-jvm</artifactId>
+    <artifactId>learn-jvm-objectcopy</artifactId>
 
-    <name>learn-jvm</name>
-    <url>http://www.example.com</url>
+    <name>learn-jvm-objectcopy</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
 </project>
