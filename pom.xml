@@ -25,6 +25,7 @@
         <module>learn-openframework</module>
         <module>learn-arithmetic</module>
         <module>learn-nosql</module>
+        <module>learn-crypto</module>
     </modules>
     <packaging>pom</packaging>
 
