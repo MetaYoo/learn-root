@@ -22,7 +22,7 @@ public class KafkaConsumerDemo {
     public static void main(String[] args) {
         Properties props = new Properties();
         // 服务器ip:端口号，集群用逗号分隔
-        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "192.168.100.11:9092,192.168.100.12:9092");
+        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
         // 消费者指定组，名称可以随意，注意相同消费组中的消费者只能对同一个分区消费一次
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "test");
         // 是否启用自动提交，默认true
@@ -37,7 +37,7 @@ public class KafkaConsumerDemo {
         KafkaConsumer<String, String> kafkaConsumer = new KafkaConsumer<>(props);
         kafkaConsumer.subscribe(Arrays.asList("test_topic"));
         while (true) {
-            ConsumerRecords<String, String> records = kafkaConsumer.poll(Duration.ofSeconds(100));
+            ConsumerRecords<String, String> records = kafkaConsumer.poll(Duration.ofSeconds(10));
             for (ConsumerRecord<String, String> record : records) {
                 System.out.printf("offset = %d, value = %s", record.offset(), record.value());
                 System.out.println();
