@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="GBK"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:webflow="http://www.springframework.org/schema/webflow-config"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+         http://www.springframework.org/schema/webflow-config http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.0.xsd"
+	default-autowire="byName">
+	
+	
+	
+	
+	<bean id="processEngine" class="com.epcc.finexchange.core.engine.ProcessEngineImpl">
+		<property name="processMap">
+			<map value-type="java.util.List">
+				<!-- 协议支付 -->
+				<entry key="abc" value-ref="abcprocesses" ></entry>
+				<!-- 签约 -->
+				<entry key="efg" value-ref="efgprocesses" ></entry>
+			</map>
+		</property>
+	</bean>
+	<!-- 协议支付 -->
+	<bean  id="abcprocesses" class="java.util.ArrayList">
+	<constructor-arg>  
+		<list>
+		<!-- 协议支付数据存储 -->
+	 		<ref bean="process1" />  
+	 	<!-- 协议支付付款行信息更新 -->	
+			<ref bean="process2" />  
+	
+		</list>  
+	</constructor-arg>  
+	</bean>
+	
+	<bean  id="efgprocesses" class="java.util.ArrayList">
+	<constructor-arg>  
+		<list>
+	 		<ref bean="process2" />  
+			<ref bean="process3" />  
+
+		</list>  
+	</constructor-arg>  
+	</bean>
+	
+	<bean  id="process1" class="com.epcc.finexchange.core.engine.Process">
+		<property name="tran" value="false"/>
+		<property name="asyn" value="false"/>
+		<property name="actions"> 
+	 		<list>  
+                <ref bean="action1" />  
+                <ref bean="action2" />  
+            </list>  
+        </property>  
+	</bean>
+	
+	
+	<bean  id="process2" class="com.epcc.finexchange.core.engine.Process">
+	<property name="tran" value="false"/>
+	<property name="asyn" value="true"/>
+	<property name="actions"> 
+	 <list>  
+                <ref bean="action2" />  
+                <ref bean="action3" />
+                <ref bean="action4" />    
+            </list>  
+        </property>  
+	</bean>
+	<bean  id="process3" class="com.epcc.finexchange.core.engine.Process">
+	<property name="tran" value="false"/>
+	<property name="asyn" value="false"/>
+	<property name="actions">
+	 <list>  
+                <ref bean="action1" />  
+                <ref bean="action3" />  
+            </list>  
+        </property>  
+	</bean>
+	
+	<bean id="action1" class="com.epcc.finexchange.core.action.AmtAction"/>
+	<bean id="action2" class="com.epcc.finexchange.core.action.BizeTypeAction"/>
+	<bean id="action3" class="com.epcc.finexchange.core.action.PaymentAction"/>
+	<bean id="action4" class="com.epcc.finexchange.core.action.ResulAction"/>
+	
+	
+	
+</beans>
