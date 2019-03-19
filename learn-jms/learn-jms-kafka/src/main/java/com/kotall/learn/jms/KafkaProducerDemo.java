@@ -16,10 +16,10 @@ import java.util.Properties;
  */
 public class KafkaProducerDemo {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Properties props = new Properties();
         // 服务器ip:端口号，集群用逗号分隔
-        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
+        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "192.168.100.11:9092,192.168.100.12:9092");
         // key序列化指定类
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         // value序列化指定类
@@ -29,6 +29,7 @@ public class KafkaProducerDemo {
         // 向test_topic发送hello,kafka
         for (int i = 0; i < 100; i++) {
             producer.send(new ProducerRecord<>("test_topic", "content-" + i));
+            System.out.println("msg-" + i);
         }
         producer.close();
     }
