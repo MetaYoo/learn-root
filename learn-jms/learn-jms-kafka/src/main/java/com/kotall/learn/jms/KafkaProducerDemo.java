@@ -2,7 +2,6 @@ package com.kotall.learn.jms;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
-import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
 
 import java.util.Properties;
@@ -28,7 +27,7 @@ public class KafkaProducerDemo {
         KafkaProducer<String, String> producer = new KafkaProducer<>(props);
         // 向test_topic发送hello,kafka
         for (int i = 0; i < 100; i++) {
-            producer.send(new ProducerRecord<>("test_topic", "content-" + i));
+            //producer.send(new ProducerRecord<>("test_topic", "content-" + i));
             System.out.println("msg-" + i);
         }
         producer.close();
