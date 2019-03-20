@@ -6,7 +6,7 @@ import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.serialization.StringDeserializer;
 
-import java.time.Duration;
+//import java.time.Duration;
 import java.util.Arrays;
 import java.util.Properties;
 
@@ -37,11 +37,11 @@ public class KafkaConsumerDemo {
         KafkaConsumer<String, String> kafkaConsumer = new KafkaConsumer<>(props);
         kafkaConsumer.subscribe(Arrays.asList("test_topic"));
         while (true) {
-            ConsumerRecords<String, String> records = kafkaConsumer.poll(Duration.ofSeconds(10));
-            for (ConsumerRecord<String, String> record : records) {
-                System.out.printf("offset = %d, value = %s", record.offset(), record.value());
-                System.out.println();
-            }
+//            ConsumerRecords<String, String> records = kafkaConsumer.poll(Duration.ofSeconds(10));
+//            for (ConsumerRecord<String, String> record : records) {
+//                System.out.printf("offset = %d, value = %s", record.offset(), record.value());
+//                System.out.println();
+//            }
         }
     }
 }
