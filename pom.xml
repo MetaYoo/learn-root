@@ -27,6 +27,7 @@
         <module>learn-nosql</module>
         <module>learn-crypto</module>
         <module>learn-utils</module>
+        <module>learn-ml</module>
     </modules>
     <packaging>pom</packaging>
 

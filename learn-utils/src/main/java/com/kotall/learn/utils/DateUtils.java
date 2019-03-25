@@ -147,6 +147,16 @@ public class DateUtils {
     }
 
     /**
+     * 将默认格式的日期时间字符串转换成LocalDateTime
+     *
+     * @param dateTimeStr
+     * @return
+     */
+    public static LocalDateTime parseToDateTime(String dateTimeStr) {
+        return parseToDateTime(dateTimeStr, DEFAULT_DATE_TIME_FORMATTER);
+    }
+
+    /**
      * 将制定格式的日期时间字符串转换成LocalDateTime
      *
      * @param dateTimeStr
