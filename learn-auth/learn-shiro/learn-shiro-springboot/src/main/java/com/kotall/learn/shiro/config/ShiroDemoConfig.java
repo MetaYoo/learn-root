@@ -50,6 +50,7 @@ public class ShiroDemoConfig {
 
         // oauth过滤
         Map<String, Filter> filters = new HashMap<>();
+        // 取代默认的 auth FormAuthenticationFilter
         filters.put("auth", new AuthFilter());
         shiroFilter.setFilters(filters);
 

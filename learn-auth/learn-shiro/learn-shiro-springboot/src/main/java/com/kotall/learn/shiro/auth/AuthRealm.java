@@ -15,6 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author : aracwong
@@ -37,6 +39,7 @@ public class AuthRealm extends AuthorizingRealm {
 
     /**
      * 授权
+     * 调用次方法获取授权信息
      *
      * @param principals
      * @return
@@ -47,12 +50,18 @@ public class AuthRealm extends AuthorizingRealm {
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
         // TODO: 2018/4/1 0001
         log.info("=======doGetAuthorizationInfo========");
+        Set<String> roles = new HashSet<>();
+        roles.add("ADMIN");
+        roles.add("GUEST");
+        info.setRoles(roles);
+        // info.setStringPermissions();
         return info;
     }
 
     /***
      *  认证 登录
      *  根据 token  设置 AuthenticationInfo
+     *  没有登录或者回话过期会调用次方法
      * @param token
      * @return
      * @throws AuthenticationException
@@ -60,7 +69,7 @@ public class AuthRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         log.info("=======doGetAuthenticationInfo========");
-        AccessToken accessToken = (AccessToken)token.getPrincipal();
+        AccessToken accessToken = (AccessToken) token.getPrincipal();
         if (null == accessToken) {
             return null;
         }

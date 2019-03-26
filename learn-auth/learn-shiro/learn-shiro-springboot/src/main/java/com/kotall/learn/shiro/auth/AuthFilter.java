@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ * authc: 自定义认证过滤器
+ *
  * @author : aracwong
  * @version : 1.0.0
  * @date : 2018/3/15 0015 下午 6:49
@@ -23,7 +25,7 @@ public class AuthFilter extends AuthenticatingFilter {
 
     @Override
     protected AuthenticationToken createToken(ServletRequest request, ServletResponse response) throws Exception {
-        log.info("===================== create token =======================" );
+        log.info("===================== create token =======================");
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         String token = httpRequest.getHeader(TOKEN_KEY);
         if (StringUtils.isEmpty(token)) {
@@ -37,10 +39,10 @@ public class AuthFilter extends AuthenticatingFilter {
 
     @Override
     protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
-        log.info("===================== access denied =======================" );
+        log.info("===================== access denied =======================");
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         String token = httpRequest.getHeader(TOKEN_KEY);
-        if(StringUtils.isEmpty(token)){
+        if (StringUtils.isEmpty(token)) {
             HttpServletResponse httpResponse = (HttpServletResponse) response;
             httpResponse.setContentType("application/json;charset=utf-8");
             String result = "{" +

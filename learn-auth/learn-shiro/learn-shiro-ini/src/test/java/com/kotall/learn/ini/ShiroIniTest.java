@@ -5,6 +5,7 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.codec.Base64;
 import org.apache.shiro.env.DefaultEnvironment;
 import org.apache.shiro.mgt.DefaultSecurityManager;
+import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.realm.text.IniRealm;
 import org.apache.shiro.subject.Subject;
 import org.junit.Assert;
@@ -33,6 +34,20 @@ public class ShiroIniTest {
 
         Assert.assertEquals(false, subject.isAuthenticated());
 
+    }
+
+    @Test
+    public void testJ2SeForShiro() {
+        SecurityManager securityManager = new DefaultSecurityManager(new IniRealm("classpath:shiro.ini"));
+        // 设置SecurityManager
+        SecurityUtils.setSecurityManager(securityManager);
+        // 获取Subject门面
+        Subject subject = SecurityUtils.getSubject();
+
+        // 登录
+        subject.login(new UsernamePasswordToken("zpwang", "wzp123#@!"));
+
+        Assert.assertTrue(subject.isAuthenticated());
     }
 
     @Test
