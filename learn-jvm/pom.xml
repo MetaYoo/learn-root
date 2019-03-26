@@ -17,6 +17,7 @@
         <module>learn-jvm-thread</module>
         <module>learn-jvm-queue</module>
         <module>learn-jvm-objectcopy</module>
+        <module>learn-jvm-java8</module>
     </modules>
 
     <artifactId>learn-jvm</artifactId>
