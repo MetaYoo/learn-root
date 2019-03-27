@@ -28,6 +28,7 @@
         <module>learn-crypto</module>
         <module>learn-utils</module>
         <module>learn-ml</module>
+        <module>learn-cache</module>
     </modules>
     <packaging>pom</packaging>
 

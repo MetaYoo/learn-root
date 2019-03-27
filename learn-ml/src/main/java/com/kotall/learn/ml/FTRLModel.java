@@ -5,7 +5,8 @@ import java.util.HashSet;
 
 /**
  * desc:
- *  https://blog.csdn.net/luoyexuge/article/details/53837063
+ * https://blog.csdn.net/luoyexuge/article/details/53837063
+ *
  * @author zpwang
  * @create 2019/3/25 18:00
  * @since 1.0.0
@@ -23,7 +24,7 @@ public class FTRLModel {
     private double alpha = 0.1;
     /**
      * smoothing rate
-      */
+     */
     private double belta = 1;
     private double L1 = 1;
     private double L2 = 1;
@@ -38,6 +39,7 @@ public class FTRLModel {
 
     /**
      * z更新权重用到的,存放梯度累加的n，最后的w
+     *
      * @param D
      */
     public FTRLModel(int D) {
@@ -116,8 +118,8 @@ public class FTRLModel {
         try {
             br = new BufferedReader(new InputStreamReader(new FileInputStream(trPath), "UTF-8"));
             str = br.readLine();
-            String name[] = str.split(",");
-            String value[] = null;
+            String[] name = str.split(",");
+            String[] value;
             HashSet<Integer> set = new HashSet<>();
             for (int epo = 0; epo < epoch; epo++) {
                 while ((str = br.readLine()) != null) {
