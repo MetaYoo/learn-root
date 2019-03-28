@@ -29,6 +29,7 @@
         <module>learn-utils</module>
         <module>learn-ml</module>
         <module>learn-cache</module>
+        <module>learn-middleware</module>
     </modules>
     <packaging>pom</packaging>
 
