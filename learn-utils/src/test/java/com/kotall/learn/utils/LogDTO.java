@@ -4,6 +4,8 @@ import com.alibaba.fastjson.annotation.JSONField;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import net.sf.oval.constraint.NotBlank;
+import net.sf.oval.constraint.NotNull;
 
 /**
  * desc:
@@ -15,10 +17,15 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class LogDTO {
-    @JSONField(name = "c")
-    private int count;
+public class LogDTO extends BaseDTO {
 
+    @NotNull(message = "计数器为null")
+    @NotBlank(message = "计数器为空串")
+    @JSONField(name = "c")
+    private Integer count;
+
+    @NotNull(message = "标题为null")
+    @NotBlank(message = "标题为空串")
     @JSONField(name = "t")
     private String title;
 

@@ -19,6 +19,6 @@ public class FastJsonTest {
         String jsonStr = JSON.toJSONString(logDTO, false);
         Assert.assertEquals("{\"c\":1,\"t\":\"test title\"}", jsonStr);
         LogDTO nLogDTO = JSON.parseObject(jsonStr, LogDTO.class);
-        Assert.assertEquals(1, nLogDTO.getCount());
+        Assert.assertEquals(1, nLogDTO.getCount().intValue());
     }
 }

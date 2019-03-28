@@ -46,6 +46,11 @@
             <version>1.18.6</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>net.sf.oval</groupId>
+            <artifactId>oval</artifactId>
+            <version>1.90</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
