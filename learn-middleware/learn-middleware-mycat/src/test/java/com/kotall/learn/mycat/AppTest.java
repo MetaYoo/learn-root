@@ -25,5 +25,6 @@ public class AppTest {
         content.setTitle("test");
         content.setContent("test content");
         contentDao.save(content);
+        System.out.println(content.getId());
     }
 }
