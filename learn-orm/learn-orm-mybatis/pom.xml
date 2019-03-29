@@ -12,6 +12,7 @@
     <modules>
         <module>learn-orm-mybatis-helloworld</module>
         <module>learn-orm-mybatis-spring</module>
+        <module>learn-orm-mybatis-generator</module>
     </modules>
 
     <artifactId>learn-orm-mybatis</artifactId>
