@@ -51,6 +51,16 @@
             <artifactId>oval</artifactId>
             <version>1.90</version>
         </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>3.0.1</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
