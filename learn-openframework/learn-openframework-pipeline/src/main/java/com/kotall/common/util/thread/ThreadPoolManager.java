@@ -22,8 +22,8 @@ import com.kotall.common.util.LoggerUtil;
 
 /**
  * 线程池管理器
- * @author wenzhi.wang
- * @version $Id: ThreadPoolManager.java, v 0.1 Jan 3, 2017 10:58:07 AM phoenix Exp $
+ * @author zpwang
+ * @version 1.0.0
  */
 public class ThreadPoolManager {
     //~~~ 常量

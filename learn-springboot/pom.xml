@@ -19,6 +19,7 @@
         <module>learn-springboot-quickstart</module>
         <module>learn-springboot-swagger</module>
         <module>learn-springboot-job</module>
+        <module>learn-springboot-dynamicds</module>
     </modules>
 
     <properties>

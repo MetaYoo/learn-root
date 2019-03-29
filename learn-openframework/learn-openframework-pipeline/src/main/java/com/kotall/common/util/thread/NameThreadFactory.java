@@ -5,8 +5,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 
- * @author wenzhi.wang
- * @version $Id: NameThreadFactory.java, v 0.1 Jan 3, 2017 10:58:07 AM phoenix Exp $
+ * @author zpwang
+ * @version 1.0.0
  */
 public class NameThreadFactory implements ThreadFactory {
     /** 线程组 */
