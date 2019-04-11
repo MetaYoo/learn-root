@@ -4,6 +4,8 @@ import org.junit.Test;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author zpwang
@@ -33,6 +35,17 @@ public class ThreadExecutorTest {
     public void testNewScheduledThreadPool() {
         ExecutorService executorService = Executors.newScheduledThreadPool(3);
         executorService.submit(() -> System.out.println("newScheduledThreadPool"));
+    }
+
+    @Test
+    public void testScheduledThreadPool() {
+        ScheduledExecutorService executorService = Executors.newScheduledThreadPool(3);
+        executorService.scheduleAtFixedRate(() -> {
+            System.out.println(Thread.currentThread().getName() + " execute !");
+        }, 20, 3600, TimeUnit.SECONDS);
+        while (true) {
+            // todo
+        }
     }
 
 }
