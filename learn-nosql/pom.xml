@@ -11,6 +11,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>learn-nosql-redis</module>
+        <module>learn-nosql-es</module>
     </modules>
 
     <artifactId>learn-nosql</artifactId>
