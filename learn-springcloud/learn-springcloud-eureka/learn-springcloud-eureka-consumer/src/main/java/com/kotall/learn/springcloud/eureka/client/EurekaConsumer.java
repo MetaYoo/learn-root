@@ -1,5 +1,6 @@
 package com.kotall.learn.springcloud.eureka.client;
 
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -22,6 +23,6 @@ public class EurekaConsumer {
         return new RestTemplate();
     }
     public static void main(String[] args) {
-        new SpringApplicationBuilder(EurekaConsumer.class).web(true).run(args);
+        SpringApplication.run(EurekaConsumer.class, args);
     }
 }

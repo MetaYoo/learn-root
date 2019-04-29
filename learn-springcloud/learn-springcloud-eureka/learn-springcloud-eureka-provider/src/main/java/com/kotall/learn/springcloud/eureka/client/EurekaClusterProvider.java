@@ -1,10 +1,8 @@
 package com.kotall.learn.springcloud.eureka.client;
 
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-
-import java.util.Scanner;
 
 /**
  * @author : aracwong
@@ -16,11 +14,6 @@ import java.util.Scanner;
 public class EurekaClusterProvider {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String profile = scanner.nextLine();
-        new SpringApplicationBuilder(EurekaClusterProvider.class)
-                .profiles(profile)
-                .web(true)
-                .run(args);
+        SpringApplication.run(EurekaClusterProvider.class, args);
     }
 }

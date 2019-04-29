@@ -1,14 +1,15 @@
 package com.kotall.learn.shiro.ssl;
 
-import org.apache.catalina.Context;
 import org.apache.catalina.connector.Connector;
-import org.apache.tomcat.util.descriptor.web.SecurityCollection;
-import org.apache.tomcat.util.descriptor.web.SecurityConstraint;
+import org.apache.coyote.http11.Http11NioProtocol;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
-import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
+import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
+import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
+
+import java.io.File;
 
 /**
  * Hello world!
@@ -16,40 +17,59 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class HttpsOauthApp {
 
+    @Value("${https.port:443}")
+    private Integer httpsPort;
+
+    @Value("${https.ssl.keyStoreType:PKCS12}")
+    private String keyStoreType;
+
+    @Value("${https.ssl.key-store:/opt/dsp/dsp-feedback/keystore.p12}")
+    private String keyStore;
+
+    @Value("${https.ssl.key-store-password:123456}")
+    private String keyStorePassword;
+
+    @Value("${https.ssl.key-password:123456}")
+    private String keyPassword;
+
+    @Value("${https.ssl.keyAlias:tomcat}")
+    private String keyAlias;
+
     public static void main(String[] args) {
         SpringApplication.run(HttpsOauthApp.class, args).start();
     }
 
-    /**
-     * it's for set http url auto change to https
-     * springboot 1.5.x 版本
-     */
     @Bean
-    public EmbeddedServletContainerFactory servletContainer(){
-        TomcatEmbeddedServletContainerFactory tomcat=new TomcatEmbeddedServletContainerFactory(){
-            @Override
-            protected void postProcessContext(Context context) {
-                SecurityConstraint securityConstraint=new SecurityConstraint();
-                // confidential
-                securityConstraint.setUserConstraint("CONFIDENTIAL");
-                SecurityCollection collection=new SecurityCollection();
-                collection.addPattern("");
-                securityConstraint.addCollection(collection);
-                context.addConstraint(securityConstraint);
-            }
-        };
-        tomcat.addAdditionalTomcatConnectors(httpConnector());
+    public ServletWebServerFactory servletContainer() {
+        TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory();
+        // 添加 https
+        tomcat.addAdditionalTomcatConnectors(createSslConnector());
         return tomcat;
     }
 
-    @Bean
-    public Connector httpConnector(){
-        Connector connector=new Connector("org.apache.coyote.http11.Http11NioProtocol");
-        connector.setScheme("http");
-        connector.setPort(8080);
-        connector.setSecure(false);
-        connector.setRedirectPort(8443);
-        return connector;
+    /**
+     * 配置 https
+     *
+     * @return
+     */
+    private Connector createSslConnector() {
+        Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
+        Http11NioProtocol protocol = (Http11NioProtocol) connector.getProtocolHandler();
+        try {
+            File keystore = new File(keyStore);
+            connector.setScheme("https");
+            connector.setSecure(true);
+            connector.setPort(httpsPort);
+            protocol.setSSLEnabled(true);
+            protocol.setKeystoreFile(keystore.getAbsolutePath());
+            protocol.setKeystorePass(keyStorePassword);
+            protocol.setKeystoreType(keyStoreType);
+            protocol.setKeyAlias(keyAlias);
+            return connector;
+        } catch (Exception ex) {
+            throw new IllegalStateException("can't access keystore: [" + "keystore"
+                    + "]", ex);
+        }
     }
 
 }
