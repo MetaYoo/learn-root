@@ -6,7 +6,6 @@
         <groupId>com.kotall.learn</groupId>
         <artifactId>learn-oauth</artifactId>
         <version>1.0.0-SNAPSHOT</version>
-        <relativePath/>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 

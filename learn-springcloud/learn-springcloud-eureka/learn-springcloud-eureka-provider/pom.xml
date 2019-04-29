@@ -4,7 +4,6 @@
         <groupId>com.kotall.learn</groupId>
         <artifactId>learn-springcloud-eureka</artifactId>
         <version>1.0.0-SNAPSHOT</version>
-        <relativePath/>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
