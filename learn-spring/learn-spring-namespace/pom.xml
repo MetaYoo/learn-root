@@ -12,7 +12,6 @@
     <artifactId>learn-spring-namespace</artifactId>
 
     <name>learn-spring-namespace</name>
-    <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
     <properties>
@@ -60,6 +59,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
+            <version>1.7.21</version>
         </dependency>
         <dependency>
             <groupId>log4j</groupId>

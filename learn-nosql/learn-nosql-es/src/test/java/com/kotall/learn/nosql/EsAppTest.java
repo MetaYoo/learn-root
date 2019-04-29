@@ -33,8 +33,6 @@ public class EsAppTest {
         CreateIndexRequest createIndexRequest = new CreateIndexRequest("user");
         XContentBuilder builder = XContentFactory.yamlBuilder();
 
-        //createIndexRequest.mapping("user", builder.contentType());
-
         CreateIndexResponse createIndexResponse = this.client.indices().create(createIndexRequest, RequestOptions.DEFAULT);
         System.out.println(createIndexResponse.toString());
     }
