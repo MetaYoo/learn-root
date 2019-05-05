@@ -18,21 +18,21 @@
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
         <!--生成Model类存放位置-->
-        <javaModelGenerator targetPackage="cn.ycmedia.model" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="cn.ycmedia.dsp.adspace.common.entity" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
         <!--生成映射文件存放位置-->
-        <sqlMapGenerator targetPackage="cn.ycmedia.mapping" targetProject="src/main/resources">
+        <sqlMapGenerator targetPackage="mapper.primary" targetProject="src/main/resources">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
         <!--生成Dao类存放位置-->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.ycmedia.dao" targetProject="src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.ycmedia.dsp.adspace.common.dao.primary" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
         <!--生成对应表及类名-->
-        <table tableName="rtb_dmpprice_mediacontroller"
-               domainObjectName="MediaPriceControlEntity"
+        <table tableName="rtb_adx_adspce"
+               domainObjectName="AdxAdSpaceEntity"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"

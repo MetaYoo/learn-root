@@ -115,7 +115,7 @@ public class ThreadPoolManager {
                 }
 
             }
-        }, 10, 20000l, TimeUnit.MILLISECONDS);
+        }, 10, 20000L, TimeUnit.MILLISECONDS);
     }
 
     /**
@@ -211,7 +211,7 @@ public class ThreadPoolManager {
      * <p>
      * 执行预热即向线程池投入若干空跑的任务, 促使线程池创建线程.
      * 
-     * @param tp
+     * @param tpe
      * @param count
      */
     public static void wormUpThreadPool(ThreadPoolExecutor tpe, int count) {

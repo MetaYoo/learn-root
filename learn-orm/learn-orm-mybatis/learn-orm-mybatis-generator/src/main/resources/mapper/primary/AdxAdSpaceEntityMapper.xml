@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ycmedia.dsp.adspace.common.dao.primary.AdxAdSpaceEntityMapper">
+  <resultMap id="BaseResultMap" type="cn.ycmedia.dsp.adspace.common.entity.AdxAdSpaceEntity">
+    <id column="ItemId" jdbcType="INTEGER" property="itemid" />
+    <result column="media_id" jdbcType="INTEGER" property="mediaId" />
+    <result column="media_name" jdbcType="VARCHAR" property="mediaName" />
+    <result column="website_id" jdbcType="BIGINT" property="websiteId" />
+    <result column="website_name" jdbcType="VARCHAR" property="websiteName" />
+    <result column="media_adspace_id" jdbcType="BIGINT" property="mediaAdspaceId" />
+    <result column="media_adsapce_name" jdbcType="VARCHAR" property="mediaAdsapceName" />
+    <result column="media_min_cpm_price" jdbcType="VARCHAR" property="mediaMinCpmPrice" />
+    <result column="media_information_flow_type_id_list" jdbcType="VARCHAR" property="mediaInformationFlowTypeIdList" />
+    <result column="media_adspace_level" jdbcType="VARCHAR" property="mediaAdspaceLevel" />
+    <result column="min_cpm" jdbcType="DECIMAL" property="minCpm" />
+    <result column="m_price" jdbcType="DECIMAL" property="mPrice" />
+    <result column="open_type" jdbcType="VARCHAR" property="openType" />
+    <result column="dsp_adspace_id" jdbcType="VARCHAR" property="dspAdspaceId" />
+    <result column="dsp_adspace_hashId" jdbcType="VARCHAR" property="dspAdspaceHashid" />
+    <result column="dsp_diy_name" jdbcType="VARCHAR" property="dspDiyName" />
+    <result column="exclude_level" jdbcType="VARCHAR" property="excludeLevel" />
+    <result column="show_type" jdbcType="VARCHAR" property="showType" />
+    <result column="media_type" jdbcType="VARCHAR" property="mediaType" />
+    <result column="media_excluded_category" jdbcType="VARCHAR" property="mediaExcludedCategory" />
+    <result column="pv_loss" jdbcType="DECIMAL" property="pvLoss" />
+    <result column="click_loss" jdbcType="DECIMAL" property="clickLoss" />
+    <result column="is_diy" jdbcType="CHAR" property="isDiy" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ItemId, media_id, media_name, website_id, website_name, media_adspace_id, media_adsapce_name, 
+    media_min_cpm_price, media_information_flow_type_id_list, media_adspace_level, min_cpm, 
+    m_price, open_type, dsp_adspace_id, dsp_adspace_hashId, dsp_diy_name, exclude_level, 
+    show_type, media_type, media_excluded_category, pv_loss, click_loss, is_diy, remark, 
+    updatetime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from rtb_adx_adspce
+    where ItemId = #{itemid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from rtb_adx_adspce
+    where ItemId = #{itemid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.ycmedia.dsp.adspace.common.entity.AdxAdSpaceEntity">
+    insert into rtb_adx_adspce (ItemId, media_id, media_name, 
+      website_id, website_name, media_adspace_id, 
+      media_adsapce_name, media_min_cpm_price, media_information_flow_type_id_list, 
+      media_adspace_level, min_cpm, m_price, 
+      open_type, dsp_adspace_id, dsp_adspace_hashId, 
+      dsp_diy_name, exclude_level, show_type, 
+      media_type, media_excluded_category, pv_loss, 
+      click_loss, is_diy, remark, 
+      updatetime)
+    values (#{itemid,jdbcType=INTEGER}, #{mediaId,jdbcType=INTEGER}, #{mediaName,jdbcType=VARCHAR}, 
+      #{websiteId,jdbcType=BIGINT}, #{websiteName,jdbcType=VARCHAR}, #{mediaAdspaceId,jdbcType=BIGINT}, 
+      #{mediaAdsapceName,jdbcType=VARCHAR}, #{mediaMinCpmPrice,jdbcType=VARCHAR}, #{mediaInformationFlowTypeIdList,jdbcType=VARCHAR}, 
+      #{mediaAdspaceLevel,jdbcType=VARCHAR}, #{minCpm,jdbcType=DECIMAL}, #{mPrice,jdbcType=DECIMAL}, 
+      #{openType,jdbcType=VARCHAR}, #{dspAdspaceId,jdbcType=VARCHAR}, #{dspAdspaceHashid,jdbcType=VARCHAR}, 
+      #{dspDiyName,jdbcType=VARCHAR}, #{excludeLevel,jdbcType=VARCHAR}, #{showType,jdbcType=VARCHAR}, 
+      #{mediaType,jdbcType=VARCHAR}, #{mediaExcludedCategory,jdbcType=VARCHAR}, #{pvLoss,jdbcType=DECIMAL}, 
+      #{clickLoss,jdbcType=DECIMAL}, #{isDiy,jdbcType=CHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{updatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.ycmedia.dsp.adspace.common.entity.AdxAdSpaceEntity">
+    insert into rtb_adx_adspce
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="itemid != null">
+        ItemId,
+      </if>
+      <if test="mediaId != null">
+        media_id,
+      </if>
+      <if test="mediaName != null">
+        media_name,
+      </if>
+      <if test="websiteId != null">
+        website_id,
+      </if>
+      <if test="websiteName != null">
+        website_name,
+      </if>
+      <if test="mediaAdspaceId != null">
+        media_adspace_id,
+      </if>
+      <if test="mediaAdsapceName != null">
+        media_adsapce_name,
+      </if>
+      <if test="mediaMinCpmPrice != null">
+        media_min_cpm_price,
+      </if>
+      <if test="mediaInformationFlowTypeIdList != null">
+        media_information_flow_type_id_list,
+      </if>
+      <if test="mediaAdspaceLevel != null">
+        media_adspace_level,
+      </if>
+      <if test="minCpm != null">
+        min_cpm,
+      </if>
+      <if test="mPrice != null">
+        m_price,
+      </if>
+      <if test="openType != null">
+        open_type,
+      </if>
+      <if test="dspAdspaceId != null">
+        dsp_adspace_id,
+      </if>
+      <if test="dspAdspaceHashid != null">
+        dsp_adspace_hashId,
+      </if>
+      <if test="dspDiyName != null">
+        dsp_diy_name,
+      </if>
+      <if test="excludeLevel != null">
+        exclude_level,
+      </if>
+      <if test="showType != null">
+        show_type,
+      </if>
+      <if test="mediaType != null">
+        media_type,
+      </if>
+      <if test="mediaExcludedCategory != null">
+        media_excluded_category,
+      </if>
+      <if test="pvLoss != null">
+        pv_loss,
+      </if>
+      <if test="clickLoss != null">
+        click_loss,
+      </if>
+      <if test="isDiy != null">
+        is_diy,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="itemid != null">
+        #{itemid,jdbcType=INTEGER},
+      </if>
+      <if test="mediaId != null">
+        #{mediaId,jdbcType=INTEGER},
+      </if>
+      <if test="mediaName != null">
+        #{mediaName,jdbcType=VARCHAR},
+      </if>
+      <if test="websiteId != null">
+        #{websiteId,jdbcType=BIGINT},
+      </if>
+      <if test="websiteName != null">
+        #{websiteName,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaAdspaceId != null">
+        #{mediaAdspaceId,jdbcType=BIGINT},
+      </if>
+      <if test="mediaAdsapceName != null">
+        #{mediaAdsapceName,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaMinCpmPrice != null">
+        #{mediaMinCpmPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaInformationFlowTypeIdList != null">
+        #{mediaInformationFlowTypeIdList,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaAdspaceLevel != null">
+        #{mediaAdspaceLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="minCpm != null">
+        #{minCpm,jdbcType=DECIMAL},
+      </if>
+      <if test="mPrice != null">
+        #{mPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="openType != null">
+        #{openType,jdbcType=VARCHAR},
+      </if>
+      <if test="dspAdspaceId != null">
+        #{dspAdspaceId,jdbcType=VARCHAR},
+      </if>
+      <if test="dspAdspaceHashid != null">
+        #{dspAdspaceHashid,jdbcType=VARCHAR},
+      </if>
+      <if test="dspDiyName != null">
+        #{dspDiyName,jdbcType=VARCHAR},
+      </if>
+      <if test="excludeLevel != null">
+        #{excludeLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="showType != null">
+        #{showType,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaType != null">
+        #{mediaType,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaExcludedCategory != null">
+        #{mediaExcludedCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="pvLoss != null">
+        #{pvLoss,jdbcType=DECIMAL},
+      </if>
+      <if test="clickLoss != null">
+        #{clickLoss,jdbcType=DECIMAL},
+      </if>
+      <if test="isDiy != null">
+        #{isDiy,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.ycmedia.dsp.adspace.common.entity.AdxAdSpaceEntity">
+    update rtb_adx_adspce
+    <set>
+      <if test="mediaId != null">
+        media_id = #{mediaId,jdbcType=INTEGER},
+      </if>
+      <if test="mediaName != null">
+        media_name = #{mediaName,jdbcType=VARCHAR},
+      </if>
+      <if test="websiteId != null">
+        website_id = #{websiteId,jdbcType=BIGINT},
+      </if>
+      <if test="websiteName != null">
+        website_name = #{websiteName,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaAdspaceId != null">
+        media_adspace_id = #{mediaAdspaceId,jdbcType=BIGINT},
+      </if>
+      <if test="mediaAdsapceName != null">
+        media_adsapce_name = #{mediaAdsapceName,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaMinCpmPrice != null">
+        media_min_cpm_price = #{mediaMinCpmPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaInformationFlowTypeIdList != null">
+        media_information_flow_type_id_list = #{mediaInformationFlowTypeIdList,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaAdspaceLevel != null">
+        media_adspace_level = #{mediaAdspaceLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="minCpm != null">
+        min_cpm = #{minCpm,jdbcType=DECIMAL},
+      </if>
+      <if test="mPrice != null">
+        m_price = #{mPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="openType != null">
+        open_type = #{openType,jdbcType=VARCHAR},
+      </if>
+      <if test="dspAdspaceId != null">
+        dsp_adspace_id = #{dspAdspaceId,jdbcType=VARCHAR},
+      </if>
+      <if test="dspAdspaceHashid != null">
+        dsp_adspace_hashId = #{dspAdspaceHashid,jdbcType=VARCHAR},
+      </if>
+      <if test="dspDiyName != null">
+        dsp_diy_name = #{dspDiyName,jdbcType=VARCHAR},
+      </if>
+      <if test="excludeLevel != null">
+        exclude_level = #{excludeLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="showType != null">
+        show_type = #{showType,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaType != null">
+        media_type = #{mediaType,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaExcludedCategory != null">
+        media_excluded_category = #{mediaExcludedCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="pvLoss != null">
+        pv_loss = #{pvLoss,jdbcType=DECIMAL},
+      </if>
+      <if test="clickLoss != null">
+        click_loss = #{clickLoss,jdbcType=DECIMAL},
+      </if>
+      <if test="isDiy != null">
+        is_diy = #{isDiy,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ItemId = #{itemid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.ycmedia.dsp.adspace.common.entity.AdxAdSpaceEntity">
+    update rtb_adx_adspce
+    set media_id = #{mediaId,jdbcType=INTEGER},
+      media_name = #{mediaName,jdbcType=VARCHAR},
+      website_id = #{websiteId,jdbcType=BIGINT},
+      website_name = #{websiteName,jdbcType=VARCHAR},
+      media_adspace_id = #{mediaAdspaceId,jdbcType=BIGINT},
+      media_adsapce_name = #{mediaAdsapceName,jdbcType=VARCHAR},
+      media_min_cpm_price = #{mediaMinCpmPrice,jdbcType=VARCHAR},
+      media_information_flow_type_id_list = #{mediaInformationFlowTypeIdList,jdbcType=VARCHAR},
+      media_adspace_level = #{mediaAdspaceLevel,jdbcType=VARCHAR},
+      min_cpm = #{minCpm,jdbcType=DECIMAL},
+      m_price = #{mPrice,jdbcType=DECIMAL},
+      open_type = #{openType,jdbcType=VARCHAR},
+      dsp_adspace_id = #{dspAdspaceId,jdbcType=VARCHAR},
+      dsp_adspace_hashId = #{dspAdspaceHashid,jdbcType=VARCHAR},
+      dsp_diy_name = #{dspDiyName,jdbcType=VARCHAR},
+      exclude_level = #{excludeLevel,jdbcType=VARCHAR},
+      show_type = #{showType,jdbcType=VARCHAR},
+      media_type = #{mediaType,jdbcType=VARCHAR},
+      media_excluded_category = #{mediaExcludedCategory,jdbcType=VARCHAR},
+      pv_loss = #{pvLoss,jdbcType=DECIMAL},
+      click_loss = #{clickLoss,jdbcType=DECIMAL},
+      is_diy = #{isDiy,jdbcType=CHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP}
+    where ItemId = #{itemid,jdbcType=INTEGER}
+  </update>
+</mapper>
