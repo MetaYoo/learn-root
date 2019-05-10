@@ -1,8 +1,7 @@
 package com.kotall.learn.springboot.api;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import com.kotall.learn.springboot.dto.UserDTO;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author zpwang
@@ -14,5 +13,17 @@ public class HelloController {
     @GetMapping("/{param}")
     public String hello(@PathVariable("param") String param) {
         return "您好 网站暂时还未上线，敬请期待！";
+    }
+
+    @GetMapping("/demo")
+    public String getDemo(UserDTO userDTO) {
+        System.out.println(userDTO);
+        return userDTO.toString();
+    }
+
+    @PostMapping("/demo")
+    public String postDemo(@RequestBody UserDTO userDTO) {
+        System.out.println(userDTO);
+        return userDTO.toString();
     }
 }
