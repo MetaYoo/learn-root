@@ -12,13 +12,13 @@
         </commentGenerator>
         <!--数据库链接地址账号密码-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://180.97.75.147:3306/zcdspv4"
-                        userId="root" password="***">
+                        userId="root" password="ycmediamdb.147">
         </jdbcConnection>
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
         <!--生成Model类存放位置-->
-        <javaModelGenerator targetPackage="cn.ycmedia.dsp.adspace.common.entity" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="cn.ycmedia.dcs.common.entity" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
@@ -27,12 +27,12 @@
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
         <!--生成Dao类存放位置-->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.ycmedia.dsp.adspace.common.dao.primary" targetProject="src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.ycmedia.dcs.common.dao.dsp" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
         <!--生成对应表及类名-->
-        <table tableName="rtb_adx_adspce"
-               domainObjectName="AdxAdSpaceEntity"
+        <table tableName="ad_campaign"
+               domainObjectName="AdCampaign"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"
