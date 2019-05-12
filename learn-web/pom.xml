@@ -11,6 +11,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>learn-web-servlet</module>
+        <module>learn-web-vue</module>
     </modules>
 
     <artifactId>learn-web</artifactId>
