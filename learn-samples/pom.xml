@@ -11,6 +11,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>learn-samples-login</module>
+        <module>learn-samples-rbac</module>
     </modules>
 
     <artifactId>learn-samples</artifactId>
