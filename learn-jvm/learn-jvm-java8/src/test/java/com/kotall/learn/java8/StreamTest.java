@@ -45,10 +45,38 @@ public class StreamTest {
         list1.add("d");
         list1.add("e");
         list1.add("f");
-        List<String> list2 = new ArrayList<>();
+        list1.removeIf(i -> (i.equals("e")));
+        System.out.println(list1);
         list1.add("e");
         list1.add("e");
 
+        List<String> list2 = new ArrayList<>();
+    }
+
+    @Test
+    public void testStream3() {
+        Person p = new Person();
+        p.setName("father");
+        List<String> childs = new ArrayList<>();
+        childs.add("a");
+        childs.add("b");
+        childs.add("c");
+        p.setChildList(childs);
+
+        List<String> t = new ArrayList<>();
+        t.add("b");
+        t.add("d");
+        p.getChildList().removeIf(i -> !t.contains(i));
+
+        System.out.println(p);
+
+        Person p1 = new Person();
+
+        System.out.println(p1.hashCode());
+
+        String str = "SELECT d.campaign_id,d.user_id,d.channel_id,SUM(d.conversion) as conversion,SUM(d.click) as click " +
+                "                from adpushadtotalv4.dcs_total_%s d WHERE d.c_date=@c_date GROUP BY d.campaign_id,d.user_id,d.channel_id";
+        System.out.println(str);
 
     }
 }
