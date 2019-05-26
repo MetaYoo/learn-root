@@ -8,7 +8,6 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import javax.annotation.Resource;
@@ -24,23 +23,27 @@ import javax.annotation.Resource;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Resource
-    private UserDetailsService userDetailsService;
+    private AuthenticationProvider authenticationProvider;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.authenticationProvider(authenticationProvider(userDetailsService));
-        super.configure(auth);
+        auth.authenticationProvider(authenticationProvider);
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/admin/login.html", "/admin/login", "/admin/verifyCode").permitAll()
+        http.formLogin()
+                .loginPage("/admin/login.html")
+                .and()
+                .authorizeRequests()
+                .antMatchers("/admin/login", "/admin/code").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().loginProcessingUrl("/admin/login")
-                .and()
-                .logout().logoutSuccessUrl("/admin/login.html");
+                .logout().logoutUrl("/admin/logout")
+
+        ;
+//                .and()
+//                .logout().logoutSuccessUrl("/admin/login.html");
         http.addFilterAt(usernamePasswordAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
         http.exceptionHandling().accessDeniedHandler(new CustomAccessDeniedHandler());
     }
@@ -54,12 +57,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         authenticationFilter.setAuthenticationSuccessHandler(new CustomAuthenticationSuccessHandler());
         authenticationFilter.setAuthenticationFailureHandler(new CustomAuthenticationFailureHandler());
         return authenticationFilter;
-    }
-
-    @Bean
-    public AuthenticationProvider authenticationProvider(UserDetailsService userDetailsService) {
-        AuthenticationProvider authenticationProvider = new CustomAuthenticationProvider(userDetailsService);
-        return authenticationProvider;
     }
 
 }

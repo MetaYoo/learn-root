@@ -14,21 +14,17 @@ import javax.annotation.Resource;
  * 描述：
  *
  * @author: zpwang
- * @time: 2019/5/14 22:52
+ * @time: 2019/5/26 16:56
  */
 @Component("userDetailsService")
-public class CustomUserDetailServiceImpl implements UserDetailsService {
-
-
+public class UserDetailsServiceImpl implements UserDetailsService {
     @Resource
     private UserDao userDao;
 
     @Override
-    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-
-        SysUser sysUser = this.userDao.getByUsername(userName);
-
-        return new User(sysUser.getUsername(), sysUser.getPassword(), null);
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        SysUser sysUser = this.userDao.getByUsername(username);
+        User user = new User(sysUser.getUsername(), sysUser.getPassword(),null);
+        return user;
     }
-
 }

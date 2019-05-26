@@ -3,4 +3,14 @@ spring:
     view:
       suffix: .html
   resources:
-    static-locations: classpath:/static, classpath:/template
+    static-locations: classpath:/static/,classpath:/template/
+
+  datasource:
+    url: jdbc:mysql://116.62.68.5:3306/yhds?useUnicode=true&characterEncoding=utf-8
+    username: yhds
+    password: yhds_123!@#
+  driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

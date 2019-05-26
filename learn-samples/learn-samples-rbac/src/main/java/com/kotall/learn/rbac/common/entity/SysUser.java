@@ -2,6 +2,8 @@ package com.kotall.learn.rbac.common.entity;
 
 import lombok.Data;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Date;
 
 /**
@@ -10,12 +12,15 @@ import java.util.Date;
  * @author: zpwang
  * @time: 2019/5/19 18:23
  */
+@Entity
 @Data
 public class SysUser {
-    private Integer userId;
+
+    @Id
+    private Integer id;
     private String username;
     private String password;
-    private Boolean isActive;
+    private Boolean phone;
     private Integer createdBy;
     private Date createTime;
     private Date updateTime;

@@ -2,7 +2,6 @@ package com.kotall.learn.rbac.security;
 
 import com.alibaba.fastjson.JSON;
 import com.kotall.learn.rbac.common.Token;
-import org.apache.logging.log4j.util.Strings;
 import org.springframework.http.MediaType;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -23,25 +22,31 @@ import java.io.InputStream;
  */
 public class CustomUsernamePasswordAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
+    private CustomWebAuthenticationDetailsSource authenticationDetailsSource = new CustomWebAuthenticationDetailsSource();
+
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
+        // POST JSON方式提交
         if (request.getContentType().equals(MediaType.APPLICATION_JSON_UTF8_VALUE)
                 || request.getContentType().equals(MediaType.APPLICATION_JSON_VALUE)) {
             UsernamePasswordAuthenticationToken authRequest;
             try (InputStream is = request.getInputStream()) {
                 Token token = JSON.parseObject(is, Token.class);
-                String verifyCode = (String) request.getSession().getAttribute("VERIFY_CODE");
-                if (Strings.isBlank(verifyCode) || !verifyCode.equalsIgnoreCase(token.getVerifyCode())) {
-                    throw new SessionAuthenticationException("验证码错误");
-                }
-                authRequest = new UsernamePasswordAuthenticationToken(token.getUserName(), token.getPassword());
+                request.setAttribute("code", token.getCode());
+                authRequest = new UsernamePasswordAuthenticationToken(token.getUsername(), token.getPassword());
                 setDetails(request, authRequest);
                 return this.getAuthenticationManager().authenticate(authRequest);
             } catch (IOException e) {
                 throw new SessionAuthenticationException("获取用户登录凭证异常");
             }
         } else {
+            // form表单方式提交
             return super.attemptAuthentication(request, response);
         }
+    }
+
+    @Override
+    protected void setDetails(HttpServletRequest request, UsernamePasswordAuthenticationToken authRequest) {
+        authRequest.setDetails(authenticationDetailsSource.buildDetails(request));
     }
 }

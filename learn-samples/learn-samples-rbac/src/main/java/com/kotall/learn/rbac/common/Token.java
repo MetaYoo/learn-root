@@ -13,12 +13,8 @@ import java.io.Serializable;
 @Data
 public class Token implements Serializable {
 
-    private String userId;
-    private String userName;
+    private String username;
     private String password;
-
-    private String verifyCode;
-
-    private long expire;
+    private String code;
 
 }

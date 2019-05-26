@@ -30,9 +30,7 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         // 登录成功 设置Cookie
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         Token token = new Token();
-        token.setUserId("");
-        token.setUserName(userDetails.getUsername());
-        token.setExpire(30 * 60 * 1000);
+        token.setUsername(userDetails.getUsername());
         response.setCharacterEncoding("UTF-8");
         Cookie cookie = new Cookie("auth", JSON.toJSONString(token));
         response.addCookie(cookie);
