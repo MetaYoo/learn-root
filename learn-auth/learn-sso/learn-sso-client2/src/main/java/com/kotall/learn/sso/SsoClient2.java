@@ -7,8 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Hello world!
  */
 @SpringBootApplication
-public class SSOServer {
+public class SsoClient2 {
     public static void main(String[] args) {
-        SpringApplication.run(SSOServer.class, args);
+        SpringApplication.run(SsoClient2.class, args);
     }
 }
