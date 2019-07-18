@@ -33,13 +33,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.formLogin()
-                .loginPage("/admin/login.html")
+                .loginProcessingUrl("/admin/login")
+                .loginPage("/admin/login.html").permitAll()
                 .and()
+
                 .authorizeRequests()
-                .antMatchers("/admin/login", "/admin/code").permitAll()
+                .antMatchers("/admin/login.html","/admin/login", "/admin/code").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .logout().logoutUrl("/admin/logout")
+                .logout().logoutUrl("/admin/logout").permitAll()
 
         ;
 //                .and()
@@ -52,7 +54,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public UsernamePasswordAuthenticationFilter usernamePasswordAuthenticationFilter() throws Exception {
         UsernamePasswordAuthenticationFilter authenticationFilter = new CustomUsernamePasswordAuthenticationFilter();
-        authenticationFilter.setFilterProcessesUrl("/admin/login");
         authenticationFilter.setAuthenticationManager(authenticationManagerBean());
         authenticationFilter.setAuthenticationSuccessHandler(new CustomAuthenticationSuccessHandler());
         authenticationFilter.setAuthenticationFailureHandler(new CustomAuthenticationFailureHandler());

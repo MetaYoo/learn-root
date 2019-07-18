@@ -18,6 +18,7 @@
         <module>learn-springcloud-config</module>
         <module>learn-springcloud-demo</module>
         <module>learn-springcloud-apollo</module>
+        <module>learn-springcloud-samples</module>
     </modules>
 
 

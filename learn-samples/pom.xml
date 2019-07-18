@@ -12,6 +12,7 @@
     <modules>
         <module>learn-samples-login</module>
         <module>learn-samples-rbac</module>
+        <module>learn-samples-vcard</module>
     </modules>
 
     <artifactId>learn-samples</artifactId>
