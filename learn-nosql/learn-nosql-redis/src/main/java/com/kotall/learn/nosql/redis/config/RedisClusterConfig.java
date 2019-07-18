@@ -39,6 +39,8 @@ public class RedisClusterConfig {
         config.setMaxIdle(1000);
         config.setMinIdle(1);//设置最小空闲数
         config.setMaxWaitMillis(1000);
+
+
         // 在获取Jedis连接时，自动检验连接是否可用
         config.setTestOnBorrow(true);
         // 在将连接放回池中前，自动检验连接是否有效
@@ -55,7 +57,8 @@ public class RedisClusterConfig {
         config.setMinEvictableIdleTimeMillis(60000);
         // 需要密码连接的创建对象方式
         // 参数依次是：集群地址，链接超时时间，返回值的超时时间，链接尝试次数，密码和配置文件
-        return new JedisCluster(nodes, 1000, 10000, 3, config);
+        JedisCluster jedisCluster = new JedisCluster(nodes, 1000, 10000, 3,"123456", config);
+        return jedisCluster;
     }
 
 }
