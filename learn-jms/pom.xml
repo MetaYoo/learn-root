@@ -11,6 +11,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>learn-jms-kafka</module>
+        <module>learn-jms-disruptor</module>
     </modules>
 
     <artifactId>learn-jms</artifactId>
