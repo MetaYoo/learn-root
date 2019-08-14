@@ -19,7 +19,11 @@ public class RedisClusterTest {
     private JedisCluster redisCluster;
 
     @Test
-    public void testRedisTemplate() {
-        redisCluster.set("test-key1", "test1");
+    public void testRedisTemplate() throws Exception {
+        for (int i =0; i < 10000; i++) {
+            redisCluster.set("test-key" + i, "test" + i);
+            Thread.sleep(100);
+        }
+
     }
 }
