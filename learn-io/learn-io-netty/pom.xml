@@ -11,6 +11,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>learn-io-netty-helloworld</module>
+        <module>learn-io-netty-protobuf</module>
     </modules>
 
     <artifactId>learn-io-netty</artifactId>

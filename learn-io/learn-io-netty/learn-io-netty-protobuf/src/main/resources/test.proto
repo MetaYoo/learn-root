@@ -1,0 +1,48 @@
+syntax = "proto2";
+option java_package = "com.kotall.learn";
+
+
+//文件同步客户端发送过来的消息
+message MsgInfo{
+  //消息的类型
+  //1表示文件同步
+  //2表示询问消息,for断点续传,当出现网络问题重新传的时候需要先询问传送到哪里了
+  //暂时不需要服务端做断点续传，这一部分c#客户端会部分支持
+  required int32 msg_type = 1;
+  //平台名称，如百橙为bc
+  optional string db_name = 2;
+  //文件名+时间+后缀，如：slot_info_20150703112513.zip
+  required string file_name_time = 5;
+  //发送本次消息的时间，时间戳，1970年1月1日到现在的秒数
+  required int64 time_stamp = 8;
+
+  message FileSyncSectionInfo{
+    //传输文件的总长度
+    required int32 file_size = 1;
+    //本MsgInfo是第几段消息，序号从0开始
+    required int32 sequency = 3;
+    //本段内容的md5编码，即md5sum(file_content_item)
+    required string content_md5 = 5;
+    //整个文件的md5值，当消息分为多段的时候才需要
+    optional string file_md5 = 6;
+    //本次传输的内容
+    required bytes file_content_item = 8;
+  }
+
+  optional FileSyncSectionInfo section_info = 10;
+}
+
+//for断点续传，服务端返回的查询文件信息
+//c#客户端暂时不会调用查询接口
+message QueryResponse{
+  //服务端已经接收了的文件的位置,如果没有存储则file_pos为-1
+	required int32 file_pos = 1;
+}
+
+//服务端返回的状态
+message FileSyncResponse{
+  //接收文件处理的状态，200表示成功,201表示需重传，其他状态请看错误信息
+	required int32 status = 1;
+  //错误的描述
+  required string status_info = 2;
+}
