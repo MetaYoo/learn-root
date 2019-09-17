@@ -12,6 +12,7 @@
     <modules>
         <module>learn-nosql-redis</module>
         <module>learn-nosql-es</module>
+        <module>learn-nosql-mogodb</module>
     </modules>
 
     <artifactId>learn-nosql</artifactId>
