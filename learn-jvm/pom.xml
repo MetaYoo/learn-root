@@ -18,6 +18,7 @@
         <module>learn-jvm-queue</module>
         <module>learn-jvm-objectcopy</module>
         <module>learn-jvm-java8</module>
+        <module>learn-jvm-guava</module>
     </modules>
 
     <artifactId>learn-jvm</artifactId>
