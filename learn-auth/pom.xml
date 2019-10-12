@@ -16,6 +16,7 @@
         <module>learn-oauth</module>
         <module>learn-shiro</module>
         <module>learn-sso</module>
+        <module>learn-openauth</module>
     </modules>
 
     <name>learn-auth</name>
