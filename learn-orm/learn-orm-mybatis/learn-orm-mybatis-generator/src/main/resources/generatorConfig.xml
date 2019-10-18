@@ -32,7 +32,7 @@
         </javaClientGenerator>
         <!--生成对应表及类名-->
         <table tableName="adspace"
-               domainObjectName="AdSpace"
+               domainObjectName="LegacyAdSpace"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"
