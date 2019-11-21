@@ -32,6 +32,7 @@
         <module>learn-cache</module>
         <module>learn-middleware</module>
         <module>learn-ddd</module>
+        <module>learn-schedule</module>
     </modules>
     <packaging>pom</packaging>
 
