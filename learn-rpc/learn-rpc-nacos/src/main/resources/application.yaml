@@ -1,0 +1,5 @@
+
+nacos:
+  config:
+     server-addr: 192.168.0.18:8848
+     namespace: dev
