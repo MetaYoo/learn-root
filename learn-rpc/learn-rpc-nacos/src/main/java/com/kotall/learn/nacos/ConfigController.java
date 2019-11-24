@@ -1,6 +1,6 @@
 package com.kotall.learn.nacos;
 
-import org.springframework.beans.factory.annotation.Value;
+import com.alibaba.nacos.api.config.annotation.NacosValue;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,7 +18,8 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 @RequestMapping("/config")
 public class ConfigController {
 
-    @Value("${content:123}")
+    //@Value("${content:123}")
+    @NacosValue(value = "${content:123}", autoRefreshed = true)
     private String useLocalCache;
 
     public void setUseLocalCache(String useLocalCache) {

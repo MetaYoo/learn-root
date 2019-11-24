@@ -1,0 +1,12 @@
+nacos:
+  config:
+    server-addr: 127.0.0.1:8848
+    auto-refresh: true
+    data-id: nacos-demo
+    group: adx
+    namespace: e6ac6077-a3db-48e8-8516-4e46e10d784a
+    type: yaml
+    max-retry: 10
+    config-retry-time: 2000
+    config-long-poll-timeout: 46000
+    enable-remote-sync-config: true

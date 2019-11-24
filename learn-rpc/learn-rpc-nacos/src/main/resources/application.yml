@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: nacos-demo
+  profiles:
+    active: pro
+
