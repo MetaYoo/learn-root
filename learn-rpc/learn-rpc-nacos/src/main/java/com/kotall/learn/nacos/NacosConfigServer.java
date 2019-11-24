@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2019/11/22 18:33
  * @since 1.0.0
  */
-@NacosPropertySource(dataId = "nacos-demo", groupId = "adx", autoRefreshed = true)
+@NacosPropertySource(name = "app", dataId = "nacos-demo", groupId = "adx", autoRefreshed = true)
 @SpringBootApplication
 public class NacosConfigServer {
 

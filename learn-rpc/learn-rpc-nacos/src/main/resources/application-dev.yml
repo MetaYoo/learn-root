@@ -10,3 +10,10 @@ nacos:
     config-retry-time: 2000
     config-long-poll-timeout: 46000
     enable-remote-sync-config: true
+    ext-config:
+      - data-id: common-datasource
+        group: adx
+        refresh: true
+      - data-id: common-redis
+        group: adx
+        refresh: false
