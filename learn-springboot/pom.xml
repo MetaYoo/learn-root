@@ -21,6 +21,7 @@
         <module>learn-springboot-job</module>
         <module>learn-springboot-dynamicds</module>
         <module>learn-springboot-starter</module>
+        <module>learn-springboot-actuator</module>
     </modules>
 
     <properties>
