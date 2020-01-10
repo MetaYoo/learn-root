@@ -22,6 +22,7 @@
         <module>learn-springboot-dynamicds</module>
         <module>learn-springboot-starter</module>
         <module>learn-springboot-actuator</module>
+        <module>learn-springboot-docker</module>
     </modules>
 
     <properties>
