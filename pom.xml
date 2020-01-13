@@ -33,6 +33,7 @@
         <module>learn-middleware</module>
         <module>learn-ddd</module>
         <module>learn-schedule</module>
+        <module>learn-diy</module>
     </modules>
     <packaging>pom</packaging>
 
