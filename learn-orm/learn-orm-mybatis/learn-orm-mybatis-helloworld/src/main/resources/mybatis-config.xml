@@ -10,7 +10,11 @@
 
     <settings>
         <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <setting name="cacheEnabled" value="true"/>
     </settings>
+    <plugins>
+        <plugin interceptor="com.kotall.learn.MyInterceptor"></plugin>
+    </plugins>
 
     <environments default="development">
         <environment id="development">
