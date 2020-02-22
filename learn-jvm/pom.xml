@@ -20,6 +20,7 @@
         <module>learn-jvm-java8</module>
         <module>learn-jvm-guava</module>
         <module>learn-jvm-metric</module>
+        <module>learn-jvm-jol</module>
     </modules>
 
     <artifactId>learn-jvm</artifactId>
