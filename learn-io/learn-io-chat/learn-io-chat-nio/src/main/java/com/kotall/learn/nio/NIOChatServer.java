@@ -17,6 +17,7 @@ import java.util.Iterator;
  * @since 1.0.0
  */
 public class NIOChatServer {
+
     public static void main(String[] args) throws Exception {
         Selector selector = Selector.open();
         ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
