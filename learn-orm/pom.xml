@@ -11,6 +11,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>learn-orm-mybatis</module>
+        <module>learn-orm-jpa</module>
     </modules>
 
     <artifactId>learn-orm</artifactId>
