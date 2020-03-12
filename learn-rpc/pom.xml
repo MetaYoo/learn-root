@@ -17,6 +17,7 @@
         <module>learn-rpc-dubbo</module>
         <module>learn-rpc-redis</module>
         <module>learn-rpc-nacos</module>
+        <module>learn-rpc-sample</module>
     </modules>
 
     <properties>
