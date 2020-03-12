@@ -11,12 +11,13 @@ public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column(name = "order_id")
-    private Integer orderId;
     @Column(name = "name")
     private String name;
     @Column(name = "price")
     private Integer price;
+    @ManyToOne
+    @JoinColumn(name = "order_id", referencedColumnName = "id")
+    private Order orderId;
 
 
 }
