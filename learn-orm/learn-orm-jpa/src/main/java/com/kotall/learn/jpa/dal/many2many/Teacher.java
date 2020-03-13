@@ -1,10 +1,14 @@
 package com.kotall.learn.jpa.dal.many2many;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "t_teacher")
 public class Teacher {
@@ -13,4 +17,7 @@ public class Teacher {
     private Integer id;
     @Column(name = "name")
     private String name;
+
+    @ManyToMany(mappedBy = "teachers", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<Student> students = new HashSet<>();
 }

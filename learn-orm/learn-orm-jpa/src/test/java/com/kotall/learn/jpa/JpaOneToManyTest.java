@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class JpaTest {
+public class JpaOneToManyTest {
 
     @Autowired
     DeptRepository deptRepository;
