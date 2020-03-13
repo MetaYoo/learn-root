@@ -1,32 +1,24 @@
 package com.kotall.learn.jpa;
 
-import com.kotall.learn.jpa.dal.many2many.JpaTeacherRepository;
 import com.kotall.learn.jpa.dal.one2many.Dept;
+import com.kotall.learn.jpa.dal.one2many.DeptRepository;
 import com.kotall.learn.jpa.dal.one2many.Staff;
+import com.kotall.learn.jpa.dal.one2many.StaffRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.transaction.annotation.Transactional;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class JpaTest {
 
-    @PersistenceContext
     @Autowired
-    private EntityManager em;
-
+    DeptRepository deptRepository;
     @Autowired
-    private JpaTeacherRepository jpaTeacherRepository;
+    StaffRepository staffRepository;
 
-
-    @Transactional
     @Test
     public void save() {
         Staff staff = new Staff();
@@ -35,12 +27,19 @@ public class JpaTest {
         dept.setDeptName("220实验室");
         staff.setDept(dept);
         dept.getStaffs().add(staff);
-        //em.persist(dept);
-        Query query = em.createNativeQuery("select * from t_dept where dept_id=1");
-        Dept dept1 = (Dept) query.getSingleResult();
-        System.out.println(dept1);
-
+        deptRepository.save(dept);
     }
 
+    @Test
+    public void query() {
+        Staff staff1 = staffRepository.getOne(1L);
+        System.out.println(staff1);
+    }
+
+    @Test
+    public void delete() {
+        //staffRepository.deleteById(2L);
+        deptRepository.deleteById(2L);
+    }
 
 }
