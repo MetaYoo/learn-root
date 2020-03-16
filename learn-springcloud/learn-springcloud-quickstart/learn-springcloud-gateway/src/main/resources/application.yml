@@ -1,0 +1,22 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: route-server
+  cloud:
+    gateway:
+      routes:
+         - id: cookie_route
+           uri: http://localhost:9091
+           predicates:
+             - Cookie=doge,throwable
+#             - Header=X-Request-Id, \d+
+#             - Host=**.foo.org
+#             - Path=/headers
+#             - Method=GET
+#             - Header=X-Request-Id, \d+
+#             - Query=foo, ba.
+#             - Query=baz
+#             - Cookie=chocolate, ch.p
+#             - After=2018-01-20T06:06:06+08:00[Asia/Shanghai]
+
