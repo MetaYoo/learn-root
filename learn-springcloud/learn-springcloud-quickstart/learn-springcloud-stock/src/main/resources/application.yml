@@ -1,0 +1,14 @@
+server:
+  port: 9092
+spring:
+  application:
+    name: springcloud-server-stock
+  cloud:
+    zookeeper:
+      connect-string: localhost:2181
+      enabled: true # 是否启用 zookeeper 服务注册与发现功能
+      discovery:
+        enabled: true # 是否启用 zookeeper 服务发现功能
+        instance-id: ${spring.cloud.client.hostname}:${server.port}
+
+

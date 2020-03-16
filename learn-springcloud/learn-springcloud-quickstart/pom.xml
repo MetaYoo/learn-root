@@ -13,6 +13,7 @@
     <modules>
         <module>learn-springcloud-gateway</module>
         <module>learn-springcloud-order</module>
+        <module>learn-springcloud-stock</module>
     </modules>
 
     <artifactId>learn-springcloud-quickstart</artifactId>

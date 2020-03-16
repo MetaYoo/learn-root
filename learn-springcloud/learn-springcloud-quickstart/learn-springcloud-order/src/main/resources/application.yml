@@ -2,4 +2,9 @@ server:
   port: 9091
 spring:
   application:
-    name: order-service
+    name: springcloud-client-order
+  cloud:
+    zookeeper:
+      connect-string: localhost:2181
+      discovery:
+        register: true
