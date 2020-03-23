@@ -12,6 +12,7 @@
     <modules>
         <module>learn-web-servlet</module>
         <module>learn-web-vue</module>
+        <module>learn-web-cors</module>
     </modules>
 
     <artifactId>learn-web</artifactId>
