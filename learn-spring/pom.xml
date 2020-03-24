@@ -25,6 +25,7 @@
         <module>learn-spring-aop</module>
         <module>learn-spring-tx</module>
         <module>learn-spring-namespace</module>
+        <module>learn-spring-ext</module>
     </modules>
 
 </project>
