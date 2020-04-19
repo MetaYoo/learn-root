@@ -1,7 +1,60 @@
-
+server:
+  port: 8761
+  servlet:
+    context-path: /
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 spring:
-  application:
-    name: eureka-server
-  profiles:
-    active: standalone
+  profiles: standalone
+############################################################### 以下是集群配置 #####################################################
+---
+server:
+  port: 2001
+  servlet:
+    context-path: /
+eureka:
+  instance:
+    hostname: eureka2001
+  client:
+    register-with-eureka: false
+    serviceUrl:
+      defaultZone: http://eureka2002:2002/eureka/,http://eureka2003:2003/eureka/
+spring:
+  profiles: eureka2001
 
+---
+server:
+  port: 2002
+  servlet:
+    context-path: /
+eureka:
+  instance:
+    hostname: eureka2002
+  client:
+    register-with-eureka: false
+    serviceUrl:
+      defaultZone: http://eureka2001:2001/eureka/,http://eureka2003:2003/eureka/
+spring:
+  profiles: eureka2002
+
+---
+server:
+  port: 2003
+  servlet:
+    context-path: /
+eureka:
+  instance:
+    hostname: eureka2003
+  client:
+    register-with-eureka: false
+    serviceUrl:
+      defaultZone: http://eureka2001:2001/eureka/,http://eureka2002:2002/eureka/
+spring:
+  profiles: eureka2003
