@@ -23,6 +23,7 @@
         <module>learn-springboot-starter</module>
         <module>learn-springboot-actuator</module>
         <module>learn-springboot-docker</module>
+        <module>learn-springboot-webflux</module>
     </modules>
 
     <properties>

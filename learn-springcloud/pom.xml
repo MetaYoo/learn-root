@@ -20,6 +20,7 @@
         <module>learn-springcloud-apollo</module>
         <module>learn-springcloud-samples</module>
         <module>learn-springcloud-quickstart</module>
+        <module>learn-springcloud-hystrix</module>
     </modules>
 
 

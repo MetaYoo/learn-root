@@ -21,6 +21,8 @@
         <module>learn-jvm-guava</module>
         <module>learn-jvm-metric</module>
         <module>learn-jvm-jol</module>
+        <module>learn-jvm-stream</module>
+        <module>learn-jvm-reactive</module>
     </modules>
 
     <artifactId>learn-jvm</artifactId>
