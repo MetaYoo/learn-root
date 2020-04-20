@@ -19,8 +19,11 @@
         <module>learn-springcloud-demo</module>
         <module>learn-springcloud-apollo</module>
         <module>learn-springcloud-samples</module>
-        <module>learn-springcloud-quickstart</module>
         <module>learn-springcloud-hystrix</module>
+        <module>learn-springcloud-consul</module>
+        <module>learn-springcloud-zookeeper</module>
+        <module>learn-springcloud-zuul</module>
+        <module>learn-springcloud-gateway</module>
     </modules>
 
 
