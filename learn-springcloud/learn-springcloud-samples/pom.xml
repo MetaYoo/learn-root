@@ -15,7 +15,6 @@
     <name>learn-springcloud-samples</name>
     <url>http://www.example.com</url>
     <modules>
-        <module>learn-springcloud-samples-registry</module>
         <module>learn-springcloud-samples-account</module>
         <module>learn-springcloud-samples-order</module>
     </modules>

@@ -16,14 +16,14 @@
         <module>learn-springcloud-eureka</module>
         <module>learn-springcloud-ribbon</module>
         <module>learn-springcloud-config</module>
-        <module>learn-springcloud-demo</module>
         <module>learn-springcloud-apollo</module>
-        <module>learn-springcloud-samples</module>
         <module>learn-springcloud-hystrix</module>
         <module>learn-springcloud-consul</module>
         <module>learn-springcloud-zookeeper</module>
         <module>learn-springcloud-zuul</module>
         <module>learn-springcloud-gateway</module>
+        <module>learn-springcloud-samples</module>
+        <module>learn-springcloud-feign</module>
     </modules>
 
 
