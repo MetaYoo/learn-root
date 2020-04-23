@@ -10,6 +10,7 @@
     <modules>
         <module>learn-springcloud-alibaba-nacos</module>
         <module>learn-springcloud-alibaba-services</module>
+        <module>learn-springcloud-alibaba-sentinel</module>
     </modules>
     <packaging>pom</packaging>
 

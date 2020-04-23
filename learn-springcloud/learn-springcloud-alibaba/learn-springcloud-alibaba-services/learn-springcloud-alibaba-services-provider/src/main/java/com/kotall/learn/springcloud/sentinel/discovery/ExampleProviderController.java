@@ -1,4 +1,4 @@
-package com.kotall.learn.springcloud.nacos.discovery;
+package com.kotall.learn.springcloud.sentinel.discovery;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
