@@ -5,15 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.kotall.learn</groupId>
-    <artifactId>learn-springcloud-alibaba</artifactId>
+    <artifactId>learn-springcloud-alibaba-services</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <modules>
-        <module>learn-springcloud-alibaba-nacos</module>
-        <module>learn-springcloud-alibaba-services</module>
-    </modules>
     <packaging>pom</packaging>
 
-    <name>learn-springcloud-alibaba</name>
+    <modules>
+        <module>learn-springcloud-alibaba-services-provider</module>
+        <module>learn-springcloud-alibaba-services-consumer</module>
+    </modules>
+
+    <name>learn-springcloud-alibaba-services</name>
     <url>http://www.example.com</url>
 
     <properties>
@@ -21,6 +22,5 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
-
 
 </project>
