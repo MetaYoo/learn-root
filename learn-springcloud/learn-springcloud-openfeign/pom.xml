@@ -9,9 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>learn-springcloud-feign</artifactId>
+    <artifactId>learn-springcloud-openfeign</artifactId>
 
-    <name>learn-springcloud-feign</name>
+    <name>learn-springcloud-openfeign</name>
     <url>http://www.example.com</url>
 
     <properties>
