@@ -24,6 +24,7 @@
         <module>learn-springcloud-gateway</module>
         <module>learn-springcloud-samples</module>
         <module>learn-springcloud-feign</module>
+        <module>learn-springcloud-alibaba</module>
     </modules>
 
 
