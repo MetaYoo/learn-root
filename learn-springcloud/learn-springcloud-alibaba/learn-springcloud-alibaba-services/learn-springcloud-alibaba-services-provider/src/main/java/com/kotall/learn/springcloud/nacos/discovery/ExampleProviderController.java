@@ -13,6 +13,6 @@ public class ExampleProviderController {
     @GetMapping("/pay")
     public String pay(@RequestParam("account") String account, @RequestParam("amt") Integer amt) {
         log.info(account = "->" + amt);
-        return "{}";
+        return account + "->" + amt;
     }
 }

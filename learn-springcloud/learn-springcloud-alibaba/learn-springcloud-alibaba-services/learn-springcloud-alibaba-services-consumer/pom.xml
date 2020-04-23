@@ -100,7 +100,7 @@
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
                 <includes>
-                    <include>bootstrap.properties</include>
+                    <include>application.properties</include>
                 </includes>
             </resource>
         </resources>
