@@ -24,6 +24,7 @@
         <module>learn-springboot-actuator</module>
         <module>learn-springboot-docker</module>
         <module>learn-springboot-webflux</module>
+        <module>learn-springboot-mystarter</module>
     </modules>
 
     <properties>

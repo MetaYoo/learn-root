@@ -1,2 +1,6 @@
 server:
   port: 80
+
+target:
+  string:
+    target: world!!!!
