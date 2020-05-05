@@ -13,6 +13,7 @@
     <modules>
         <module>learn-diy-mybatis</module>
         <module>learn-diy-tomcat</module>
+        <module>learn-diy-snowflake</module>
     </modules>
 
     <artifactId>learn-diy</artifactId>
