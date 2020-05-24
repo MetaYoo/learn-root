@@ -8,7 +8,7 @@ import java.util.concurrent.ExecutionException;
 public class FutureTest {
 
     @Test
-    public void test1() {
+    public void test1() {Bean
         // 变换结果
         String result = CompletableFuture.supplyAsync(() -> {
             return "Hello ";
