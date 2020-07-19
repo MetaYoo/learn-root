@@ -34,6 +34,7 @@
         <module>learn-ddd</module>
         <module>learn-schedule</module>
         <module>learn-diy</module>
+        <module>learn-spring/learn-spring-springmvc-config</module>
     </modules>
     <packaging>pom</packaging>
 
