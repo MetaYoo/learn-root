@@ -35,6 +35,7 @@
         <module>learn-schedule</module>
         <module>learn-diy</module>
         <module>learn-spring/learn-spring-springmvc-config</module>
+        <module>learn-myboot</module>
     </modules>
     <packaging>pom</packaging>
 
