@@ -15,7 +15,7 @@ package com.kotall.learn.shardingsphere;
  * limitations under the License.
  */
 
-import org.apache.shardingsphere.driver.api.yaml.YamlShardingSphereDataSourceFactory;
+//import org.apache.shardingsphere.driver.api.yaml.YamlShardingSphereDataSourceFactory;
 import org.junit.Test;
 
 import javax.sql.DataSource;
@@ -30,20 +30,20 @@ import java.sql.ResultSet;
 public class ShardingYamlTest {
 
 
-    @Test
-    public void test_sharding() throws Exception {
-        String file = ShardingYamlTest.class.getClassLoader().getSystemResource("shardingsphere_cfg.yml").getFile();
-
-        DataSource dataSource = YamlShardingSphereDataSourceFactory.createDataSource(new File(file));
-
-        String sql = "SELECT t.* FROM t_order t WHERE t.order_id=?";
-        try (Connection conn = dataSource.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, "123456");
-            try (ResultSet rs = ps.executeQuery()) {
-                while (rs.next()) {
-                    // ...
-                }
-            }
-        }
-    }
+//    @Test
+//    public void test_sharding() throws Exception {
+//        String file = ShardingYamlTest.class.getClassLoader().getSystemResource("shardingsphere_cfg.yml").getFile();
+//
+//        DataSource dataSource = YamlShardingSphereDataSourceFactory.createDataSource(new File(file));
+//
+//        String sql = "SELECT t.* FROM t_order t WHERE t.order_id=?";
+//        try (Connection conn = dataSource.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
+//            ps.setString(1, "123456");
+//            try (ResultSet rs = ps.executeQuery()) {
+//                while (rs.next()) {
+//                    // ...
+//                }
+//            }
+//        }
+//    }
 }
