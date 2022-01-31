@@ -27,3 +27,8 @@ target/
 # system ignore
 .DS_Store
 Thumbs.db
+
+.gradle/
+gradlew
+gradlew.bat
+gradle-wrapper.properties
