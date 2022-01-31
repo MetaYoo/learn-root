@@ -1,0 +1,45 @@
+# Configure actual data sources
+dataSources:
+  # Configure the first data source
+  ds0:
+    dataSourceClassName: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    jdbcUrl: jdbc:mysql://localhost:3306/db_order_01
+    username: root
+    password: 123456
+  # Configure the second data source
+  ds1:
+    dataSourceClassName: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    jdbcUrl: jdbc:mysql://localhost:3307/db_order_01
+    username: root
+    password: 123456
+
+rules:
+- !SHARDING
+  # Configure sharding rule
+  tables:
+    # Configure t_order table rule
+    t_order:
+      actualDataNodes: ds${0..1}.t_order_0${0..9}
+      # Configure database sharding strategy
+      databaseStrategy:
+        standard:
+          shardingColumn: user_id
+          shardingAlgorithmName: database_inline
+      # Configure table sharding strategy
+      tableStrategy:
+        standard:
+          shardingColumn: order_id
+          shardingAlgorithmName: table_inline
+
+  # Configure sharding algorithms
+  shardingAlgorithms:
+    database_inline:
+      type: INLINE
+      props:
+        algorithm-expression: ds${user_id % 2}
+    table_inline:
+      type: INLINE
+      props:
+        algorithm-expression: t_order_0${order_id % 2}
