@@ -15,9 +15,13 @@ package com.kotall.learn.shardingsphere;
  * limitations under the License.
  */
 
+import com.baomidou.mybatisplus.annotation.DbType;
+import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 /**
  * @author MetaYoo
@@ -27,5 +31,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MyShardingJDBCDemo {
     public static void main(String[] args) {
         SpringApplication.run(MyShardingJDBCDemo.class);
+    }
+
+    @Bean
+    public MybatisPlusInterceptor mybatisPlusInterceptor() {
+        MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
+        PaginationInnerInterceptor paginationInnerInterceptor = new PaginationInnerInterceptor();
+        paginationInnerInterceptor.setDbType(DbType.MYSQL);
+        paginationInnerInterceptor.setOverflow(true);
+        interceptor.addInnerInterceptor(paginationInnerInterceptor);
+        return interceptor;
     }
 }

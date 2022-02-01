@@ -15,19 +15,21 @@ package com.kotall.learn.shardingsphere.entity;
  * limitations under the License.
  */
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 /**
  * @author MetaYoo
  */
-@Setter
-@Getter
+@Data
 @TableName("t_order")
 public class Order  {
 
 //    private Long id;
+    @TableId("order_id")
     private Long orderId;
     private String orderDesc;
     private Long userId;
