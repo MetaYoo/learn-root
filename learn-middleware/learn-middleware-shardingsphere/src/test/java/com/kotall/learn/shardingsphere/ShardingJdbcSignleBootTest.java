@@ -33,7 +33,7 @@ import java.util.List;
  */
 @RunWith(value = SpringRunner.class)
 @SpringBootTest
-public class ShardingJdbcBootTest {
+public class ShardingJdbcSignleBootTest {
 
     @Autowired
     private OrderMapper orderMapper;
