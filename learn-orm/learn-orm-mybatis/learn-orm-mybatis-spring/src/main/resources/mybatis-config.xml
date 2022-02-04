@@ -3,16 +3,17 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    <properties resource="config.properties">
+    <!--<properties resource="db.properties">
         <property name="username" value="root"/>
         <property name="password" value="123456"/>
-    </properties>
+    </properties>-->
+    <properties resource="db.properties"/>
 
     <settings>
         <setting name="logImpl" value="STDOUT_LOGGING"/>
     </settings>
 
-    <!--<environments default="development">
+    <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
@@ -22,7 +23,7 @@
                 <property name="password" value="${jdbc.password}"/>
             </dataSource>
         </environment>
-    </environments>-->
+    </environments>
     <mappers>
         <mapper resource="mapper/BlogMapper.xml"/>
     </mappers>

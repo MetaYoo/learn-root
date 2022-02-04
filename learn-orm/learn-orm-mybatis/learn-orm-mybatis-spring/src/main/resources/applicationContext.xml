@@ -10,7 +10,7 @@
     <context:component-scan base-package="com.kotall.learn.service"/>
 
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="locations" value="config.properties"/>
+        <property name="locations" value="db.properties"/>
         <property name="fileEncoding" value="UTF-8"/>
     </bean>
 
