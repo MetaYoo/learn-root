@@ -13,6 +13,8 @@
         <module>learn-orm-mybatis-helloworld</module>
         <module>learn-orm-mybatis-spring</module>
         <module>learn-orm-mybatis-generator</module>
+        <module>learn-orm-mybatis-springboot</module>
+        <module>learn-orm-mybatis-javaconfig</module>
     </modules>
 
     <artifactId>learn-orm-mybatis</artifactId>
